@@ -1,16 +1,8 @@
-
-
-
 import json
-
-
 from flask import Flask, render_template, request
-
 from flask_mail import Mail,Message
 
 app = Flask(__name__)
-
-
 mail_username='mail.otakime@gmail.com'
 mail_password='smwacblnqgibazdd'
 
