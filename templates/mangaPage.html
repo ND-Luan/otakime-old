@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block main %}    
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="sonar-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Grids -->
+    <div class="grids d-flex justify-content-between">
+        <div class="grid1"></div>
+        <div class="grid2"></div>
+        <div class="grid3"></div>
+        <div class="grid4"></div>
+        <div class="grid5"></div>
+        <div class="grid6"></div>
+        <div class="grid7"></div>
+        <div class="grid8"></div>
+        <div class="grid9"></div>
+    </div>
+    {% include 'header.html' %}
+    <!-- ***** Hero Area Start ***** -->
+    {% for key,value in data %}
+    <div class="hero-area d-flex align-items-center">
+        <!-- Hero Thumbnail -->
+        <div class="hero-thumbnail equalize bg-img" style="background-image: url({{value.cardSingleImgUrl}});"></div>
+        
+        <!-- Hero Content -->
+        <div class="hero-content equalize">
+            <div class="container-fluid h-100">
+                <div class="row h-100 align-items-center justify-content-center">
+                    <div class="col-12 col-md-8">
+                        <div class="line"></div>
+                        <h2>{{ key }}</h2>
+                        <h6 style="color:white;"><b>Tác giả:</b> {{value.author}}</h6></br>
+                        <h6 style="color:white;"><b>Tên khác:</b> {{value.otherName}}</h6></br>
+                        <h6 style="color:white;"><b>Thể loại:</b> {{value.category}}</h6></br>
+                        <h6 style="color:white;"><b>Ngày cập nhật:</b> {{value.dateUpdate}}</h6></br>
+                        <h6 style="color:white;"><b>Mô tả:</b> {{value.description}}</h6></br>
+
+                        <a href="{{value.urlChapter}}" class="btn sonar-btn white-btn">Đọc ngay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <!-- ***** Hero Area End ***** -->
+
+
+    {% endfor %}  
+    <!-- ***** Call to Action Area Start ***** -->
+    <div class="sonar-call-to-action-area bg-gray section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="call-to-action-content">
+                        <h2>I am an experienced photographer</h2>
+                        <h5>Let’s talk</h5>
+                        <a href="#" class="btn sonar-btn mt-100">contact me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Call to Action Area End ***** -->
+    {% include 'footer.html' %}
+    {% endblock %}
