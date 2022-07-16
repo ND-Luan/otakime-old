@@ -4,6 +4,7 @@ from flask_mail import Mail,Message
 
 app = Flask(__name__)
 mail = Mail(app)
+
 mail_username='mail.otakime@gmail.com'
 mail_password='smwacblnqgibazdd'
 
