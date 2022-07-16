@@ -1,40 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+{% block main %}    
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preload-content">
+            <div id="sonar-load"></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
 
-    <!-- Title  -->
-    <title>Otakime - Nha Tu Ban</title>
+    <!-- Grids -->
+    <div class="grids d-flex justify-content-between">
+        <div class="grid1"></div>
+        <div class="grid2"></div>
+        <div class="grid3"></div>
+        <div class="grid4"></div>
+        <div class="grid5"></div>
+        <div class="grid6"></div>
+        <div class="grid7"></div>
+        <div class="grid8"></div>
+        <div class="grid9"></div>
+    </div>
 
-    <!-- Favicon  -->
-    <link rel="icon" href="{{ url_for('static',filename='img/core-img/favicon.ico') }}">
+    {% include 'header.html' %}
 
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
-    <meta name="google-site-verification" content="WBTbFL96Y4i44hMPnR26ZhyScQOD9b2FLzwCXxDzPfk" />
+    <!-- ***** Hero Area Start ***** -->
+    <section class="hero-area">
+        <div class="hero-slides owl-carousel">
+            <!-- Single Hero Slide -->
 
-</head>
+            {% for key, value in data %}  
+            <a href="{{url_for('mangaPage', url = value.url)}}">
+                <div class="single-hero-slide bg-img slide-background-overlay" style="background-image: url('{{value.cardImgUrl}}');">
+                    
+                    <div class="container h-100"> 
+                        
+                        <div class="row h-100 align-items-end">
+                            
+                            <div class="col-12">
+                              
+                                <div class="hero-slides-content">
+                                    <div class="line"></div>
+                                    <h2> {{ key }}</h2>
+                                    <p> {{ value.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+     
+        </div>
+    </section>
+    <!-- ***** Hero Area End ***** -->
 
-<body>
+    <!-- ***** Portfolio Area Start ***** -->
+    <div class="portfolio-area section-padding-100">
+        <div class="container"></div>
+    </div>
+    <!-- ***** Portfolio Area End ***** -->
 
-{% block main %}
-    
-{% endblock %}
-<!-- jQuery (Necessary for All JavaScript Plugins) -->
-<script src="{{ url_for('static',filename='js/jquery/jquery-2.2.4.min.js') }}"></script>
-<!-- Popper js -->
-<script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
-<!-- Bootstrap js -->
-<script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
-<!-- Plugins js -->
-<script src="{{ url_for('static',filename='js/plugins.js') }}"></script>
-<!-- Active js -->
-<script src="{{ url_for('static',filename='js/active.js') }}"></script>
-</body>
+    <!-- ***** Call to Action Area Start ***** -->
+    <div class="sonar-call-to-action-area section-padding-0-100">
+        <div class="backEnd-content">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="call-to-action-content wow fadeInUp" data-wow-delay="0.5s">
+                        <h2>Otakime thế hệ mới</h2>
+                        <a href="{{url_for('manga')}}" class="btn sonar-btn mt-100">Đọc ngay manga</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-</html>
+    <!-- ***** Call to Action Area End ***** -->
+
+
+    <!-- ***** Footer Area End ***** -->
+    {% include 'footer.html' %}
+    {% endblock %}
