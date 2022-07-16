@@ -9,70 +9,74 @@
 
 <url>
   <loc>https://otakime.herokuapp.com/</loc>
-  <lastmod>2022-07-16T10:34:17+00:00</lastmod>
+  <lastmod>2022-07-16T10:58:15+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/about</loc>
-  <lastmod>2022-07-16T10:34:17+00:00</lastmod>
+  <lastmod>2022-07-16T10:58:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/manga</loc>
-  <lastmod>2022-07-16T10:34:17+00:00</lastmod>
+  <lastmod>2022-07-16T10:58:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/blog</loc>
-  <lastmod>2022-07-16T10:34:17+00:00</lastmod>
+  <lastmod>2022-07-16T10:58:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/contact</loc>
-  <lastmod>2022-07-16T10:34:17+00:00</lastmod>
+  <lastmod>2022-07-16T10:58:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/manga/kawaii-kanojo-chan</loc>
-  <lastmod>2022-07-16T10:34:17+00:00</lastmod>
+  <lastmod>2022-07-16T10:58:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/manga/r15-ja-dame-desuka</loc>
-  <lastmod>2022-07-16T10:34:17+00:00</lastmod>
+  <lastmod>2022-07-16T10:58:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/manga/toaru-meoto-no-nichijou</loc>
-  <lastmod>2022-07-16T10:34:17+00:00</lastmod>
+  <lastmod>2022-07-16T10:58:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/manga/tokedase-mizore-chan</loc>
-  <lastmod>2022-07-16T10:34:17+00:00</lastmod>
+  <lastmod>2022-07-16T10:58:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/manga/sonouchi-kekkon-made-ikukedo-ima-wa-mada</loc>
-  <lastmod>2022-07-16T10:34:17+00:00</lastmod>
+  <lastmod>2022-07-16T10:58:15+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/manga/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta</loc>
-  <lastmod>2022-07-16T10:34:17+00:00</lastmod>
+  <lastmod>2022-07-16T10:58:15+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/manga/ookumo-chan-flashback</loc>
-  <lastmod>2022-07-16T10:34:17+00:00</lastmod>
+  <lastmod>2022-07-16T10:58:15+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/manga/jitsu-wa-ryouomoi-kamo-shirenai-onee-san-to-chuusan-danshi-no-hanashi</loc>
-  <lastmod>2022-07-16T10:34:17+00:00</lastmod>
+  <lastmod>2022-07-16T10:58:15+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-
+<url>
+  <loc>https://otakime.herokuapp.com/manga/index.html</loc>
+  <lastmod>2022-07-16T10:58:15+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
 
 
 </urlset>
