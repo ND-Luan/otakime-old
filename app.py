@@ -3,6 +3,7 @@ from flask import Flask, render_template, request
 from flask_mail import Mail,Message
 
 app = Flask(__name__)
+mail = Mail(app)
 mail_username='mail.otakime@gmail.com'
 mail_password='smwacblnqgibazdd'
 
@@ -15,7 +16,7 @@ app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USERNAME'] = mail_username
 app.config['MAIL_PASSWORD'] = mail_password
 
-mail = Mail(app)
+
 
 
 def parseJson():
