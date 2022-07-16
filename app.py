@@ -98,7 +98,7 @@ def manga():
     return render_template('mangaList.html', data = getallManga())
 
 
-@app.route("/<string:url>")
+@app.route("/manga/<string:url>")
 def mangaPage(url):
     dict_mangaPage ={}
     for key, value in getallManga():
@@ -112,3 +112,6 @@ def mangaPage(url):
 def blog():
     return render_template('blog.html')
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404Page.html'), 404
