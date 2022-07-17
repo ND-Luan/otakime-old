@@ -64,32 +64,7 @@
         </div>
         <!-- ***** Main Menu Area End ***** -->
     
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="menu-area d-flex justify-content-between">
-                        <!-- Logo Area  -->
-                        <div class="logo-area">
-                            <a href="{{ url_for('home') }}"> <img class="dots" src="{{ url_for('static',filename='img/logo/otakime-logo-web.png') }}" alt=""></a>
-                        </div>
-
-                        <div class="menu-content-area d-flex align-items-center">
-                            <!-- Header Social Area -->
-                            <div class="header-social-area d-flex align-items-center">
-                                <a href="https://www.facebook.com/Otakime3.0" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                
-                            </div>
-                            <!-- Menu Icon -->
-                            <span class="navbar-toggler-icon" id="menuIcon"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
+    {% include 'navbar/header.html'%}
 
     <!-- ***** Hero Area Start ***** -->
     <section class="hero-area">
@@ -145,4 +120,5 @@
     </div>
 
     <!-- ***** Call to Action Area End ***** -->
+    {% include 'navbar/footer.html'%}
     {% endblock%}

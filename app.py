@@ -105,7 +105,7 @@ def mangaPage(urlnameManga):
         if urlnameManga == value['nameManga'].lower().replace(' ','-'):
             dict_mangaPage.update({key:value})  
             break
-
+            
     return render_template('page/mangaPage.html', data = dict_mangaPage.items()) 
             
         

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block main %}    
+{% for key,value in data %}
     <!-- Preloader Start -->
     <div id="preloader">
         <div class="preload-content">
@@ -22,7 +23,7 @@
     </div>
     {% include 'navbar/header.html' %}
     <!-- ***** Hero Area Start ***** -->
-    {% for key,value in data %}
+
     <div class="hero-area d-flex align-items-center">
         <!-- Hero Thumbnail -->
         <div class="hero-thumbnail equalize bg-img" style="background-image: url({{value.cardSingleImgUrl}});"></div>
@@ -50,7 +51,6 @@
     <!-- ***** Hero Area End ***** -->
 
 
-    {% endfor %}  
     <!-- ***** Call to Action Area Start ***** -->
     <div class="sonar-call-to-action-area bg-gray section-padding-100">
         <div class="container">
@@ -65,6 +65,9 @@
             </div>
         </div>
     </div>
+    
+
     <!-- ***** Call to Action Area End ***** -->
     {% include 'navbar/footer.html' %}
+    {% endfor %}  
     {% endblock %}
