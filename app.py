@@ -105,8 +105,7 @@ def mangaPage(url):
         if url == value['url']:
             dict_mangaPage.update({key:value})
             break
-        else:
-            return render_template('404Page.html')
+
     return render_template('page/mangaPage.html', data = dict_mangaPage.items()) 
 
 @app.route("/blog")
