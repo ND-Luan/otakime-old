@@ -65,7 +65,7 @@ def home():
             break
     list_dictMangaIndex2 = list(dictMangaIndex2)
 
-    return render_template('index_2.html', data = dictMangaIndex.items(), dataIndex = reversed(list_dictMangaIndex2)) 
+    return render_template('index.html', data = dictMangaIndex.items(), dataIndex = reversed(list_dictMangaIndex2)) 
 
 
 @app.route("/about")
