@@ -46,7 +46,7 @@ def getallManga():
 
 
 
-@app.route("/")
+@app.route("/home")
 def home():
     dictMangaIndex ={}
     temp= 0
