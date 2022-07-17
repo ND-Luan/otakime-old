@@ -46,7 +46,7 @@ def getallManga():
 
 
 
-@app.route("/home")
+@app.route("/")
 def home():
     dictMangaIndex ={}
     temp= 0
@@ -65,12 +65,12 @@ def home():
             break
     list_dictMangaIndex2 = list(dictMangaIndex2)
 
-    return render_template('index.html', data = dictMangaIndex.items(), dataIndex = reversed(list_dictMangaIndex2)) 
+    return render_template('page/index.html', data = dictMangaIndex.items(), dataIndex = reversed(list_dictMangaIndex2)) 
 
 
 @app.route("/about")
 def about():
-    return render_template('about.html')
+    return render_template('page/about.html')
 
 @app.route("/contact", methods = ['GET','POST'])
 def contact():
@@ -91,11 +91,11 @@ def contact():
 
         return render_template('contact.html', success = True)
 
-    return render_template('contact.html')
+    return render_template('page/contact.html')
 
 @app.route("/manga")
 def manga():
-    return render_template('mangaList.html', data = getallManga())
+    return render_template('page/mangaList.html', data = getallManga())
 
 
 @app.route("/manga/<string:url>")
@@ -107,11 +107,11 @@ def mangaPage(url):
             break
         else:
             return render_template('404Page.html')
-    return render_template('mangaPage.html', data = dict_mangaPage.items()) 
+    return render_template('page/mangaPage.html', data = dict_mangaPage.items()) 
 
 @app.route("/blog")
 def blog():
-    return render_template('blog.html')
+    return render_template('page/blog.html')
 
 
 @app.errorhandler(404)
