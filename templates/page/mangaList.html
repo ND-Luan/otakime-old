@@ -68,7 +68,7 @@
                 {%for key, value in data %}
                 <!-- Single gallery Item -->
                 <div class="col-12 col-sm-6 col-lg-3 single_gallery_item landscapes  fashion portraits wow fadeInUpBig" data-wow-delay="200ms">
-                    <a href="{{url_for('mangaPage',url = value.url)}}"><img src="{{value.cardImgUrl}}" alt=""></a>
+                    <a href="{{url_for('mangaPage',urlnameManga = value.nameManga.lower().replace(' ','-'))}}"><img src="{{value.cardImgUrl}}" alt=""></a>
                     <!-- Gallery Content -->
                     <div class="gallery-content">
                         <h4>{{key}}</h4>

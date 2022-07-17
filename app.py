@@ -98,14 +98,14 @@ def manga():
     return render_template('page/mangaList.html', data = getallManga())
 
 
-@app.route("/<url>")
-def mangaPage(url):
+@app.route("/<urlnameManga>")
+def mangaPage(urlnameManga):
     dict_mangaPage ={}
     for key, value in getallManga():
-        if url == value['url']:
+        if urlnameManga == value['nameManga'].lower().replace(' ','-'):
             dict_mangaPage.update({key:value})  
-        else:
-            return render_template('page/contact.html') 
+            break
+
     return render_template('page/mangaPage.html', data = dict_mangaPage.items()) 
             
         

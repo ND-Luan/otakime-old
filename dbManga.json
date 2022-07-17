@@ -4,7 +4,6 @@
         {
             
             "id": 1,
-            "url": "kawaii kanojo chan",
             "nameManga":"Kawaii Kanojo-chan",
             "author":"Semimaru",
             "description": "Một cô gái dễ thương gõ cửa nhà tôi, còn để làm gì thì tôi không biết",
@@ -19,8 +18,7 @@
         "R15+ Ja Dame Desuka?":
         {
             "id": 2,
-            "nameManga":"R15+ Ja Dame Desuka?",
-            "url": "r15-ja-dame-desuka",
+            "nameManga":"R15 Ja Dame Desuka",
             "author":"Kishitani Todoroki, Uratani Nagi",
             "description": "Liệu cô nữ sinh Akane Amou có thể xem được một phim nhán mác 'cấm trẻ em'?",
             "isUpdate": false,
@@ -35,7 +33,6 @@
         {
             "id": 3,
             "nameManga":"Toaru Meoto no Nichijou",
-            "url": "toaru-meoto-no-nichijou",
             "author":"Sakiyo Cake",
             "description": "Nàng dâu mang tên Kinu đến sống cùng gia đình nhà chồng Fujidana. Thoạt đầu nhìn chồng là một người nhút nhát, lười biếng, nhưng cô đã bắt đầu tìm hiểu và biết rằng 'chồng mình có trái tim rộng lượng hơn mình nghĩ'.",
             "isUpdate": false,
@@ -51,7 +48,6 @@
         {
             "id": 4,
             "nameManga":"Tokedase! Mizore-chan",
-            "url":"tokedase-mizore-chan",
             "author":"Tabi Hanao",
             "description": "Hành trình tiêu diệt mặt trời của 'nữ chúa tuyết' với sự giúp đỡ của Himari và người họ hàng của mình.",
             "isUpdate": false,
@@ -68,7 +64,6 @@
         {
             "id": 5,
             "nameManga":"Sonouchi kekkon made ikukedo ima wa mada",
-            "url":"sonouchi-kekkon-made-ikukedo-ima-wa-mada",
             "author":"Sekizui Hikinuki no Kei",
             "description": "Quen nhau từ nhỏ, đến lúc thành cặp đôi và hẹn hò đã 5 năm, nhưng Ritsuho and Kyoichi chưa bao giờ có một lần 'chim chuột'. Ritsuho thì muốn mối quan hệ tiến xa hơn, vậy tại sao Kyoichi thì vẫn muốn dậm chân tại chỗ?",
             "isUpdate": false,
@@ -83,7 +78,6 @@
         {
             "id": 6,
             "nameManga":"Italiajin no Onnanoko ga Isourou Suru Koto ni Natta",
-            "url":"italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta",
             "author":"Hamita",
             "description": "Cuộc gặp gỡ “sắp đặt” giữa anh họa sĩ và cô nàng người Ý từng là bạn thuở nhỏ sẽ mang đến bất ngờ gì?",
             "isUpdate": false,
@@ -98,7 +92,6 @@
         {
             "id": 7,
             "nameManga":"Ookumo-chan Flashback",
-            "url":"ookumo-chan-flashback",
             "author":"Ueshiba Riichi",
             "description": "Cậu học sinh cấp ba Minoru Suzuki vô tình kết nối với kí ức về người bố đã mất, mở ra nhiều câu chuyện xoay quanh người mẹ của cậu.",
             "isUpdate": false,
@@ -113,7 +106,6 @@
         {
             "id": 8,
             "nameManga":"Jitsu wa Ryouomoi Kamo Shirenai Onee-san to Chuusan Danshi no Hanashi",
-            "url":"jitsu-wa-ryouomoi-kamo-shirenai-onee-san-to-chuusan-danshi-no-hanashi",
             "author":"Saisou",
             "description": "Truyện ngắn về hai chị em thuở nhỏ.",
             "isUpdate": false,

@@ -116,7 +116,7 @@
             <!-- Single Hero Slide -->
 
             {% for key, value in data %}  
-            <a href="{{url_for('mangaPage', url = value.url)}}">
+            <a href="{{url_for('mangaPage', urlnameManga = value.nameManga.lower().replace(' ','-')   )}}">
                 <div class="single-hero-slide bg-img slide-background-overlay" style="background-image: url('{{value.cardImgUrl}}');">
                     
                     <div class="container h-100"> 

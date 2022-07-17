@@ -1,4 +1,5 @@
 from ast import parse
+from dataclasses import replace
 import json
 from pkgutil import iter_modules
 
@@ -131,9 +132,20 @@ def dictMangaIndex2():
             break
     print(reversed(dictMangaIndex2))
 
-dictMangaIndex2()
+
+def test(url):
+    dict_mangaPage ={}
+    for key, value in getallManga().items():
+        if url ==value['nameManga'].lower().replace(" ","-"):
+            dict_mangaPage.update({key:value})
+            return dict_mangaPage
+            
+
+a = 'R14+ abc-'
+b = a.replace("+" and "-","@")
 
 
+print(b)
 
 
 
