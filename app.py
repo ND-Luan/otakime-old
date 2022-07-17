@@ -105,7 +105,7 @@ def mangaPage(url):
         if url == value['url']:
             dict_mangaPage.update({key:value})  
         else:
-            return render_template('page/contact.html') 
+            return render_template('page/index_2.html') 
     return render_template('page/mangaPage.html', data = dict_mangaPage.items()) 
             
         
