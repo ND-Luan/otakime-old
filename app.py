@@ -65,7 +65,7 @@ def home():
             break
     list_dictMangaIndex2 = list(dictMangaIndex2)
 
-    return render_template('page/index.html', data = dictMangaIndex.items(), dataIndex = reversed(list_dictMangaIndex2)) 
+    return render_template('index.html', data = dictMangaIndex.items(), dataIndex = reversed(list_dictMangaIndex2)) 
 
 
 @app.route("/about")
@@ -105,8 +105,7 @@ def mangaPage(url):
         if url == value['url']:
             dict_mangaPage.update({key:value})
             break
-        else:
-            return render_template('404Page.html')
+       
     return render_template('page/mangaPage.html', data = dict_mangaPage.items()) 
 
 @app.route("/blog")
