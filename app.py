@@ -84,7 +84,7 @@ def contact():
             subject=f'Mail from {subject}',
             sender=email,
             recipients=[mail_username],
-            body= f'Name:{name}\nEmail:{email}\nMessage:{message}' 
+            body= f'Name: {name}\nEmail: {email}\nMessage: {message}' 
 
         )
         mail.send(msg)
@@ -98,14 +98,15 @@ def manga():
     return render_template('page/mangaList.html', data = getallManga())
 
 
-@app.route("/manga/<string:url>")
+@app.route("/manga/<url>")
 def mangaPage(url):
     dict_mangaPage ={}
     for key, value in getallManga():
         if url == value['url']:
             dict_mangaPage.update({key:value})
             break
-       
+        else:
+            return render_template('404Page.html')
     return render_template('page/mangaPage.html', data = dict_mangaPage.items()) 
 
 @app.route("/blog")
