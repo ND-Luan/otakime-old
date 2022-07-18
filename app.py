@@ -111,7 +111,6 @@ def mangaPage(urlnameManga):
     return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items()) 
 
         
-   
 
 @app.route("/blog")
 def blog():
