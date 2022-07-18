@@ -1,4 +1,5 @@
 import json
+from tkinter import E
 from flask import Flask, render_template, request
 from flask_mail import Mail,Message
 
@@ -105,10 +106,11 @@ def mangaPage(urlnameManga):
         if urlnameManga == value['nameManga'].lower().replace(' ','-'):
             dict_mangaPage.update({key:value})  
             break
-        else:
-            return render_template('manga/404Page.html')     
+        #else:
+            #return render_template('manga/404Page.html')
+ 
     return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items()) 
-            
+
         
    
 
@@ -121,8 +123,10 @@ def admin():
     if request.method == "POST":
         name = request.form.get('name')
         password = request.form.get('password')
+
         NAME = 'potato'
         PASSWORD = 'potato'
+
         if name == NAME and password == PASSWORD:
             return render_template('admin/adminMan.html')
 
