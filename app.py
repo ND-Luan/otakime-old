@@ -115,6 +115,9 @@ def mangaPage(urlnameManga):
 def blog():
     return render_template('page/blog.html')
 
+@app.route("/admin")
+def admin():
+    return render_template('admin.html')
 
 @app.errorhandler(404)
 def page_not_found(e):
