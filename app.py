@@ -116,8 +116,16 @@ def mangaPage(urlnameManga):
 def blog():
     return render_template('page/blog.html')
 
-@app.route("/admin")
+@app.route("/admin", methods=['GET','POST'])
 def admin():
+    if request.method == "POST":
+        name = request.form.get('name')
+        password = request.form.get('password')
+        NAME = 'potato'
+        PASSWORD = 'potato'
+        if name == NAME and password == PASSWORD:
+            return render_template('admin/adminMan.html')
+
     return render_template('admin/admin.html')
 
 @app.errorhandler(404)
