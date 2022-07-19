@@ -45,7 +45,7 @@ def getallMangaIndex(nameManga):
     
 def home():
     title= 'Otakime - Nha tu ban'
-    description = 'Day la nhom dich tuong lai'
+    description = 'Trang web chính thức của nhóm dịch Otakime, Việt hóa những dự án manga nhằm giới thiệu độc giả. Truy cập ngay để đọc những tựa truyện được yêu thích.'
     dictMangaIndex ={}
     temp= 0
     for key,value in getallManga():
