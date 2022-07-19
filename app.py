@@ -111,7 +111,7 @@ def admin():
         PASSWORD = 'potato'
 
         if name == NAME and password == PASSWORD:
-            return render_template('admin/adminMan.html', title = title, isPost = True)
+            return render_template('admin/adminMan.html', title = title, isPost = True, nameAdmin = NAME)
 
     return render_template('admin/admin.html', title= title)
 
