@@ -1,31 +1,37 @@
+
 import json
 from flask import Flask, render_template, request
 from flask_mail import Mail,Message
-from werkzeug.middleware.profiler import ProfilerMiddleware
 
 app = Flask(__name__)
 
-mail = Mail(app)
-
-mail_username='mail.otakime@gmail.com'
-mail_password='smwacblnqgibazdd'
-
 app.debug=True
 
-app.config['MAIL_SERVER'] = "smtp.gmail.com"
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = mail_username
-app.config['MAIL_PASSWORD'] = mail_password
+mail_username='mail.otakime@gmail.com'
+mail_password='lpavozmbebtxdhbb'
 
+app.config.update(dict(
+    DEBUG = True,
+    MAIL_SERVER = 'smtp.gmail.com',
+    MAIL_PORT = 587,
+    MAIL_USE_TLS = True,
+    MAIL_USE_SSL = False,
+    MAIL_USERNAME = mail_username,
+    MAIL_PASSWORD = mail_password,
+))
 
+mail = Mail(app)
 
 def parseJson():
     with open('dbManga.json',encoding="utf8") as f:
         data = json.loads(f.read())
     return data
-
+def getallManga():
+    index_list = 0
+    dictMangaIndex ={}
+    for key , value in parseJson()[index_list].items():
+        dictMangaIndex.update({key:value})
+    return dictMangaIndex.items()
 def getallMangaIndex(nameManga):
     dictMangaIndex ={}
     temp= 0
@@ -37,17 +43,6 @@ def getallMangaIndex(nameManga):
                 break
     return dictMangaIndex.items()
     
-
-def getallManga():
-    index_list = 0
-    dictMangaIndex ={}
-    for key , value in parseJson()[index_list].items():
-        dictMangaIndex.update({key:value})
-    return dictMangaIndex.items()
-
-
-
-@app.route("/")
 def home():
     dictMangaIndex ={}
     temp= 0
@@ -59,12 +54,9 @@ def home():
 
     return render_template('manga/index.html', data = dictMangaIndex.items()) 
 
-
-@app.route("/about")
 def about():
     return render_template('manga/page/about.html')
 
-@app.route("/contact", methods = ['GET','POST'])
 def contact():
     if request.method == "POST":
         name = request.form.get('name')
@@ -85,12 +77,9 @@ def contact():
 
     return render_template('manga/page/contact.html')
 
-@app.route("/manga")
 def manga():
     return render_template('manga/page/mangaList.html', data = getallManga())
 
-
-@app.route("/<urlnameManga>")
 def mangaPage(urlnameManga):
     dict_mangaPage ={}
     for key, value in getallManga():
@@ -102,13 +91,9 @@ def mangaPage(urlnameManga):
  
     return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items()) 
 
-        
-
-@app.route("/blog")
 def blog():
     return render_template('page/blog.html')
 
-@app.route("/admin", methods=['GET','POST'])
 def admin():
     if request.method == "POST":
         name = request.form.get('name')
@@ -122,11 +107,26 @@ def admin():
 
     return render_template('admin/admin.html')
 
+
+app.add_url_rule('/','home', home )
+
+app.add_url_rule('/about','about', about )
+
+app.add_url_rule('/contact','contact', contact , methods =['GET','POST'])
+
+app.add_url_rule('/manga','manga', manga )
+
+app.add_url_rule('/blog','blog', blog )
+
+app.add_url_rule('/<urlnameManga>','mangaPage', mangaPage )
+
+app.add_url_rule('/admin','admin', admin, methods=['GET','POST'])
+
+
+
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('manga/404Page.html'), 404
 
 
-
-if __name__ == '__main__':
-    app.run(debug=True)
