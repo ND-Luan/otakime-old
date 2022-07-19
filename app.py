@@ -45,6 +45,7 @@ def getallMangaIndex(nameManga):
     
 def home():
     title= 'Otakime - Nha tu ban'
+    description = 'Day la nhom dich tuong lai'
     dictMangaIndex ={}
     temp= 0
     for key,value in getallManga():
@@ -53,7 +54,7 @@ def home():
         if temp == 4:
             break
 
-    return render_template('manga/index.html', data = dictMangaIndex.items(), title= title) 
+    return render_template('manga/index.html', data = dictMangaIndex.items(), title= title, description= description) 
 
 def about():
     title = 'Otakime - About'
@@ -110,7 +111,7 @@ def admin():
         PASSWORD = 'potato'
 
         if name == NAME and password == PASSWORD:
-            return render_template('admin/adminMan.html', title = title)
+            return render_template('admin/adminMan.html', title = title, isPost = True)
 
     return render_template('admin/admin.html', title= title)
 
