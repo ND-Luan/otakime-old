@@ -84,7 +84,8 @@ def contact():
 
 def manga():
     title = 'Otakime - Manga'
-    return render_template('manga/page/mangaList.html', data = getallManga(),title= title)
+    description = 'Đọc ngay những tựa truyện được Việt hóa chất lượng bởi Otakime.'
+    return render_template('manga/page/mangaList.html', data = getallManga(),title= title,description = description)
 
 def mangaPage(urlnameManga):
     dict_mangaPage ={}
