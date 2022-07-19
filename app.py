@@ -1,8 +1,10 @@
 import json
 from flask import Flask, render_template, request
 from flask_mail import Mail,Message
+from werkzeug.middleware.profiler import ProfilerMiddleware
 
 app = Flask(__name__)
+
 mail = Mail(app)
 
 mail_username='mail.otakime@gmail.com'
@@ -16,7 +18,6 @@ app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USERNAME'] = mail_username
 app.config['MAIL_PASSWORD'] = mail_password
-
 
 
 
@@ -124,3 +125,8 @@ def admin():
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('manga/404Page.html'), 404
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
