@@ -88,7 +88,7 @@ def mangaPage(urlnameManga):
             return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items()) 
         #=else:
             #return render_template('manga/404Page.html')
- 
+    return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items()) 
     
 
 def blog():
