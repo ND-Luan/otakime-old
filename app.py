@@ -44,6 +44,7 @@ def getallMangaIndex(nameManga):
     return dictMangaIndex.items()
     
 def home():
+    title= 'Otakime - Nha tu ban'
     dictMangaIndex ={}
     temp= 0
     for key,value in getallManga():
@@ -52,12 +53,14 @@ def home():
         if temp == 4:
             break
 
-    return render_template('manga/index.html', data = dictMangaIndex.items()) 
+    return render_template('manga/index.html', data = dictMangaIndex.items(), title= title) 
 
 def about():
-    return render_template('manga/page/about.html')
+    title = 'Otakime - About'
+    return render_template('manga/page/about.html', title= title)
 
 def contact():
+    title = 'Otakime - Contact'
     if request.method == "POST":
         name = request.form.get('name')
         email = request.form.get('email')
@@ -73,28 +76,32 @@ def contact():
         )
         mail.send(msg)
 
-        return render_template('manga/page/contact.html', success = True)
+        return render_template('manga/page/contact.html', success = True, title= title)
 
-    return render_template('manga/page/contact.html')
+    return render_template('manga/page/contact.html', title= title)
 
 def manga():
-    return render_template('manga/page/mangaList.html', data = getallManga())
+    title = 'Otakime - Manga'
+    return render_template('manga/page/mangaList.html', data = getallManga(),title= title)
 
 def mangaPage(urlnameManga):
     dict_mangaPage ={}
     for key, value in getallManga():
         if urlnameManga == value['nameManga'].lower().replace(' ','-'):
+            title = f"Otakime - {value['nameManga']}"
             dict_mangaPage.update({key:value})  
-            return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items()) 
+            return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items(), title= title) 
         #=else:
             #return render_template('manga/404Page.html')
     return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items()) 
     
 
 def blog():
-    return render_template('page/blog.html')
+    title = 'Otakime - Blog'
+    return render_template('page/blog.html', title = title)
 
 def admin():
+    title = 'Otakime - Admin'
     if request.method == "POST":
         name = request.form.get('name')
         password = request.form.get('password')
@@ -103,9 +110,17 @@ def admin():
         PASSWORD = 'potato'
 
         if name == NAME and password == PASSWORD:
-            return render_template('admin/adminMan.html')
+            return render_template('admin/adminMan.html', title = title)
 
-    return render_template('admin/admin.html')
+    return render_template('admin/admin.html', title= title)
+
+def adminPostManga():
+    pass
+def adminUpdateManga():
+
+    pass
+def adminDeleteManga():
+    pass
 
 def sitemap():
     pass
@@ -124,7 +139,9 @@ app.add_url_rule('/<urlnameManga>','mangaPage', mangaPage )
 
 app.add_url_rule('/admin','admin', admin, methods=['GET','POST'])
 
-
+app.add_url_rule('/admin/postmanga','adminPostManga', adminPostManga, methods=['GET','POST'])
+app.add_url_rule('/admin/updatemanga','adminUpdateManga', adminUpdateManga, methods=['GET','POST'])
+app.add_url_rule('/admin/deletemanga','adminDeleteManga', adminDeleteManga, methods=['GET','POST'])
 
 
 @app.errorhandler(404)
