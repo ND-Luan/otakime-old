@@ -55,17 +55,8 @@ def home():
         temp = temp +1
         if temp == 4:
             break
-    
-    dictMangaIndex2 ={}
-    temp= 4
-    for key,value in getallManga():
-        dictMangaIndex.update({key:value})
-        temp = temp +1
-        if temp == 7:
-            break
-    list_dictMangaIndex2 = list(dictMangaIndex2)
 
-    return render_template('manga/index.html', data = dictMangaIndex.items(), dataIndex = reversed(list_dictMangaIndex2)) 
+    return render_template('manga/index.html', data = dictMangaIndex.items()) 
 
 
 @app.route("/about")
