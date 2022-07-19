@@ -63,6 +63,7 @@ def about():
 
 def contact():
     title = 'Otakime - Contact'
+    description = 'Bạn có ý kiến, đề xuất đến nhóm? Hay bạn muốn hợp tác quảng cáo? Đừng ngại gửi liên hệ đến nhóm, bạn sẽ nhận câu trả lời trong 4 ngày làm việc.'
     if request.method == "POST":
         name = request.form.get('name')
         email = request.form.get('email')
@@ -78,9 +79,9 @@ def contact():
         )
         mail.send(msg)
 
-        return render_template('manga/page/contact.html', success = True, title= title)
+        return render_template('manga/page/contact.html', success = True, title= title,description=description)
 
-    return render_template('manga/page/contact.html', title= title)
+    return render_template('manga/page/contact.html', title= title, description=description)
 
 def manga():
     title = 'Otakime - Manga'
