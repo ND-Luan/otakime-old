@@ -1,5 +1,6 @@
 
 import json
+import os
 from flask import Flask, render_template, request
 from flask_mail import Mail,Message
 
@@ -106,22 +107,21 @@ def admin():
     if request.method == "POST":
         name = request.form.get('name')
         password = request.form.get('password')
+        
+        username= 'potato'
+        password='potato'
 
-        NAME = 'potato'
-        PASSWORD = 'potato'
-
-        if name == NAME and password == PASSWORD:
-            return render_template('admin/adminMan.html', title = title, isPost = True, nameAdmin = NAME.title())
+        if name == username and password == password:
+            return render_template('admin/page/adminPost.html', title = title, isPost = True, nameAdmin = username.title())
 
     return render_template('admin/admin.html', title= title)
 
 def adminPostManga():
-    pass
+    return render_template('admin/page/adminPost.html')
 def adminUpdateManga():
-
-    pass
+    return render_template('admin/page/adminUpdate.html')
 def adminDeleteManga():
-    pass
+    return render_template('admin/page/adminDelete.html')
 
 def sitemap():
     pass

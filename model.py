@@ -152,3 +152,17 @@ def test(url):
 
 
 
+ nameFile = request.form.get('nameFile')
+        nameMangaKey = request.form.get('nameMangaKey')
+        nameMangaUrl = request.form.get('nameMangaUrl')
+        author = request.form.get('author')
+        description = request.form.get('description')
+        otherName = request.form.get('otherName')
+        dateUpdate = request.form.get('dateUpdate')
+        category = request.form.get('category')
+        cardImgUrlIndex = request.form.get('cardImgUrlIndex')
+        cardImgUrl = request.form.get('cardImgUrl')
+        cardSingleImgUrl = request.form.get('cardSingleImgUrl')
+        urlChapter = request.form.get('urlChapter')
+
+        tempList = [nameFile,nameMangaKey,nameMangaUrl,author,description,otherName,dateUpdate,category, cardImgUrlIndex,cardImgUrl, cardSingleImgUrl, urlChapter]

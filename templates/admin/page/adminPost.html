@@ -1,9 +1,7 @@
-
-
 {% extends 'admin/base.html'%}
 
 {% block main%}
-{% if isPost == True %}
+
 <div id="page-top">
 
     <!-- Page Wrapper -->
@@ -28,61 +26,64 @@
                     <h2>Post Manga</h2>
                     <div class="container">
                         <form  action="#" method="POST">
-                            <h3>nameManga key</h3>
+                            <h3>nameFile</h3>
                             <div class="form-group">
-                                <input class="form-control form-control-user">
+                                <input class="form-control form-control-user" name="nameFile">
+                            </div>
+                            <h3>nameMangaKey</h3>
+                            <div class="form-group">
+                                <input class="form-control form-control-user" name="nameMangaKey">
                             </div>
                             <div class="form-group">
-                                <h3>nameManga url</h3>
-                                
+                                <h3>nameMangaUrl</h3>
                                 <input  class="form-control form-control-user"
-                                    id="exampleInputPassword"  name="password">
+                                    id="exampleInputPassword"  name="nameMangaUrl">
                             </div>
                             <div class="form-group">
                                 <h3>author</h3>
                                 <input  class="form-control form-control-user"
-                                    id="exampleInputPassword"  name="password">
+                                    id="exampleInputPassword"  name="author">
                             </div>
                         
                             <div class="form-group">
                                 <h3>description</h3>
                                 <input class="form-control form-control-user"
-                                    id="exampleInputPassword" name="password">
+                                    id="exampleInputPassword" name="description">
                             </div>
                             <div class="form-group">
                                 <h3>otherName</h3>
                                 <input  class="form-control form-control-user"
-                                    id="exampleInputPassword"  name="password">
+                                    id="exampleInputPassword"  name="otherName">
                             </div>
                             <div class="form-group">
                                 <h3>dateUpdate</h3>
                                 <input  class="form-control form-control-user"
-                                    id="exampleInputPassword"  name="password">
+                                    id="exampleInputPassword"  name="dateUpdate">
                             </div>
                             <div class="form-group">
                                 <h3>category</h3>
                                 <input  class="form-control form-control-user"
-                                    id="exampleInputPassword"  name="password">
+                                    id="exampleInputPassword"  name="category">
                             </div>
                             <div class="form-group">
                                 <h3>cardImgUrlIndex</h3>
-                                <input  class="form-control form-control-user"
-                                    id="exampleInputPassword"  name="password">
+                                <label for="myfile">Select a file:</label>
+                                <input type="file" id="myfile" name="cardImgUrlIndex">
                             </div>
                             <div class="form-group">
                                 <h3>cardImgUrl</h3>
-                                <input  class="form-control form-control-user"
-                                    id="exampleInputPassword"  name="password">
+                                <label for="myfile">Select a file:</label>
+                                <input type="file" id="myfile" name="cardImgUrl">
                             </div>
                             <div class="form-group">
                                 <h3>cardSingleImgUrl</h3>
-                                <input  class="form-control form-control-user"
-                                    id="exampleInputPassword"  name="password">
+                                <label for="myfile">Select a file:</label>
+                                <input type="file" id="myfile" name="cardSingleImgUrl">
                             </div>
                             <div class="form-group">
                                 <h3>urlChapter</h3>
                                 <input  class="form-control form-control-user"
-                                    id="exampleInputPassword"  name="password">
+                                    id="exampleInputPassword"  name="urlChapter">
                             </div>
                             <button type="submit" class="btn btn-primary btn-user btn-block">Post Manga</button>
                         </form>
@@ -136,7 +137,7 @@
     </div>
 
 </div>
-{%endif%}
+
 {% endblock%}
 
 
