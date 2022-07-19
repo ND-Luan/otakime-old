@@ -96,8 +96,7 @@ def mangaPageImg(nameManga,chap):
 
 
 def chapter():
-    url = "kawaii-kanojo-chan"
-    url_chapter = []       
+
     list_chapter =[]
     for key,value in getallManga().items():
         for item in value['chapter'].keys():
@@ -108,8 +107,17 @@ def chapter():
 
 
 
+def mangaPage(urlnameManga):
+    dict_mangaPage ={}
+    for key, value in getallManga().items():
+        if urlnameManga == value['nameManga'].lower().replace(' ','-'):
+            dict_mangaPage.update({key:value})  
+            return dict_mangaPage
+        else:
+            print('abc')
+urlnameManga =['r15-ja-dame-desuka','kawaii-kanojo-chan']
 
-
+print(mangaPage(urlnameManga[0]))
 
 #nameManga = 'Kawaii Kanojo-chan'
 #chap = "chap-1"
@@ -141,11 +149,6 @@ def test(url):
             return dict_mangaPage
             
 
-a = 'R14+ abc-'
-b = a.replace("+" and "-","@")
-
-
-print(b)
 
 
 

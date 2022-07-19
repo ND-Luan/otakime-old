@@ -85,11 +85,11 @@ def mangaPage(urlnameManga):
     for key, value in getallManga():
         if urlnameManga == value['nameManga'].lower().replace(' ','-'):
             dict_mangaPage.update({key:value})  
-            break
-        #else:
+            return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items()) 
+        #=else:
             #return render_template('manga/404Page.html')
  
-    return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items()) 
+    
 
 def blog():
     return render_template('page/blog.html')
@@ -107,6 +107,8 @@ def admin():
 
     return render_template('admin/admin.html')
 
+def sitemap():
+    pass
 
 app.add_url_rule('/','home', home )
 
