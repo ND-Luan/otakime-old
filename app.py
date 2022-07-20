@@ -1,15 +1,19 @@
 
 import json
 import os
-from flask import Flask, render_template, request
+from re import S
+from flask import Flask, redirect, render_template, request, session, url_for
 from flask_mail import Mail,Message
-
+from datetime import timedelta
 app = Flask(__name__)
 
 app.debug=True
 
 mail_username='mail.otakime@gmail.com'
 mail_password='lpavozmbebtxdhbb'
+
+app.config["SECRET_KEY"] = "POTATO"
+app.permanent_session_lifetime = timedelta(seconds=10)
 
 app.config.update(dict(
     DEBUG = True,
@@ -112,14 +116,27 @@ def admin():
         
         username= 'potato'
         password='potato'
-
+    
         if name == username and password == password:
-            return render_template('admin/page/adminPost.html', title = title, isPost = True, nameAdmin = username.title())
+            session['admin'] = username
+            session.permanent = True
+            return redirect(url_for('adminPostManga'))
+    else:
+        return render_template('admin/adminPage.html', title= title)
 
-    return render_template('admin/admin.html', title= title)
+def logout():
+    session.pop("admin", None)
+    return render_template('admin/page/adminPage.html')
+
 
 def adminPostManga():
-    return render_template('admin/page/adminPost.html')
+    if request.method == 'POST':
+        if "username" in session:
+            name = session['admin']
+            return render_template('admin/page/adminPost.html', nameAdmin = name)
+    else:
+        return render_template('admin/page/adminPost.html')
+    
 def adminUpdateManga():
     return render_template('admin/page/adminUpdate.html')
 def adminDeleteManga():
@@ -141,6 +158,7 @@ app.add_url_rule('/blog','blog', blog )
 app.add_url_rule('/<urlnameManga>','mangaPage', mangaPage )
 
 app.add_url_rule('/admin','admin', admin, methods=['GET','POST'])
+app.add_url_rule('/admin','logout', logout, methods=['GET','POST'])
 
 app.add_url_rule('/admin/postmanga','adminPostManga', adminPostManga, methods=['GET','POST'])
 app.add_url_rule('/admin/updatemanga','adminUpdateManga', adminUpdateManga, methods=['GET','POST'])
