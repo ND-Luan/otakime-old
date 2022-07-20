@@ -1,7 +1,6 @@
 
 import json
 import os
-from re import S
 from flask import Flask, redirect, render_template, request, session, url_for
 from flask_mail import Mail,Message
 from datetime import timedelta
@@ -116,9 +115,9 @@ def admin():
         
         username= 'potato'
         password='potato'
-    
+
         if name == username and password == password:
-            session['admin'] = username
+            session['admin'] = name
             session.permanent = True
             return redirect(url_for('adminPostManga'))
     else:
@@ -128,14 +127,13 @@ def logout():
     session.pop("admin", None)
     return render_template('admin/page/adminPage.html')
 
-
 def adminPostManga():
-    if request.method == 'POST':
-        if "username" in session:
-            name = session['admin']
-            return render_template('admin/page/adminPost.html', nameAdmin = name)
+
+    if "admin" in session:
+        name = session['admin']
+        return render_template('admin/page/adminPost.html', nameAdmin = name)
     else:
-        return render_template('admin/page/adminPost.html')
+        return render_template('admin/adminPage.html')
     
 def adminUpdateManga():
     return render_template('admin/page/adminUpdate.html')

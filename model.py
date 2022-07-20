@@ -13,7 +13,6 @@ def parseJson():
         data = json.load(f)
     return data
    
-
 class Manga:
     def __init__(self,nameManga,author,description,isUpdate,otherName,dateUpdate,category,chapter,cardImgUrl):
         self.nameManga = nameManga
@@ -25,6 +24,7 @@ class Manga:
         self.category = category
         self.cardImgUrl = cardImgUrl
         self.chapter = chapter['chap1']
+    def asdasdas()
     
 
 mangaList = []
