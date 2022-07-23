@@ -125,7 +125,7 @@ def admin():
 
 def logout():
     session.pop("admin", None)
-    return render_template('admin/page/adminPage.html')
+    return render_template('admin/adminPage.html')
 
 def adminPostManga():
 
@@ -136,9 +136,18 @@ def adminPostManga():
         return render_template('admin/adminPage.html')
     
 def adminUpdateManga():
-    return render_template('admin/page/adminUpdate.html')
+    if "admin" in session:
+        name = session['admin']
+        return render_template('admin/page/adminUpdate.html', nameAdmin = name)
+    else:
+        return render_template('admin/adminPage.html')
+
 def adminDeleteManga():
-    return render_template('admin/page/adminDelete.html')
+    if "admin" in session:
+        name = session['admin']
+        return render_template('admin/page/adminDelete.html', nameAdmin = name)
+    else:
+        return render_template('admin/adminPage.html')
 
 def sitemap():
     pass
