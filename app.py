@@ -2,7 +2,7 @@ from flask import Flask, redirect, render_template, request, session, url_for
 from flask_mail import Mail,Message
 
 from datetime import timedelta
-from getMangaList import desciptionMangaList, imgBannerMangaList, imgCoverMangaList, imgIndexMangaList, tagsMangaList, titleMangaList
+from getMangaList import authorMangaList, desciptionMangaList, imgBannerMangaList, imgCoverMangaList, imgIndexMangaList, otherName, tagsMangaList, titleMangaList, updateAt
 
 from parseJsonMangaPage import idMangaJSON
 
@@ -89,12 +89,14 @@ def manga():
             {
                 "nameManga": key.lower().replace(' ','-'),
                 "title":titleMangaList(value),
+                "author":authorMangaList(value),
+                "updateAt": updateAt(value),
+                "otherName":otherName(value),
                 "description":desciptionMangaList(value),
                 "tags":', '.join(tagsMangaList(value)),
-                "imgIndex":"",
+                "imgIndex":imgIndexMangaList(key),
                 "imgBanner":imgBannerMangaList(key),
-                "imgCover":""
-
+                "imgCover":imgCoverMangaList(key)
             }
             })
   
@@ -103,21 +105,23 @@ def manga():
 def mangaPage(urlnameManga):
     dict_mangaPage ={}
     for key, value in idMangaJSON().items():
-        if urlnameManga == value['nameManga'].lower().replace(' ','-'):
-            title = f"Otakime - {value['nameManga']}"
+        if urlnameManga == key.lower().replace(' ','-'):
+            title = f"Otakime - {key}"
             dict_mangaPage.update({
                 key: {
                 "nameManga": key.lower().replace(' ','-'),
                 "title":titleMangaList(value),
+                "author":authorMangaList(value),
+                "updateAt": updateAt(value),
+                "otherName":otherName(value),
                 "description":desciptionMangaList(value),
                 "tags":', '.join(tagsMangaList(value)),
-                "imgIndex":"",
+                "imgIndex":imgIndexMangaList(key),
                 "imgBanner":imgBannerMangaList(key),
-                "imgCover":""
+                "imgCover":imgCoverMangaList(key)
 
             }
-                
-                })  
+            })  
             return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items(), title= title) 
         #=else:
             #return render_template('manga/404Page.html')

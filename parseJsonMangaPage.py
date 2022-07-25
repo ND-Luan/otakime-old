@@ -34,5 +34,3 @@ def imgMangaJSON():
                     }
                 )
     return imgMangaList
-
-print(imgMangaJSON())

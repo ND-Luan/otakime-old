@@ -1,6 +1,6 @@
 {% extends 'manga/base.html'%}
 {% block main %}    
-{% for key,value in data %}
+
     <!-- Preloader Start -->
     <div id="preloader">
         <div class="preload-content">
@@ -23,10 +23,10 @@
     </div>
     {% include 'manga/navbar/header.html' %}
     <!-- ***** Hero Area Start ***** -->
-
+    {% for key,value in data %}
     <div class="hero-area d-flex align-items-center">
         <!-- Hero Thumbnail -->
-        <div class="hero-thumbnail equalize bg-img" style="background-image: url({{value.cardSingleImgUrl}});"></div>
+        <div class="hero-thumbnail equalize bg-img" style="background-image: url({{value.imgCover}});"></div>
         
         <!-- Hero Content -->
         <div class="hero-content equalize">
@@ -34,11 +34,11 @@
                 <div class="row h-100 align-items-center justify-content-center">
                     <div class="col-12 col-md-8">
                         <div class="line"></div>
-                        <h2>{{ key }}</h2>
+                        <h2>{{ value.title }}</h2>
                         <h6 style="color:white;"><b>Tác giả:</b> {{value.author}}</h6></br>
                         <h6 style="color:white;"><b>Tên khác:</b> {{value.otherName}}</h6></br>
-                        <h6 style="color:white;"><b>Thể loại:</b> {{value.category}}</h6></br>
-                        <h6 style="color:white;"><b>Ngày cập nhật:</b> {{value.dateUpdate}}</h6></br>
+                        <h6 style="color:white;"><b>Thể loại:</b> {{value.tags}}</h6></br>
+                        <h6 style="color:white;"><b>Ngày cập nhật:</b> {{value.updateAt}}</h6></br>
                         <h6 style="color:white;"><b>Mô tả:</b> {{value.description}}</h6></br>
 
                         <a href="{{value.urlChapter}}" class="btn sonar-btn white-btn">Đọc ngay</a>
@@ -58,11 +58,11 @@
     </div>
     <!-- ***** Hero Area End ***** -->
 
-
+    {% endfor %}  
     <!-- ***** Call to Action Area Start ***** -->
     
 
     <!-- ***** Call to Action Area End ***** -->
     {% include 'manga/navbar/footer.html' %}
-    {% endfor %}  
+
     {% endblock %}
