@@ -72,8 +72,8 @@
             <!-- Single Hero Slide -->
 
             {% for key, value in data %}  
-            <a href="{{url_for('mangaPage', urlnameManga = value.nameManga.lower().replace(' ','-')   )}}">
-                <div class="single-hero-slide bg-img slide-background-overlay" style="background-image: url('{{value.cardImgUrlIndex}}');">
+            <a href="{{url_for('mangaPage', urlnameManga = value.nameManga)}}">
+                <div class="single-hero-slide bg-img slide-background-overlay" style="background-image: url('{{value.imgIndex}}');">
                     
                     <div class="container h-100"> 
                         
@@ -83,7 +83,7 @@
                               
                                 <div class="hero-slides-content">
                                     <div class="line"></div>
-                                    <h2> {{ key }}</h2>
+                                    <h2> {{ value.title }}</h2>
                                     <p> {{ value.description }}</p>
                                 </div>
                             </div>

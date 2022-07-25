@@ -4,6 +4,9 @@ import os
 from flask import Flask, redirect, render_template, request, session, url_for
 from flask_mail import Mail,Message
 from datetime import timedelta
+from getMangaList import desciptionMangaList, imgBannerMangaList, imgCoverMangaList, imgIndexMangaList, tagsMangaList, titleMangaList
+
+from parseJsonMangaPage import idMangaJSON
 app = Flask(__name__)
 
 app.debug=True
@@ -26,34 +29,23 @@ app.config.update(dict(
 
 mail = Mail(app)
 
-def parseJson():
-    with open('dbManga.json',encoding="utf8") as f:
-        data = json.loads(f.read())
-    return data
-def getallManga():
-    index_list = 0
-    dictMangaIndex ={}
-    for key , value in parseJson()[index_list].items():
-        dictMangaIndex.update({key:value})
-    return dictMangaIndex.items()
-def getallMangaIndex(nameManga):
-    dictMangaIndex ={}
-    temp= 0
-    for key,value in getallManga():
-        if nameManga == value['nameManga']:
-            dictMangaIndex.update({key:value})
-            temp = temp +1
-            if temp == 4:
-                break
-    return dictMangaIndex.items()
-    
 def home():
     title= 'Otakime - Nha tu ban'
     description = 'Trang web chính thức của nhóm dịch Otakime, Việt hóa những dự án manga nhằm giới thiệu độc giả. Truy cập ngay để đọc những tựa truyện được yêu thích.'
     dictMangaIndex ={}
     temp= 0
-    for key,value in getallManga():
-        dictMangaIndex.update({key:value})
+    for key,value in idMangaJSON().items():
+        dictMangaIndex.update({
+            key:{
+                "nameManga": key.lower().replace(' ','-'),
+                "title":titleMangaList(value),
+                "description":desciptionMangaList(value),
+                "tags":', '.join(tagsMangaList(value)),
+                "imgIndex":imgIndexMangaList(key),
+                "imgBanner":imgBannerMangaList(key),
+                "imgCover":imgCoverMangaList(key)
+            }
+        })
         temp = temp +1
         if temp == 4:
             break
@@ -89,14 +81,44 @@ def contact():
 def manga():
     title = 'Otakime - Manga'
     description = 'Đọc ngay những tựa truyện được Việt hóa chất lượng bởi Otakime.'
-    return render_template('manga/page/mangaList.html', data = getallManga(),title= title,description = description)
+
+    dictManga={}
+
+    for key,value in idMangaJSON().items():
+        dictManga.update({
+            key:
+            {
+                "nameManga": key.lower().replace(' ','-'),
+                "title":titleMangaList(value),
+                "description":desciptionMangaList(value),
+                "tags":', '.join(tagsMangaList(value)),
+                "imgIndex":"",
+                "imgBanner":imgBannerMangaList(key),
+                "imgCover":""
+
+            }
+            })
+  
+    return render_template('manga/page/mangaList.html', data = dictManga.items(),title= title,description = description)
 
 def mangaPage(urlnameManga):
     dict_mangaPage ={}
-    for key, value in getallManga():
+    for key, value in idMangaJSON().items():
         if urlnameManga == value['nameManga'].lower().replace(' ','-'):
             title = f"Otakime - {value['nameManga']}"
-            dict_mangaPage.update({key:value})  
+            dict_mangaPage.update({
+                key: {
+                "nameManga": key.lower().replace(' ','-'),
+                "title":titleMangaList(value),
+                "description":desciptionMangaList(value),
+                "tags":', '.join(tagsMangaList(value)),
+                "imgIndex":"",
+                "imgBanner":imgBannerMangaList(key),
+                "imgCover":""
+
+            }
+                
+                })  
             return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items(), title= title) 
         #=else:
             #return render_template('manga/404Page.html')
