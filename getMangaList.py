@@ -1,6 +1,6 @@
 import requests
 
-from parseJsonMangaPage import idMangaJSON, imgMangaJSON
+from parseJsonMangaPage import imgMangaJSON
 
 
 def getUrlServer(id):

@@ -1,12 +1,11 @@
-
-import json
-import os
 from flask import Flask, redirect, render_template, request, session, url_for
 from flask_mail import Mail,Message
+
 from datetime import timedelta
 from getMangaList import desciptionMangaList, imgBannerMangaList, imgCoverMangaList, imgIndexMangaList, tagsMangaList, titleMangaList
 
 from parseJsonMangaPage import idMangaJSON
+
 app = Flask(__name__)
 
 app.debug=True

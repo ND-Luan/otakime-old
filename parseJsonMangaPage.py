@@ -1,7 +1,4 @@
 import json
-import requests
-
-
 
 def parseJsonMangadex():
     with open('database.json',encoding="utf8") as f:
@@ -20,15 +17,6 @@ def parseJsonIMG():
     with open('dbManga.json',encoding="utf8") as f:
         data = json.loads(f.read())
     return data
-
-
-#def checkImgIndex(keyID):
-    listcheckImgIndex = ""
-    for keyImg,valueIMG in parseJsonIMG().items():
-        if keyID == keyImg:
-            listcheckImgIndex = valueIMG['cardImgUrlIndex']
-            break
-    return listcheckImgIndex
 
 def imgMangaJSON():
     imgMangaList = {}
