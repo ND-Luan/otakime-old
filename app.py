@@ -2,6 +2,7 @@ from flask import Flask, redirect, render_template, request, session, url_for
 from flask_mail import Mail,Message
 
 from datetime import timedelta
+from getMangaChapter import ChapterMangaPage
 from getMangaList import authorMangaList, desciptionMangaList, imgBannerMangaList, imgCoverMangaList, imgIndexMangaList, otherName, tagsMangaList, titleMangaList, updateAt
 
 from parseJsonMangaPage import idMangaJSON
@@ -107,6 +108,9 @@ def mangaPage(urlnameManga):
     for key, value in idMangaJSON().items():
         if urlnameManga == key.lower().replace(' ','-'):
             title = f"Otakime - {key}"
+            temp =[]
+            for item in ChapterMangaPage(value):
+                temp.append(item['chapter'])
             dict_mangaPage.update({
                 key: {
                 "nameManga": key.lower().replace(' ','-'),
@@ -118,8 +122,8 @@ def mangaPage(urlnameManga):
                 "tags":', '.join(tagsMangaList(value)),
                 "imgIndex":imgIndexMangaList(key),
                 "imgBanner":imgBannerMangaList(key),
-                "imgCover":imgCoverMangaList(key)
-
+                "imgCover":imgCoverMangaList(key),
+                "chapter":temp
             }
             })  
             return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items(), title= title) 
