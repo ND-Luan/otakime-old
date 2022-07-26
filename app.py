@@ -123,10 +123,15 @@ def mangaPage(urlnameManga):
             }
             })  
             return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items(), title= title) 
-        #=else:
+        #else:
             #return render_template('manga/404Page.html')
     return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items()) 
     
+def chapterManga(urlnameManga = None,chapter= None):
+    urlnameManga = "kawaii-kanojo-chan"
+    chapter = "1"
+    return render_template('manga/page/mangaChapter.html',urlnameManga=urlnameManga,chapter = chapter)
+
 
 def blog():
     title = 'Otakime - Blog'
@@ -188,6 +193,7 @@ app.add_url_rule('/manga','manga', manga )
 app.add_url_rule('/blog','blog', blog )
 
 app.add_url_rule('/<urlnameManga>','mangaPage', mangaPage )
+app.add_url_rule('/<urlnameManga>/<chapter>','chapterManga', chapterManga )
 
 app.add_url_rule('/admin','admin', admin, methods=['GET','POST'])
 app.add_url_rule('/admin','logout', logout, methods=['GET','POST'])
