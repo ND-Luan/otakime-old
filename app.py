@@ -1,8 +1,11 @@
+from email.policy import default
 from flask import Flask, redirect, render_template, request, session, url_for
 from flask_mail import Mail,Message
 
 from datetime import timedelta
-from getMangaChapter import ChapterMangaPage
+
+import requests
+from getMangaChapter import ChapterMangaPage, getIdChapter
 from getMangaList import authorMangaList, desciptionMangaList, imgBannerMangaList, imgCoverMangaList, imgIndexMangaList, otherName, tagsMangaList, titleMangaList, updateAt
 
 from parseJsonMangaPage import idMangaJSON
@@ -103,26 +106,44 @@ def manga():
   
     return render_template('manga/page/mangaList.html', data = dictManga.items(),title= title,description = description)
 
-def mangaPage(urlnameManga):
+def mangaPage(urlnameManga,chapter):
     dict_mangaPage ={}
-    for key, value in idMangaJSON().items():
-        if urlnameManga == key.lower().replace(' ','-'):
-            title = f"Otakime - {key}"
+    listurlUpload =[]
+    for keyID, valueID in idMangaJSON().items():
+        if urlnameManga == keyID.lower().replace(' ','-'):
+            title = f"Otakime - {keyID}"
             temp =[]
-            for item in ChapterMangaPage(value):
+
+            idchapter = getIdChapter(valueID)
+            for keyChapter, valueChapter in idchapter.items():
+                if keyChapter == chapter:
+                    url = f"https://api.mangadex.org/at-home/server/{valueChapter}"
+                    r = requests.get(url)
+                    j = r.json()
+                    hashChapter = j['chapter']['hash']
+                    imgUrlChapter = j['chapter']['dataSaver']
+                    for imgUrl in imgUrlChapter:
+                        urlUpload = f"https://uploads.mangadex.org/data-saver/{hashChapter}/{imgUrl}"
+                        listurlUpload.append(urlUpload)
+                    return render_template('manga/page/mangaChapter.html', dataIMG= listurlUpload)
+
+
+
+
+            for item in ChapterMangaPage(valueID):
                 temp.append(item['chapter'])
             dict_mangaPage.update({
-                key: {
-                "nameManga": key.lower().replace(' ','-'),
-                "title":titleMangaList(value),
-                "author":authorMangaList(value),
-                "updateAt": updateAt(value),
-                "otherName":otherName(value),
-                "description":desciptionMangaList(value),
-                "tags":', '.join(tagsMangaList(value)),
-                "imgIndex":imgIndexMangaList(key),
-                "imgBanner":imgBannerMangaList(key),
-                "imgCover":imgCoverMangaList(key),
+                keyID: {
+                "nameManga": keyID.lower().replace(' ','-'),
+                "title":titleMangaList(valueID),
+                "author":authorMangaList(valueID),
+                "updateAt": updateAt(valueID),
+                "otherName":otherName(valueID),
+                "description":desciptionMangaList(valueID),
+                "tags":', '.join(tagsMangaList(valueID)),
+                "imgIndex":imgIndexMangaList(keyID),
+                "imgBanner":imgBannerMangaList(keyID),
+                "imgCover":imgCoverMangaList(keyID),
                 "chapter":temp
             }
             })  
@@ -131,11 +152,6 @@ def mangaPage(urlnameManga):
             #return render_template('manga/404Page.html')
     return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items()) 
     
-def chapterManga(urlnameManga = None,chapter= None):
-    urlnameManga = "kawaii-kanojo-chan"
-    chapter = "1"
-    return render_template('manga/page/mangaChapter.html',urlnameManga=urlnameManga,chapter = chapter)
-
 
 def blog():
     title = 'Otakime - Blog'
@@ -196,8 +212,8 @@ app.add_url_rule('/manga','manga', manga )
 
 app.add_url_rule('/blog','blog', blog )
 
-app.add_url_rule('/<urlnameManga>','mangaPage', mangaPage )
-app.add_url_rule('/<urlnameManga>/<chapter>','chapterManga', chapterManga )
+app.add_url_rule('/<urlnameManga>','mangaPage', mangaPage ,defaults={"chapter":None})
+app.add_url_rule('/<urlnameManga>/<chapter>','mangaPage', mangaPage )
 
 app.add_url_rule('/admin','admin', admin, methods=['GET','POST'])
 app.add_url_rule('/admin','logout', logout, methods=['GET','POST'])

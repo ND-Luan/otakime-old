@@ -2,7 +2,9 @@
 
 {% block main%}
 {% include 'manga/navbar/header.html'%}
-
-
+{%for item in dataIMG%}
+    <img src="{{item}}" height="1963" width="1400"/> 
+    <br>
+{%endfor%}
 {% include 'manga/navbar/footer.html'%}
 {% endblock%}

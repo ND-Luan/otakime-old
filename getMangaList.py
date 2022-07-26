@@ -83,6 +83,3 @@ def imgIndexMangaList(keyID):
 def imgCoverMangaList(keyID):
     img = imgMangaJSON()
     return img[keyID]['imgCover']
-
-id = "cb98bd40-a903-4416-bdd0-dab93d8f36ad"
-otherName(id)

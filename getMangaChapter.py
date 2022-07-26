@@ -27,7 +27,6 @@ def getVolumes(id):
                     "chapters":value['chapters']}})
             return dictList
 
-
 def getChapter(id):
     listChapter = []
     chapter = getVolumes(id)
@@ -45,3 +44,14 @@ def ChapterMangaPage(id):
         listChapter.append(item)
     return listChapter
 
+
+
+def getIdChapter(id):
+    idChapter = ChapterMangaPage(id)
+    dictIdChapter = {}
+    for itemList in idChapter:
+        dictIdChapter.update({itemList['chapter']:itemList['id']})
+        
+    return dictIdChapter
+id = "3ee24c64-1289-41b2-8100-74f0cdd7f1d8"
+print(getIdChapter(id))

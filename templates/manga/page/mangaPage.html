@@ -54,7 +54,7 @@
             <div class="col-6 col-md-3">
                 <div class="single-services-area wow fadeInUp" data-wow-delay="300ms" style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
                     <img src="img/core-img/camera.png" alt="">
-                    <a href="#"><h5>Chap {{item}}</h5></a>
+                    <a href="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = item) }}"><h5>Chap {{item}}</h5></a>
                 </div>
             
             </div>
