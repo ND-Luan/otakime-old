@@ -53,5 +53,3 @@ def getIdChapter(id):
         dictIdChapter.update({itemList['chapter']:itemList['id']})
         
     return dictIdChapter
-id = "3ee24c64-1289-41b2-8100-74f0cdd7f1d8"
-print(getIdChapter(id))
