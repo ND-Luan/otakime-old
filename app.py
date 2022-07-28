@@ -125,6 +125,8 @@ def mangaPage(urlnameManga,chapter):
                         urlUpload = f"https://uploads.mangadex.org/data-saver/{hashChapter}/{imgUrl}"
                         listurlUpload.append(urlUpload)
                     return render_template('manga/page/mangaChapter.html', dataIMG= listurlUpload)
+                else:
+                    return render_template('manga/404Page.html')
                     
             for item in ChapterMangaPage(valueID):
                 temp.append(item['chapter'])
