@@ -169,11 +169,11 @@ def admin():
             session.permanent = True
             return redirect(url_for('adminPostManga'))
     else:
-        return render_template('admin/adminPage.html', title= title)
+        return render_template('admin/adminLogin.html', title= title)
 
 def logout():
     session.pop("admin", None)
-    return render_template('admin/adminPage.html')
+    return render_template('admin/adminLogin.html')
 
 def adminPostManga():
 
@@ -181,14 +181,14 @@ def adminPostManga():
         name = session['admin']
         return render_template('admin/page/adminPost.html', nameAdmin = name)
     else:
-        return render_template('admin/adminPage.html')
+        return render_template('admin/adminLogin.html')
     
 def adminUpdateManga():
     if "admin" in session:
         name = session['admin']
         return render_template('admin/page/adminUpdate.html', nameAdmin = name)
     else:
-        return render_template('admin/adminPage.html')
+        return render_template('admin/adminLogin.html')
 
 def adminDeleteManga():
     if "admin" in session:
