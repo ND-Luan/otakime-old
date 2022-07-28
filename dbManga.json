@@ -1,14 +1,7 @@
 {
     "Kawaii Kanojo-chan":
     {
-        "id": 1,
-        "nameManga":"Kawaii Kanojo-chan",
-        "author":"Semimaru",
-        "description": "Một cô gái dễ thương gõ cửa nhà tôi, còn để làm gì thì tôi không biết",
-        "isUpdate": false,
-        "otherName":"かわいい彼女ちゃん",
-        "dateUpdate": "27/06/2022",
-        "category":"Bí ẩn, Đời thường, Lãng mạn, Seinen, Tâm lý",
+        "id": "b7e673cb-3890-484e-b4cc-05a467dc324a",
         "cardImgUrlIndex":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911531/kawaiikanojo/kawaii-kanojo-chan-index_xyzicd.jpg",   
         "cardImgUrl" :"https://res.cloudinary.com/otakime-manga/image/upload/v1658911550/kawaiikanojo/kawaii-kanojo-chan-banner_wwgmlv.jpg",
         "cardSingleImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911558/kawaiikanojo/kawaii-kanojo-chan-cover_tq0bsh.jpg",
@@ -16,14 +9,7 @@
     },
     "R15 Ja Dame Desuka":
     {
-        "id": 2,
-        "nameManga":"R15 Ja Dame Desuka",
-        "author":"Kishitani Todoroki, Uratani Nagi",
-        "description": "Liệu cô nữ sinh Akane Amou có thể xem được một phim nhán mác 'cấm trẻ em'?",
-        "isUpdate": false,
-        "otherName":"R15＋じゃダメですか？",
-        "dateUpdate": "02/06/2022",
-        "category":"Đời thường, Hài, Học đường, Lãng mạn, Seinen",
+        "id": "cb98bd40-a903-4416-bdd0-dab93d8f36ad",
         "cardImgUrlIndex":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911430/r15/r15-index_nvfl0o.jpg",  
         "cardImgUrl" :"https://res.cloudinary.com/otakime-manga/image/upload/v1658911454/r15/r15-banner_paympz.jpg",
         "cardSingleImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911468/r15/r15-cover_vs0svu.jpg",
@@ -32,14 +18,7 @@
     },
     "Toaru Meoto no Nichijou":
     {
-        "id": 3,
-        "nameManga":"Toaru Meoto no Nichijou",
-        "author":"Sakiyo Cake",
-        "description": "Nàng dâu mang tên Kinu đến sống cùng gia đình nhà chồng Fujidana. Thoạt đầu nhìn chồng là một người nhút nhát, lười biếng, nhưng cô đã bắt đầu tìm hiểu và biết rằng 'chồng mình có trái tim rộng lượng hơn mình nghĩ'.",
-        "isUpdate": false,
-        "otherName":"ト或ル夫婦ノ日乗",
-        "dateUpdate": "06/06/2022",
-        "category":"Đời thường, Hài, Lãng mạn, Seinen",
+        "id": "829bb5b6-b9d2-4fc3-ba63-485934b098c6",
         "cardImgUrlIndex":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911616/toarumeoto/toaru-meoto-index_zuy2t3.jpg",  
         "cardImgUrl" :"https://res.cloudinary.com/otakime-manga/image/upload/v1658911636/toarumeoto/toaru-meoto-banner_xsbzs9.jpg",
         "cardSingleImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911654/toarumeoto/toaru-meoto-cover_kqys10.jpg",
@@ -48,14 +27,7 @@
     },
     "Tokedase Mizore-chan":
     {
-        "id": 4,
-        "nameManga":"Tokedase Mizore-chan",
-        "author":"Tabi Hanao",
-        "description": "Hành trình tiêu diệt mặt trời của 'nữ chúa tuyết' với sự giúp đỡ của Himari và người họ hàng của mình.",
-        "isUpdate": false,
-        "otherName":"とけだせ! みぞれちゃん",
-        "dateUpdate": "29/06/2022",
-        "category":"Đời thường, Hài, Lãng mạn, Seinen",
+        "id": "16836fe6-b330-4924-92f3-87dd5def5ec1",
         "cardImgUrlIndex":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911758/mizorechan/mizore-chan-index_gsrnm4.jpg",  
         "cardImgUrl" :"https://res.cloudinary.com/otakime-manga/image/upload/v1658911814/mizorechan/mizore-chan-banner_qw5acd.jpg",
         "cardSingleImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911786/mizorechan/mizore-chan-cover_us0t7s.jpg",
@@ -64,13 +36,7 @@
     },
     "Sonouchi kekkon made ikukedo ima wa mada":
     {
-        "id": 5,
-        "nameManga":"Sonouchi kekkon made ikukedo ima wa mada",
-        "author":"Sekizui Hikinuki no Kei",
-        "description": "Quen nhau từ nhỏ, đến lúc thành cặp đôi và hẹn hò đã 5 năm, nhưng Ritsuho and Kyoichi chưa bao giờ có một lần 'chim chuột'. Ritsuho thì muốn mối quan hệ tiến xa hơn, vậy tại sao Kyoichi thì vẫn muốn dậm chân tại chỗ?",
-        "isUpdate": false,
-        "otherName":"そのうち結婚までいくけど今はまだ",
-        "date": "22/06/2022",
+        "id": "759fa10f-1e45-41d2-be46-7e462b62afd7",
         "cardImgUrlIndex":"",
         "cardImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911681/sonouchi/sonouchi-banner_wmgatm.jpg",
         "cardSingleImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911701/sonouchi/sonouchi-cover_t1xnqm.jpg",
@@ -79,47 +45,27 @@
     },
     "Italiajin no Onnanoko ga Isourou Suru Koto ni Natta":
     {
-        "id": 6,
-        "nameManga":"Italiajin no Onnanoko ga Isourou Suru Koto ni Natta",
-        "author":"Hamita",
-        "description": "Cuộc gặp gỡ “sắp đặt” giữa anh họa sĩ và cô nàng người Ý từng là bạn thuở nhỏ sẽ mang đến bất ngờ gì?",
-        "isUpdate": false,
-        "otherName":"イタリア人の女の子が居候することになった",
-        "date": "29/06/2022",
+        "id": "3ee24c64-1289-41b2-8100-74f0cdd7f1d8",
         "cardImgUrlIndex":"",
         "cardImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911913/italiajin/italiajin-banner_f2vhuj.jpg",
         "cardSingleImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658912287/italiajin/italiajin-cover_n5w8m1.jpg",
-        "category":"Đời thường, Hài, Lãng mạn, Shounen, Tâm lí",
         "urlChapter":"https://mangadex.org/title/3ee24c64-1289-41b2-8100-74f0cdd7f1d8/this-italian-girl-has-become-such-a-freeloader"
     },
     "Ookumo-chan Flashback":
     {
-        "id": 7,
-        "nameManga":"Ookumo-chan Flashback",
-        "author":"Ueshiba Riichi",
-        "description": "Cậu học sinh cấp ba Minoru Suzuki vô tình kết nối với kí ức về người bố đã mất, mở ra nhiều câu chuyện xoay quanh người mẹ của cậu.",
-        "isUpdate": false,
-        "otherName":"大蜘蛛ちゃんフラッシュ・バック",
-        "date": "24/05/2022",
+        "id": "9932c3f4-63c4-4e7c-b26d-781c958e3aad",
         "cardImgUrlIndex":"",
         "cardImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658913088/ookumo/ookumo-chan-banner_hjh1vh.jpg",
         "cardSingleImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658913120/ookumo/ookumo-chan-cover_r0sxbo.jpg",
-        "category":"Hài, Học đường, Lãng mạn, Seinen, Siêu nhiên",
         "urlChapter":"https://mangadex.org/title/9932c3f4-63c4-4e7c-b26d-781c958e3aad/ookumo-chan-flashback"
     },
     "Jitsu wa Ryouomoi Kamo Shirenai Onee-san to Chuusan Danshi no Hanashi":
     {
-        "id": 8,
-        "nameManga":"Jitsu wa Ryouomoi Kamo Shirenai Onee-san to Chuusan Danshi no Hanashi",
-        "author":"Saisou",
-        "description": "Truyện ngắn về hai chị em thuở nhỏ.",
-        "isUpdate": false,
-        "otherName":"実は両思いかもしれないお姉さんと中三男子の話",
-        "date": "29/03/2022",
+        "id": "c68fc469-5807-4978-b5d4-00238178373a",
+        
         "cardImgUrlIndex":"",
         "cardImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658912228/jitsuwa/jitsu-wa-banner_too2m4.jpg",
         "cardSingleImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911879/jitsuwa/jitsu-wa-cover_diof64.jpg ",
-        "category":"Hài, Lãng mạn",
         "urlChapter":"https://mangadex.org/title/c68fc469-5807-4978-b5d4-00238178373a/jitsu-wa-ryouomoi-kamo-shirenai-onee-san-to-chuusan-danshi-no-hanashi"
     }
 
