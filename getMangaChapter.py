@@ -1,8 +1,5 @@
 import requests
 
-from parseJsonMangaPage import idMangaJSON
-
-
 def getVolumes(id):
     r = requests.get(f'https://api.mangadex.org/manga/{id}/aggregate?translatedLanguage%5B%5D=vi')
     j = r.json()

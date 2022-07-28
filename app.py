@@ -1,4 +1,3 @@
-from email.policy import default
 from flask import Flask, redirect, render_template, request, session, url_for
 from flask_mail import Mail,Message
 
