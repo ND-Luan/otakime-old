@@ -112,14 +112,19 @@ def mangaPage(urlnameManga,chapter):
         if urlnameManga == keyID.lower().replace(' ','-'):
             title = f"Otakime - {keyID}"
             temp =[]
+                    
+                #elif key != chapter:
+                #    return "Trang nay hien khong co"
+                #elif key != chapter:
+                #    
 
-
+        
             idchapter = imgChapter(valueID)
             for key,value in idchapter.items():
                 if key == chapter:
-                    print(keyID)
-                    return render_template('manga/page/mangaChapter.html', dataIMG= value)
-
+                #print(keyID)
+                    return render_template('manga/page/mangaChapter.html', dataIMG= value,title = title)  
+            
             """
             for keyChapter, valueChapter in idchapter.items():
                 if keyChapter == chapter:
@@ -135,8 +140,7 @@ def mangaPage(urlnameManga,chapter):
                 #else:
                 #    return render_template('manga/404Page.html')
             """        
-            for item in ChapterMangaPage(valueID):
-                temp.append(item['chapter'])
+
             dict_mangaPage.update({
                 keyID: {
                 "nameManga": keyID.lower().replace(' ','-'),
@@ -149,13 +153,12 @@ def mangaPage(urlnameManga,chapter):
                 "imgIndex":imgIndexMangaList(keyID),
                 "imgBanner":imgBannerMangaList(keyID),
                 "imgCover":imgCoverMangaList(keyID),
-                "chapter":temp
+                "chapter":[item['chapter'] for item in ChapterMangaPage(valueID)]
             }
-            })  
+            })
             return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items(), title= title) 
-        #else:
-            #return render_template('manga/404Page.html')
-    return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items()) 
+        
+    return "Trang nay hien khong co"
     
 
 def blog():
@@ -217,8 +220,8 @@ app.add_url_rule('/manga','manga', manga )
 
 app.add_url_rule('/blog','blog', blog )
 
-app.add_url_rule('/<urlnameManga>','mangaPage', mangaPage ,defaults={"chapter":None})
-app.add_url_rule('/<urlnameManga>/<chapter>','mangaPage', mangaPage )
+app.add_url_rule('/<urlnameManga>','mangaPage', mangaPage, defaults={"chapter":None})
+app.add_url_rule('/<urlnameManga>/<chapter>','mangaPage', mangaPage)
 
 app.add_url_rule('/admin','admin', admin, methods=['GET','POST'])
 app.add_url_rule('/admin','logout', logout, methods=['GET','POST'])
