@@ -12,7 +12,7 @@ def idMangaJSON():
     return idMangaList
 
 
-def imgMangaJSON():
+def imgLogoMangaJSON():
     imgMangaList = {}
 
     for keyID, valueID in parseJsonMangadex().items():
@@ -20,9 +20,12 @@ def imgMangaJSON():
         {
             keyID:{
                 "imgIndex":valueID['cardImgUrlIndex'],
-                "imgBanner":valueID['cardImgUrl'],
-                "imgCover":valueID['cardSingleImgUrl'],
+                "imgBanner":valueID['cardImgUrlBanner'],
+                "imgCover":valueID['cardImgUrlCover'],
             }
         }
         )
     return imgMangaList
+
+
+

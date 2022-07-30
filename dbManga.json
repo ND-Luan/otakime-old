@@ -2,71 +2,224 @@
     "Kawaii Kanojo-chan":
     {
         "id": "b7e673cb-3890-484e-b4cc-05a467dc324a",
-        "cardImgUrlIndex":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911531/kawaiikanojo/kawaii-kanojo-chan-index_xyzicd.jpg",   
-        "cardImgUrl" :"https://res.cloudinary.com/otakime-manga/image/upload/v1658911550/kawaiikanojo/kawaii-kanojo-chan-banner_wwgmlv.jpg",
-        "cardSingleImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911558/kawaiikanojo/kawaii-kanojo-chan-cover_tq0bsh.jpg",
+        "cardImgUrlIndex":"static/img/imgManga/kawaiikanojo/logo/index/kawaii-kanojo-chan-index.jpg",   
+        "cardImgUrlBanner" :"static/img/imgManga/kawaiikanojo/logo/banner/kawaii-kanojo-chan-banner.jpg",
+        "cardImgUrlCover":"static/img/imgManga/kawaiikanojo/logo/cover/kawaii-kanojo-chan-cover.jpg",
         "urlChapter":"https://mangadex.org/title/b7e673cb-3890-484e-b4cc-05a467dc324a/a-cute-girlfriend"
+        ,"chapter":
+        {
+            "1":[],
+            "2":[]
+            ,"3":[]
+            ,"4":[]
+            ,"5":[]
+            ,"6":[]
+            ,"7":[]
+            ,"8":[]
+            ,"9":[]
+            ,"10":[]
+            ,"11":[]
+            ,"12":[]
+        }
     },
     "R15 Ja Dame Desuka":
     {
         "id": "cb98bd40-a903-4416-bdd0-dab93d8f36ad",
-        "cardImgUrlIndex":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911430/r15/r15-index_nvfl0o.jpg",  
-        "cardImgUrl" :"https://res.cloudinary.com/otakime-manga/image/upload/v1658911454/r15/r15-banner_paympz.jpg",
-        "cardSingleImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911468/r15/r15-cover_vs0svu.jpg",
+        "cardImgUrlIndex":"static/img/imgManga/r15/logo/index/r15-index.jpg",  
+        "cardImgUrlBanner" :"static/img/imgManga/r15/logo/banner/r15-banner.jpg",
+        "cardImgUrlCover":"static/img/imgManga/r15/logo/cover/r15-cover.jpg",
         "urlChapter":"https://mangadex.org/title/cb98bd40-a903-4416-bdd0-dab93d8f36ad/r15-ja-dame-desuka"
+        ,"chapter":
+        {
+            "1":[],
+            "2":[]
+            ,"3":[]
+            ,"4":[]
+            ,"5":[]
+            ,"6":[]
+            ,"7":[]
+            ,"8":[]
+            ,"9":[]
+            ,"10":[]
+            ,"11":[]
+            ,"12":[]
+        }
         
     },
     "Toaru Meoto no Nichijou":
     {
         "id": "829bb5b6-b9d2-4fc3-ba63-485934b098c6",
-        "cardImgUrlIndex":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911616/toarumeoto/toaru-meoto-index_zuy2t3.jpg",  
-        "cardImgUrl" :"https://res.cloudinary.com/otakime-manga/image/upload/v1658911636/toarumeoto/toaru-meoto-banner_xsbzs9.jpg",
-        "cardSingleImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911654/toarumeoto/toaru-meoto-cover_kqys10.jpg",
+        "cardImgUrlIndex":"static/img/imgManga/toarumeoto/logo/index/toaru-meoto-index.jpg",  
+        "cardImgUrlBanner" :"static/img/imgManga/toarumeoto/logo/banner/toaru-meoto-banner.jpg",
+        "cardImgUrlCover":"static/img/imgManga/toarumeoto/logo/cover/toaru-meoto-cover.jpg",
         "urlChapter":"https://mangadex.org/title/829bb5b6-b9d2-4fc3-ba63-485934b098c6/daily-life-of-a-certain-married-couple"
+        ,"chapter":
+        {
+            "1":[],
+            "2":[]
+            ,"3":[]
+            ,"4":[]
+            ,"5":[]
+            ,"6":[]
+            ,"7":[]
+            ,"8":[]
+            ,"9":[
+                "img/imgManga/toarumeoto/chapter/9/83.jpg", 
+                "img/imgManga/toarumeoto/chapter/9/84-Recovered.jpg",
+                "img/imgManga/toarumeoto/chapter/9/85.jpg",
+                "img/imgManga/toarumeoto/chapter/9/86.jpg",
+                "img/imgManga/toarumeoto/chapter/9/87-Recovered.jpg",
+                "img/imgManga/toarumeoto/chapter/9/88.jpg",
+                "img/imgManga/toarumeoto/chapter/9/89.jpg",
+                "img/imgManga/toarumeoto/chapter/9/90.jpg",
+                "img/imgManga/toarumeoto/chapter/9/91.jpg",
+                "img/imgManga/toarumeoto/chapter/9/92.jpg"
+            ]
+            ,"10":[
+                "img/imgManga/toarumeoto/chapter/10/93.jpg",
+                "img/imgManga/toarumeoto/chapter/10/94 95.jpg",
+                "img/imgManga/toarumeoto/chapter/10/96.jpg",
+                "img/imgManga/toarumeoto/chapter/10/97.jpg",
+                "img/imgManga/toarumeoto/chapter/10/98.jpg",
+                "img/imgManga/toarumeoto/chapter/10/99.jpg",
+                "img/imgManga/toarumeoto/chapter/10/101.jpg",
+                "img/imgManga/toarumeoto/chapter/10/102.jpg"
+            ]
+            ,"11":[
+                "img/imgManga/toarumeoto/chapter/11/104.jpg",
+                "img/imgManga/toarumeoto/chapter/11/105.jpg",
+                "img/imgManga/toarumeoto/chapter/11/106.jpg",
+                "img/imgManga/toarumeoto/chapter/11/107.jpg",
+                "img/imgManga/toarumeoto/chapter/11/108.jpg",
+                "img/imgManga/toarumeoto/chapter/11/109.jpg",
+                "img/imgManga/toarumeoto/chapter/11/110.jpg"
+            ]
+            ,"12":[]
+            ,"13":[]
+            ,"14":[]
+            ,"15":[]
+            ,"16":[]
+            ,"17":[]
+            ,"18":[]
+        }
         
     },
     "Tokedase Mizore-chan":
     {
         "id": "16836fe6-b330-4924-92f3-87dd5def5ec1",
-        "cardImgUrlIndex":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911758/mizorechan/mizore-chan-index_gsrnm4.jpg",  
-        "cardImgUrl" :"https://res.cloudinary.com/otakime-manga/image/upload/v1658911814/mizorechan/mizore-chan-banner_qw5acd.jpg",
-        "cardSingleImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911786/mizorechan/mizore-chan-cover_us0t7s.jpg",
+        "cardImgUrlIndex":"static/img/imgManga/mizorechan/logo/index/mizore-chan-index.jpg",  
+        "cardImgUrlBanner" :"static/img/imgManga/mizorechan/logo/banner/mizore-chan-banner.jpg",
+        "cardImgUrlCover":"static/img/imgManga/mizorechan/logo/cover/mizore-chan-cover.jpg",
         "urlChapter":"https://mangadex.org/title/16836fe6-b330-4924-92f3-87dd5def5ec1/tokedase-mizore-chan"
+        ,"chapter":
+        {
+            "1":[],
+            "2":[]
+            ,"3":[]
+            ,"4":[]
+            ,"5":[]
+            ,"6":[]
+            ,"7":[]
+            ,"8":[]
+            ,"9":[]
+            ,"10":[]
+            ,"11":[]
+            ,"12":[]
+        }
         
     },
     "Sonouchi kekkon made ikukedo ima wa mada":
     {
         "id": "759fa10f-1e45-41d2-be46-7e462b62afd7",
         "cardImgUrlIndex":"",
-        "cardImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911681/sonouchi/sonouchi-banner_wmgatm.jpg",
-        "cardSingleImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911701/sonouchi/sonouchi-cover_t1xnqm.jpg",
+        "cardImgUrlBanner":"static/img/imgManga/sonouchi/logo/banner/sonouchi-banner.jpg",
+        "cardImgUrlCover":"static/img/imgManga/sonouchi/logo/cover/sonouchi-cover.jpg",
         "category":"Đời thường, Hài, Lãng mạn, Seinen",
         "urlChapter":"https://mangadex.org/title/759fa10f-1e45-41d2-be46-7e462b62afd7/we-ll-get-married-someday-but-for-now"
+        ,"chapter":
+        {
+            "1":[],
+            "2":[]
+            ,"3":[]
+            ,"4":[]
+            ,"5":[]
+            ,"6":[]
+            ,"7":[]
+            ,"8":[]
+            ,"9":[]
+            ,"10":[]
+            ,"11":[]
+            ,"12":[]
+        }
     },
     "Italiajin no Onnanoko ga Isourou Suru Koto ni Natta":
     {
         "id": "3ee24c64-1289-41b2-8100-74f0cdd7f1d8",
         "cardImgUrlIndex":"",
-        "cardImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911913/italiajin/italiajin-banner_f2vhuj.jpg",
-        "cardSingleImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658912287/italiajin/italiajin-cover_n5w8m1.jpg",
+        "cardImgUrlBanner":"static/img/imgManga/italiajin/logo/banner/italiajin-banner.jpg",
+        "cardImgUrlCover":"static/img/imgManga/italiajin/logo/cover/italiajin-cover.jpg",
         "urlChapter":"https://mangadex.org/title/3ee24c64-1289-41b2-8100-74f0cdd7f1d8/this-italian-girl-has-become-such-a-freeloader"
+        ,"chapter":
+        {
+            "1":[],
+            "2":[]
+            ,"3":[]
+            ,"4":[]
+            ,"5":[]
+            ,"6":[]
+            ,"7":[]
+            ,"8":[]
+            ,"9":[]
+            ,"10":[]
+            ,"11":[]
+            ,"12":[]
+        }
     },
     "Ookumo-chan Flashback":
     {
         "id": "9932c3f4-63c4-4e7c-b26d-781c958e3aad",
         "cardImgUrlIndex":"",
-        "cardImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658913088/ookumo/ookumo-chan-banner_hjh1vh.jpg",
-        "cardSingleImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658913120/ookumo/ookumo-chan-cover_r0sxbo.jpg",
+        "cardImgUrlBanner":"https://res.cloudinary.com/otakime-manga/image/upload/v1658913088/ookumo/ookumo-chan-banner_hjh1vh.jpg",
+        "cardImgUrlCover":"https://res.cloudinary.com/otakime-manga/image/upload/v1658913120/ookumo/ookumo-chan-cover_r0sxbo.jpg",
         "urlChapter":"https://mangadex.org/title/9932c3f4-63c4-4e7c-b26d-781c958e3aad/ookumo-chan-flashback"
+        ,"chapter":
+        {
+            "1":[],
+            "2":[]
+            ,"3":[]
+            ,"4":[]
+            ,"5":[]
+            ,"6":[]
+            ,"7":[]
+            ,"8":[]
+            ,"9":[]
+            ,"10":[]
+            ,"11":[]
+            ,"12":[]
+        }
     },
     "Jitsu wa Ryouomoi Kamo Shirenai Onee-san to Chuusan Danshi no Hanashi":
     {
         "id": "c68fc469-5807-4978-b5d4-00238178373a",
-        
         "cardImgUrlIndex":"",
-        "cardImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658912228/jitsuwa/jitsu-wa-banner_too2m4.jpg",
-        "cardSingleImgUrl":"https://res.cloudinary.com/otakime-manga/image/upload/v1658911879/jitsuwa/jitsu-wa-cover_diof64.jpg ",
+        "cardImgUrlBanner":"static/img/imgManga/jitsuwa/logo/banner/jitsu-wa-banner.jpg",
+        "cardImgUrlCover":"static/img/imgManga/jitsuwa/logo/cover/jitsu-wa-cover.jpg",
         "urlChapter":"https://mangadex.org/title/c68fc469-5807-4978-b5d4-00238178373a/jitsu-wa-ryouomoi-kamo-shirenai-onee-san-to-chuusan-danshi-no-hanashi"
+        ,"chapter":
+        {
+            "1":[],
+            "2":[]
+            ,"3":[]
+            ,"4":[]
+            ,"5":[]
+            ,"6":[]
+            ,"7":[]
+            ,"8":[]
+            ,"9":[]
+            ,"10":[]
+            ,"11":[]
+            ,"12":[]
+        }
     }
 
     

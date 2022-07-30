@@ -2,11 +2,14 @@
 
 {% block main%}
 {% include 'manga/navbar/header.html'%}
-{%for item in dataIMG%}
-<div class="container">
-    <img src="{{item}}" height="1963" width="1400"/> 
-    <br>
-    </div>>
-{%endfor%}
+
+    <div class="container">
+        {%for item in dataIMG%}
+        <img src="{{url_for('static',filename=item)}}"/> 
+        <br>
+        {%endfor%}
+        </div>
+
+
 {% include 'manga/navbar/footer.html'%}
 {% endblock%}

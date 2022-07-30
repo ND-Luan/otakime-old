@@ -4,7 +4,7 @@ from flask_mail import Mail,Message
 from datetime import timedelta
 
 import requests
-from getMangaChapter import ChapterMangaPage, getIdChapter
+from getMangaChapter import ChapterMangaPage, getIdChapter, imgChapter
 from getMangaList import authorMangaList, desciptionMangaList, imgBannerMangaList, imgCoverMangaList, imgIndexMangaList, otherName, tagsMangaList, titleMangaList, updateAt
 
 from parseJsonMangaPage import idMangaJSON
@@ -113,7 +113,14 @@ def mangaPage(urlnameManga,chapter):
             title = f"Otakime - {keyID}"
             temp =[]
 
-            idchapter = getIdChapter(valueID)
+
+            idchapter = imgChapter(valueID)
+            for key,value in idchapter.items():
+                if key == chapter:
+                    print(keyID)
+                    return render_template('manga/page/mangaChapter.html', dataIMG= value)
+
+            """
             for keyChapter, valueChapter in idchapter.items():
                 if keyChapter == chapter:
                     url = f"https://api.mangadex.org/at-home/server/{valueChapter}"
@@ -127,7 +134,7 @@ def mangaPage(urlnameManga,chapter):
                     return render_template('manga/page/mangaChapter.html', dataIMG= listurlUpload)
                 #else:
                 #    return render_template('manga/404Page.html')
-                    
+            """        
             for item in ChapterMangaPage(valueID):
                 temp.append(item['chapter'])
             dict_mangaPage.update({

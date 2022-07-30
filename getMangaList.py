@@ -1,6 +1,6 @@
 import requests
 
-from parseJsonMangaPage import imgMangaJSON
+from parseJsonMangaPage import imgLogoMangaJSON
 
 
 def getUrlServer(id):
@@ -73,13 +73,18 @@ def otherName(id):
 
 
 def imgBannerMangaList(keyID):
-    img = imgMangaJSON()
+    img = imgLogoMangaJSON()
     return img[keyID]['imgBanner']
 
 def imgIndexMangaList(keyID):
-    img = imgMangaJSON()
+    img = imgLogoMangaJSON()
     return img[keyID]['imgIndex']
 
 def imgCoverMangaList(keyID):
-    img = imgMangaJSON()
+    img = imgLogoMangaJSON()
     return img[keyID]['imgCover']
+keyid = "R15 Ja Dame Desuka"
+print(imgCoverMangaList(keyid))
+
+
+

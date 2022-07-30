@@ -1,5 +1,5 @@
 import requests
-
+from parseJsonMangaPage import parseJsonMangadex
 def getVolumes(id):
     r = requests.get(f'https://api.mangadex.org/manga/{id}/aggregate?translatedLanguage%5B%5D=vi')
     j = r.json()
@@ -50,3 +50,18 @@ def getIdChapter(id):
         dictIdChapter.update({itemList['chapter']:itemList['id']})
         
     return dictIdChapter
+
+
+
+
+
+
+
+def imgChapter(id):
+    DICT = {}
+    for keyID, valueID in parseJsonMangadex().items():
+        if id == valueID['id']:
+            #for itemChap in valueID['chapter']:
+            for key,value in valueID['chapter'].items():
+                DICT.update({key:value})
+    return DICT
