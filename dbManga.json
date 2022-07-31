@@ -479,11 +479,51 @@
         "urlChapter":"https://mangadex.org/title/759fa10f-1e45-41d2-be46-7e462b62afd7/we-ll-get-married-someday-but-for-now"
         ,"chapter":
         {
-            "1":[],
-            "2":[]
-            ,"3":[]
-            ,"4":[]
-            ,"5":[]
+            "1":[
+                "img/imgManga/sonouchi/chapter/1/4.jpg",
+                "img/imgManga/sonouchi/chapter/1/5.jpg",
+                "img/imgManga/sonouchi/chapter/1/6.jpg",
+                "img/imgManga/sonouchi/chapter/1/7.jpg",
+                "img/imgManga/sonouchi/chapter/1/8.jpg",
+                "img/imgManga/sonouchi/chapter/1/9.jpg",
+                "img/imgManga/sonouchi/chapter/1/10.jpg",
+                "img/imgManga/sonouchi/chapter/1/11.jpg",
+                "img/imgManga/sonouchi/chapter/1/12.jpg",
+                "img/imgManga/sonouchi/chapter/1/13.jpg",
+                "img/imgManga/sonouchi/chapter/1/14.jpg",
+                "img/imgManga/sonouchi/chapter/1/15.jpg"
+            ],
+            "2":[
+                "img/imgManga/sonouchi/chapter/2/1.jpg",
+                "img/imgManga/sonouchi/chapter/2/2.jpg",
+                "img/imgManga/sonouchi/chapter/2/3.jpg",
+                "img/imgManga/sonouchi/chapter/2/4.jpg",
+                "img/imgManga/sonouchi/chapter/2/5.jpg"
+            ]
+            ,"3":[
+                "img/imgManga/sonouchi/chapter/3/1.jpg",
+                "img/imgManga/sonouchi/chapter/3/2.jpg",
+                "img/imgManga/sonouchi/chapter/3/3.jpg",
+                "img/imgManga/sonouchi/chapter/3/4.jpg",
+                "img/imgManga/sonouchi/chapter/3/5.jpg",
+                "img/imgManga/sonouchi/chapter/3/6.jpg",
+                "img/imgManga/sonouchi/chapter/3/7.jpg",
+                "img/imgManga/sonouchi/chapter/3/8.jpg",
+                "img/imgManga/sonouchi/chapter/3/9.jpg",
+                "img/imgManga/sonouchi/chapter/3/10.jpg"
+            ]
+            ,"4":[
+                "img/imgManga/sonouchi/chapter/4/1.jpg",
+                "img/imgManga/sonouchi/chapter/4/2.jpg",
+                "img/imgManga/sonouchi/chapter/4/3.jpg",
+                "img/imgManga/sonouchi/chapter/4/4.jpg"
+            ]
+            ,"5":[
+                "img/imgManga/sonouchi/chapter/5/1.jpg",
+                "img/imgManga/sonouchi/chapter/5/2.jpg",
+                "img/imgManga/sonouchi/chapter/5/3.jpg",
+                "img/imgManga/sonouchi/chapter/5/4.jpg"
+            ]
             ,"6":[]
             ,"7":[]
             ,"8":[]
