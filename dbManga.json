@@ -548,11 +548,33 @@
         "urlChapter":"https://mangadex.org/title/c68fc469-5807-4978-b5d4-00238178373a/jitsu-wa-ryouomoi-kamo-shirenai-onee-san-to-chuusan-danshi-no-hanashi"
         ,"chapter":
         {
-            "1":[],
-            "2":[]
-            ,"3":[]
-            ,"4":[]
-            ,"5":[]
+            "1":[
+                "img/imgManga/jitsuwa/chapter/1/trang 1.jpg",
+                "img/imgManga/jitsuwa/chapter/1/trang 2.jpg",
+                "img/imgManga/jitsuwa/chapter/1/trang 3.jpg",
+                "img/imgManga/jitsuwa/chapter/1/trang 4.jpg"
+            ],
+            "2":[
+                "img/imgManga/jitsuwa/chapter/2/trang 1.jpg",
+                "img/imgManga/jitsuwa/chapter/2/trang 2.jpg"
+            ]
+            ,"3":[
+                "img/imgManga/jitsuwa/chapter/3/trang 1.jpg",
+                "img/imgManga/jitsuwa/chapter/3/trang 2.jpg",
+                "img/imgManga/jitsuwa/chapter/3/trang 3.jpg",
+                "img/imgManga/jitsuwa/chapter/3/trang 4.jpg"
+
+            ]
+            ,"4":[
+                "img/imgManga/jitsuwa/chapter/4/1.png",
+                "img/imgManga/jitsuwa/chapter/4/2.png"
+            ]
+            ,"5":[
+                "img/imgManga/jitsuwa/chapter/5/1.jpg",
+                "img/imgManga/jitsuwa/chapter/5/2.png",
+                "img/imgManga/jitsuwa/chapter/5/3.jpg",
+                "img/imgManga/jitsuwa/chapter/5/4.png"
+            ]
             ,"6":[]
             ,"7":[]
             ,"8":[]
