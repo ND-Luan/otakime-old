@@ -113,18 +113,6 @@ def mangaPage(urlnameManga,chapter):
             title = f"Otakime - {keyID}"
             temp =[]
                     
-                #elif key != chapter:
-                #    return "Trang nay hien khong co"
-                #elif key != chapter:
-                #    
-
-        
-            idchapter = imgChapter(valueID)
-            for key,value in idchapter.items():
-                if key == chapter:
-                #print(keyID)
-                    return render_template('manga/page/mangaChapter.html', dataIMG= value,title = title)  
-            
             """
             for keyChapter, valueChapter in idchapter.items():
                 if keyChapter == chapter:
@@ -156,7 +144,14 @@ def mangaPage(urlnameManga,chapter):
                 "chapter":[item['chapter'] for item in ChapterMangaPage(valueID)]
             }
             })
-            return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items(), title= title) 
+
+            idchapter = imgChapter(valueID)
+            for key,value in idchapter.items():
+                if key == chapter:
+                #print(keyID)
+                    return render_template('manga/page/mangaChapter.html',CHAPTER = chapter,  dataIMG= value, title = title, data = dict_mangaPage.items())  
+
+            return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items(), title= title, description=dict_mangaPage[keyID]['description']) 
         
     return "Trang nay hien khong co"
     

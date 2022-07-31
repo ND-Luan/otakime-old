@@ -3,12 +3,38 @@
 {% block main%}
 {% include 'manga/navbar/header.html'%}
 
-    <div class="container">
+    <div class="container"s style="padding-top: 100px;"> 
+
+            {% for key,value in data%}
+
+            <h3>{{value.title}}</h3>
+            {% for chapter in value.chapter%}
+                {% if chapter == CHAPTER  %}
+                    <p>Chap {{CHAPTER}}</p>
+                {%endif%}
+            {%endfor%}
+            <div class="input-group mb-3 d-flex justify-content-center" style="padding: 20px;">
+                
+                <div class="row">
+                    <button type="button" class="btn btn-secondary" style="margin-right: 10px;"><</button>
+                    
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Chọn chap...</option>
+                        <option value="1">Chap 1 </option>
+                        <option value="2">Chap 2</option>
+                        <option value="3">Chap 3</option>
+                    </select>
+
+                    <button type="button" class="btn btn-secondary" style="margin-left: 10px;">></button>
+                </div>
+            {%endfor%}
+        </div>
         {%for item in dataIMG%}
-        <img src="{{url_for('static',filename=item)}}"/> 
+        <img src="{{url_for('static',filename= item )}}"/> 
         <br>
         {%endfor%}
-        </div>
+    </div>
+        <a href="{{ url_for('manga', urlnameManga = URLMANAGA) }}">{{URLMANAGA}}</a>
 
 
 {% include 'manga/navbar/footer.html'%}
