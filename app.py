@@ -149,7 +149,7 @@ def mangaPage(urlnameManga,chapter):
             for key,value in idchapter.items():
                 if key == chapter:
                 #print(keyID)
-                    return render_template('manga/page/mangaChapter.html',CHAPTER = chapter,  dataIMG= value, title = title, data = dict_mangaPage.items())  
+                    return render_template('manga/page/mangaChapter.html',CHAPTER = chapter, previousChapter = idchapter,  dataIMG= value, title = title, data = dict_mangaPage.items())  
 
             return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items(), title= title, description=dict_mangaPage[keyID]['description']) 
         
