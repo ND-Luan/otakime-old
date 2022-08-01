@@ -152,18 +152,8 @@
                 "img/imgManga/r15/chapter/1/49.jpg"
 
 
-            ],
-            "2":[]
-            ,"3":[]
-            ,"4":[]
-            ,"5":[]
-            ,"6":[]
-            ,"7":[]
-            ,"8":[]
-            ,"9":[]
-            ,"10":[]
-            ,"11":[]
-            ,"12":[]
+            ]
+        
         }
         
     },
@@ -377,11 +367,8 @@
         "urlChapter":"https://mangadex.org/title/16836fe6-b330-4924-92f3-87dd5def5ec1/tokedase-mizore-chan"
         ,"chapter":
         {
-            "1":[],
-            "2":[]
-            ,"3":[]
-            ,"4":[]
-            ,"5":[
+
+            "5":[
                 "img/imgManga/mizorechan/chapter/5/001.jpg",
                 "img/imgManga/mizorechan/chapter/5/002.jpg",
                 "img/imgManga/mizorechan/chapter/5/003.jpg",
@@ -611,11 +598,6 @@
                 "img/imgManga/sonouchi/chapter/7/3.jpg",
                 "img/imgManga/sonouchi/chapter/7/4.jpg"
             ]
-            ,"8":[]
-            ,"9":[]
-            ,"10":[]
-            ,"11":[]
-            ,"12":[]
         }
     },
     "Italiajin no Onnanoko ga Isourou Suru Koto ni Natta":
@@ -948,13 +930,7 @@
                 "img/imgManga/jitsuwa/chapter/5/3.jpg",
                 "img/imgManga/jitsuwa/chapter/5/4.png"
             ]
-            ,"6":[]
-            ,"7":[]
-            ,"8":[]
-            ,"9":[]
-            ,"10":[]
-            ,"11":[]
-            ,"12":[]
+        
         }
     }
 

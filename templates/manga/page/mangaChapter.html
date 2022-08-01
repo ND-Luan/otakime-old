@@ -9,15 +9,16 @@
 
                 <div class="container-fluid" style="padding-top: 20px;">
                 {% for key,value in data%}
-                {% for chapter in value.chapter%}
-                    {% if chapter == CHAPTER  %}
+                    {% for chapter in value.chapter%}
+                        {% if chapter == CHAPTER  %}
 
-                        <i><h5><span><a href="{{url_for('home')}}" style="color: black;">Trang chủ </a>/</span><a href="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = None) }}" style="color: black;"> {{value.title}} </a> / <span> <a href="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = chapter) }}" style="color: black;">Chap {{CHAPTER}} </a></span></h5></i>
-                        <br>
-                        <h4> {{value.title}} - <span>Chap {{CHAPTER}}</span></h4> 
-                        
+                            <i><h5><span><a href="{{url_for('home')}}" style="color: black;">Trang chủ </a>/</span><a href="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = None) }}" style="color: black;"> {{value.title}} </a> / <span> <a href="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = chapter) }}" style="color: black;">Chap {{CHAPTER}} </a></span></h5></i>
+                            <br>
+                            <h4> {{value.title}} - <span>Chap {{CHAPTER}}</span></h4> 
+                            
 
-                   {%endif%}
+                        {%endif%}
+                    {%endfor%}
                 {%endfor%}
                 </div>
                 
@@ -40,21 +41,20 @@
                             </button>
                         </a>
 
-                    {%endfor%}
-                    <div class="rounded-3 " >
-                    <select name="links" onchange="location.href=this.value" class="selectpicker p-1" data-style="btn-dark" data-width="300px">
+                    <div class="rounded-3">
+                        <select name="links" onchange="location.href=this.value" class="selectpicker p-1" data-style="btn-dark" data-width="300px">
 
-                        {% for chapter in value.chapter%}
-                            {% if chapter == CHAPTER  %}
-                            <option style="text-align: center"  selected> Chap {{CHAPTER}}</option>
-                            {%endif%}
-                        {%endfor%}
+                            {% for chapter in value.chapter%}
+                                {% if chapter == CHAPTER  %}
+                                <option style="text-align: center"  selected> Chap {{CHAPTER}}</option>
+                                {%endif%}
+                            {%endfor%}
 
-                        {% for chapter in value.chapter%}
-                            <option style="background:gray; color: white; text-align: center;" value="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = chapter) }}"> Chap {{chapter}}</option>
-                        {%endfor%}
-                         
-                    </select>
+                            {% for chapter in value.chapter%}
+                                <option style="background:gray; color: white; text-align: center;" value="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = chapter) }}"> Chap {{chapter}}</option>
+                            {%endfor%}
+                            
+                        </select>
                     </div>
 
                     {%for key,value in data%}
@@ -72,7 +72,7 @@
                     
                 </div>
 
-            {%endfor%}
+                {%endfor%}
         </div>
         <div class="rounded mx-auto d-block">
 
@@ -85,8 +85,8 @@
                         <br>
 
                     
+                    {%endfor%}
                 {%endfor%}
-            {%endfor%}
         </div>
 
     </div>
