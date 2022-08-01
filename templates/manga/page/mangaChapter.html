@@ -40,9 +40,18 @@
             {%endfor%}
         </div>
         <div class="rounded mx-auto d-block">
-            {%for item in dataIMG%}
-            <img src="{{url_for('static',filename= item )}}"/> 
-            <br>
+            {% for key,value in data%}
+                {%for item in dataIMG%}
+                    {% for chapter in value.chapter%}
+                        {% if chapter == CHAPTER  %}
+                            {% for index in range(item|length)%}
+                                <img src="{{url_for('static',filename= item )}}" alt="{{value.nameManga}}-{{CHAPTER}}-{{index}}"/> 
+                                <br>
+                            {%endfor%}
+                        
+                        {%endif%}
+                    {%endfor%}
+                {%endfor%}
             {%endfor%}
         <div>
 
