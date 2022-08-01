@@ -452,6 +452,20 @@ img {
       background-color: transparent; }
 
 /* :: Header Area CSS */
+.header-chapter{
+  position: sticky;
+  z-index: 9999999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  background-color: transparent;
+  padding: 15px 30px; 
+  z-index: 2147483647;
+}
+
 .header-area {
   position: fixed;
   z-index: 995;
@@ -485,6 +499,7 @@ img {
         margin-right: 15px; } }
   .header-area.sticky {
     background-color: #232323; }
+    
   @media only screen and (max-width: 767px) {
     .header-area {
       padding: 10px 0; } }

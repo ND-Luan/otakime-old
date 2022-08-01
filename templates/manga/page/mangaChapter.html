@@ -2,8 +2,8 @@
 
 {% block main%}
 {% include 'manga/navbar/header.html'%}
-
-    <div class="container " style="padding-top: 100px;"> 
+<div style="background-color: #232323;">
+    <div class="container " style="padding-top: 100px; "> 
         <div class="d-flex justify-content-center">
             <div class="rounded-3" style="height: 200px; width: 900px; background-color: rgb(220, 217, 217);">
 
@@ -24,9 +24,17 @@
                 
             </div>
         </div>
-            <div class="input-group mb-3 d-flex justify-content-center " style="padding: 20px;" >
-                <div class="row" >
-                    
+        <br>
+            <div class="input-group mb-3 d-flex justify-content-center header-chapter " style="padding: 20px;" >
+                
+                <div class="row " >
+                    {% for key,value in data%}
+                    <a href="{{url_for('mangaPage', urlnameManga = value.nameManga)}}">
+                        <button class="btn btn-dark rounded-circle btn-lg" style="margin-right: 10px;">
+                            <i class="fa-solid fa-book-bible"></i>
+                        </button>
+                    </a>
+                    {%endfor%}
                     {%set list_ = previousChapter | list%}
                     {%set resPlus = list_[list_.index(CHAPTER)+ 1]%}
                     {%set resMinus = list_[list_.index(CHAPTER) - 1]%}
@@ -42,7 +50,7 @@
                         </a>
 
                     <div class="rounded-3">
-                        <select name="links" onchange="location.href=this.value" class="selectpicker p-1" data-style="btn-dark" data-width="300px">
+                        <select name="links" onchange="location.href=this.value" class="selectpicker p-1" data-style="btn-dark" data-width="250px">
 
                             {% for chapter in value.chapter%}
                                 {% if chapter == CHAPTER  %}
@@ -73,7 +81,7 @@
                 </div>
 
                 {%endfor%}
-        </div>
+            </div>
         <div class="rounded mx-auto d-block">
 
                 {% for key,value in data%}
@@ -90,6 +98,6 @@
         </div>
 
     </div>
-
+</div>
 {% include 'manga/navbar/footer.html'%}
 {% endblock%}
