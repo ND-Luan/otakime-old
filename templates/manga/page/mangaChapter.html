@@ -39,13 +39,14 @@
 
             {%endfor%}
         </div>
-        {%for item in dataIMG%}
-        <img src="{{url_for('static',filename= item )}}"/> 
-        <br>
-        {%endfor%}
-    </div>
-        <a href="{{ url_for('manga', urlnameManga = URLMANAGA) }}">{{URLMANAGA}}</a>
+        <div class="rounded mx-auto d-block">
+            {%for item in dataIMG%}
+            <img src="{{url_for('static',filename= item )}}"/> 
+            <br>
+            {%endfor%}
+        <div>
 
+    </div>
 
 {% include 'manga/navbar/footer.html'%}
 {% endblock%}

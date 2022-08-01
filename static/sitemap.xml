@@ -9,73 +9,593 @@
 
 <url>
   <loc>https://otakime.herokuapp.com/</loc>
-  <lastmod>2022-07-17T13:51:08+00:00</lastmod>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/index.html</loc>
-  <lastmod>2022-07-17T13:51:08+00:00</lastmod>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/about</loc>
-  <lastmod>2022-07-17T13:51:08+00:00</lastmod>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/manga</loc>
-  <lastmod>2022-07-17T13:51:08+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://otakime.herokuapp.com/blog</loc>
-  <lastmod>2022-07-17T13:51:08+00:00</lastmod>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/contact</loc>
-  <lastmod>2022-07-17T13:51:08+00:00</lastmod>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/kawaii-kanojo-chan</loc>
-  <lastmod>2022-07-17T13:51:08+00:00</lastmod>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/r15-ja-dame-desuka</loc>
-  <lastmod>2022-07-17T13:51:08+00:00</lastmod>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/toaru-meoto-no-nichijou</loc>
-  <lastmod>2022-07-17T13:51:08+00:00</lastmod>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/tokedase-mizore-chan</loc>
-  <lastmod>2022-07-17T13:51:08+00:00</lastmod>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/sonouchi-kekkon-made-ikukedo-ima-wa-mada</loc>
-  <lastmod>2022-07-17T13:51:08+00:00</lastmod>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta</loc>
-  <lastmod>2022-07-17T13:51:08+00:00</lastmod>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/ookumo-chan-flashback</loc>
-  <lastmod>2022-07-17T13:51:08+00:00</lastmod>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://otakime.herokuapp.com/jitsu-wa-ryouomoi-kamo-shirenai-onee-san-to-chuusan-danshi-no-hanashi</loc>
-  <lastmod>2022-07-17T13:51:08+00:00</lastmod>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
   <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/kawaii-kanojo-chan/14</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/kawaii-kanojo-chan/13</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/kawaii-kanojo-chan/12</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/kawaii-kanojo-chan/11</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/kawaii-kanojo-chan/10</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/kawaii-kanojo-chan/9</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/kawaii-kanojo-chan/8</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/kawaii-kanojo-chan/7</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/kawaii-kanojo-chan/6</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/kawaii-kanojo-chan/5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/kawaii-kanojo-chan/4</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/kawaii-kanojo-chan/3</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/kawaii-kanojo-chan/2</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/kawaii-kanojo-chan/1</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/r15-ja-dame-desuka/1</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/toaru-meoto-no-nichijou/18</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/toaru-meoto-no-nichijou/17</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/toaru-meoto-no-nichijou/16</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/toaru-meoto-no-nichijou/15</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/toaru-meoto-no-nichijou/14</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/toaru-meoto-no-nichijou/13</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/toaru-meoto-no-nichijou/12</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/toaru-meoto-no-nichijou/11</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/toaru-meoto-no-nichijou/10</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/toaru-meoto-no-nichijou/9</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/toaru-meoto-no-nichijou/8</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/toaru-meoto-no-nichijou/7</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/toaru-meoto-no-nichijou/6</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/toaru-meoto-no-nichijou/5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/toaru-meoto-no-nichijou/4</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/toaru-meoto-no-nichijou/3</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/toaru-meoto-no-nichijou/2</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/toaru-meoto-no-nichijou/1</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/tokedase-mizore-chan/12</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/tokedase-mizore-chan/11</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/tokedase-mizore-chan/10</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/tokedase-mizore-chan/9</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/tokedase-mizore-chan/8</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/tokedase-mizore-chan/7</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/tokedase-mizore-chan/6</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/tokedase-mizore-chan/5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/sonouchi-kekkon-made-ikukedo-ima-wa-mada/7</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/sonouchi-kekkon-made-ikukedo-ima-wa-mada/6</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/sonouchi-kekkon-made-ikukedo-ima-wa-mada/5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/sonouchi-kekkon-made-ikukedo-ima-wa-mada/4</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/29</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/28</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/27</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/26</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/25.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/25</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/24.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/24</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/23.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/23</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/22</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/21.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/21</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/20.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/20</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/19.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/19</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/18.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/18</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/17.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/17</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/16.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/16</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/15.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/15</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/14.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/14</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/13.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/13</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/12.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/12</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/11.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/11</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/10.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/10</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/9.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/9</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/8.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/8</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/7.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/7</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/6</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/4</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/3</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/2.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/2</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/1.5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/1</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/italiajin-no-onnanoko-ga-isourou-suru-koto-ni-natta/0</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/ookumo-chan-flashback/10</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/ookumo-chan-flashback/9</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/ookumo-chan-flashback/8</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/ookumo-chan-flashback/7</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/jitsu-wa-ryouomoi-kamo-shirenai-onee-san-to-chuusan-danshi-no-hanashi/5</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/jitsu-wa-ryouomoi-kamo-shirenai-onee-san-to-chuusan-danshi-no-hanashi/4</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/jitsu-wa-ryouomoi-kamo-shirenai-onee-san-to-chuusan-danshi-no-hanashi/3</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/jitsu-wa-ryouomoi-kamo-shirenai-onee-san-to-chuusan-danshi-no-hanashi/2</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/jitsu-wa-ryouomoi-kamo-shirenai-onee-san-to-chuusan-danshi-no-hanashi/1</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://otakime.herokuapp.com/manga?urlnameManga=</loc>
+  <lastmod>2022-08-01T02:21:13+00:00</lastmod>
+  <priority>0.51</priority>
 </url>
 
 
