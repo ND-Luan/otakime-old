@@ -3,30 +3,40 @@
 {% block main%}
 {% include 'manga/navbar/header.html'%}
 
-    <div class="container"s style="padding-top: 100px;"> 
+    <div class="container " style="padding-top: 100px;"> 
+        <div class="d-flex justify-content-center">
+            <div class="rounded-3" style="height: 200px; width: 900px; background-color: rgb(220, 217, 217);">
 
-            {% for key,value in data%}
+                <div class="container-fluid" style="padding-top: 20px;">
+                {% for key,value in data%}
+                {% for chapter in value.chapter%}
+                    {% if chapter == CHAPTER  %}
+                    <i><h5><span><a href="{{url_for('home')}}" style="color: black;">Trang chủ </a>/</span><a href="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = None) }}" style="color: black;"> {{value.title}} </a> / <span> <a href="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = chapter) }}" style="color: black;">Chap {{CHAPTER}} </a></span></h5></i>
+                    <br>
+                    <h4> {{value.title}} - <span>Chap {{CHAPTER}}</span></h4> 
+                    
 
-            <h3>{{value.title}}</h3>
-            {% for chapter in value.chapter%}
-                {% if chapter == CHAPTER  %}
-                    <p>Chap {{CHAPTER}}</p>
-                {%endif%}
-            {%endfor%}
-            <div class="input-group mb-3 d-flex justify-content-center" style="padding: 20px;">
+                   {%endif%}
+                {%endfor%}
+                </div>
+            </div>
+        </div>
+            <div class="input-group mb-3 d-flex justify-content-center " style="padding: 20px;" >
                 
-                <div class="row">
+                <div class="row" >
                     <button type="button" class="btn btn-dark rounded-circle btn-lg" style="margin-right: 10px;"><i class="fa-solid fa-angle-left"></i></button>
                     
                     <select class="form-select" aria-label="Default select example">
-                        <option selected>Chọn chap...</option>
-                        <option value="1">Chap 1 </option>
-                        <option value="2">Chap 2</option>
-                        <option value="3">Chap 3</option>
+                    
+                        <option selected>Chap {{CHAPTER}}</option>
+                        {% for chapter in value.chapter%}
+                            <option value="1">Chap {{chapter}}</option>
+                        {%endfor%}
                     </select>
 
                     <button type="button" class="btn btn-dark rounded-circle btn-lg" style="margin-left: 10px;"><i class="fa-solid fa-angle-right"></i></button>
                 </div>
+
             {%endfor%}
         </div>
         {%for item in dataIMG%}
