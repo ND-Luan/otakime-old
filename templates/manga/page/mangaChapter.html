@@ -25,10 +25,11 @@
         </div>
             <div class="input-group mb-3 d-flex justify-content-center " style="padding: 20px;" >
                 <div class="row" >
-                    {%set index = 0%}
+                    
                     {%set list_ = previousChapter | list%}
                     {%set resPlus = list_[list_.index(CHAPTER)+ 1]%}
                     {%set resMinus = list_[list_.index(CHAPTER) - 1]%}
+
                     {%for key,value in data%}
                         
                             
