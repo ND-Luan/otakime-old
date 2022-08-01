@@ -11,10 +11,11 @@
                 {% for key,value in data%}
                 {% for chapter in value.chapter%}
                     {% if chapter == CHAPTER  %}
-                    <i><h5><span><a href="{{url_for('home')}}" style="color: black;">Trang chủ </a>/</span><a href="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = None) }}" style="color: black;"> {{value.title}} </a> / <span> <a href="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = chapter) }}" style="color: black;">Chap {{CHAPTER}} </a></span></h5></i>
-                    <br>
-                    <h4> {{value.title}} - <span>Chap {{CHAPTER}}</span></h4> 
-                    
+
+                        <i><h5><span><a href="{{url_for('home')}}" style="color: black;">Trang chủ </a>/</span><a href="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = None) }}" style="color: black;"> {{value.title}} </a> / <span> <a href="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = chapter) }}" style="color: black;">Chap {{CHAPTER}} </a></span></h5></i>
+                        <br>
+                        <h4> {{value.title}} - <span>Chap {{CHAPTER}}</span></h4> 
+                        
 
                    {%endif%}
                 {%endfor%}
@@ -22,9 +23,12 @@
             </div>
         </div>
             <div class="input-group mb-3 d-flex justify-content-center " style="padding: 20px;" >
-                
                 <div class="row" >
-                    <button type="button" class="btn btn-dark rounded-circle btn-lg" style="margin-right: 10px;"><i class="fa-solid fa-angle-left"></i></button>
+                    <button type="button" class="btn btn-dark rounded-circle btn-lg" style="margin-right: 10px;">
+                        <a>
+                        <i class="fa-solid fa-angle-left"></i>
+                        </a>
+                    </button>
                     
                     <select class="form-select" aria-label="Default select example">
                     
@@ -40,20 +44,19 @@
             {%endfor%}
         </div>
         <div class="rounded mx-auto d-block">
-            {% for key,value in data%}
-                {%for item in dataIMG%}
-                    {% for chapter in value.chapter%}
-                        {% if chapter == CHAPTER  %}
-                            {% for index in range(item|length)%}
-                                <img src="{{url_for('static',filename= item )}}" alt="{{value.nameManga}}-{{CHAPTER}}-{{index}}"/> 
-                                <br>
-                            {%endfor%}
+
+                {% for key,value in data%}
+
+                    {%for item in dataIMG%}
+                    
                         
-                        {%endif%}
-                    {%endfor%}
+                        <img src="{{url_for('static',filename= item )}}" alt="{{value.nameManga}}-{{CHAPTER}}-{{loop.index}}"/> 
+                        <br>
+
+                    
                 {%endfor%}
             {%endfor%}
-        <div>
+        </div>
 
     </div>
 
