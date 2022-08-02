@@ -132,7 +132,7 @@ def mangaChapter (urlnameManga,chapter):
                 #print(keyID)
                     return render_template('manga/page/mangaChapter.html', CHAPTER = chapter, previousChapter = idchapter,  dataIMG= value, title = title, description =dict_mangaPage[keyID]['description'],data = dict_mangaPage.items())  
             else:
-                return "Chapter nay hien ko co'"
+                return render_template("manga/404Chapter.html")
 
 def mangaPage(urlnameManga):
     dict_mangaPage ={}
@@ -175,7 +175,7 @@ def mangaPage(urlnameManga):
                           
             return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items(), title= title, description=dict_mangaPage[keyID]['description']) 
     else:   
-        return "Trang nay hien khong co'"
+        return render_template("manga/404Page.html")
     
 
 def blog():
