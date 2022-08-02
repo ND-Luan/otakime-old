@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, request, session, url_for
+from flask import Flask, redirect, render_template, request, send_file, session, url_for
 from flask_mail import Mail,Message
 
 from datetime import timedelta
@@ -227,6 +227,8 @@ def adminDeleteManga():
 def sitemap():
     pass
 
+def dieukhoangsudung():
+    return send_file('static/dieukhoangsudung.txt')
 app.add_url_rule('/','home', home )
 
 app.add_url_rule('/about','about', about )
@@ -247,6 +249,7 @@ app.add_url_rule('/admin/postmanga','adminPostManga', adminPostManga, methods=['
 app.add_url_rule('/admin/updatemanga','adminUpdateManga', adminUpdateManga, methods=['GET','POST'])
 app.add_url_rule('/admin/deletemanga','adminDeleteManga', adminDeleteManga, methods=['GET','POST'])
 
+app.add_url_rule('/dieukhoangsudung','dieukhoangsudung', dieukhoangsudung )
 
 @app.errorhandler(404)
 def page_not_found(e):

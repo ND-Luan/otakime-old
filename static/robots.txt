@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /admin
+Disallow: /dieukhoangsudung
 
 Sitemap: https://otakime.herokuapp.com/static/sitemap.xml
