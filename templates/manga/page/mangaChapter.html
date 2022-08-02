@@ -45,7 +45,7 @@
                     {%for key,value in data%}
                         
                             
-                    <a href="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = resMinus)  }}">
+                    <a href="{{ url_for('mangaChapter', urlnameManga= value.nameManga, chapter = resMinus)  }}">
 
                         <button type="button" class="btn btn-dark rounded-circle" style="margin-right: 10px;">                                
                             <i class="fa-solid fa-caret-left fa-lg"></i>
@@ -70,7 +70,7 @@
 
                     {%for key,value in data%}
 
-                        <a href="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = resPlus)  }}">
+                        <a href="{{ url_for('mangaChapter', urlnameManga= value.nameManga, chapter = resPlus)  }}">
 
                             <button type="button" class="btn btn-dark rounded-circle" style="margin-left: 10px;">
                                 <i class="fa-solid fa-caret-right fa-lg"></i>
