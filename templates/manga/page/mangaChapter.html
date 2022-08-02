@@ -62,7 +62,7 @@
                             {%endfor%}
 
                             {% for chapter in value.chapter%}
-                                <option style="background:gray; color: white; text-align: center;" value="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = chapter) }}"> Chap {{chapter}}</option>
+                                <option style="background:gray; color: white; text-align: center;" value="{{ url_for('mangaChapter', urlnameManga= value.nameManga, chapter = chapter) }}"> Chap {{chapter}}</option>
                             {%endfor%}
                             
                         </select>
