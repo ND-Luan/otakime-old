@@ -83,8 +83,6 @@ def imgIndexMangaList(keyID):
 def imgCoverMangaList(keyID):
     img = imgLogoMangaJSON()
     return img[keyID]['imgCover']
-keyid = "R15 Ja Dame Desuka"
-print(imgCoverMangaList(keyid))
 
 
 
