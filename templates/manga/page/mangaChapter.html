@@ -3,7 +3,7 @@
 {% block main%}
 {% include 'manga/navbar/header.html'%}
 <div style="background-color: #232323;">
-    <div class="container " style="padding-top: 100px; "> 
+    <div class="container" style="padding-top: 100px; "> 
         <div class="d-flex justify-content-center">
             <div class="rounded-3" style="height: 200px; width: 900px; background-color: rgb(220, 217, 217);">
 
@@ -25,64 +25,64 @@
             </div>
         </div>
         <br>
-            <div class="input-group mb-3 d-flex justify-content-center header-chapter " style="padding: 20px;" >
-                
-                <div class="row " >
-                    {% for key,value in data%}
-                    <a href="{{url_for('mangaPage', urlnameManga = value.nameManga)}}">
-                        <button class="btn btn-dark rounded-circle btn-lg" style="margin-right: 10px;">
-                            <i class="fa-solid fa-book-bible"></i>
+        <div class="input-group mb-3 d-flex justify-content-center header-chapter" style="padding: 20px;  background: gray;" >
+            
+            <div class="row " >
+                {% for key,value in data%}
+                <a href="{{url_for('mangaPage', urlnameManga = value.nameManga)}}">
+                    <button class="btn btn-dark rounded-circle btn-lg" style="margin-right: 10px;">
+                        <i class="fa-solid fa-book-bible"></i>
+                    </button>
+                </a>
+                {%endfor%}
+                {%set list_ = previousChapter | list%}
+                {%set resPlus = list_[list_.index(CHAPTER)+ 1]%}
+                {%set resMinus = list_[list_.index(CHAPTER) - 1]%}
+
+                {%for key,value in data%}
+                    
+                        
+                    <a href="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = resMinus)  }}">
+
+                        <button type="button" class="btn btn-dark rounded-circle btn-lg" style="margin-right: 10px;">                                
+                            <i class="fa-solid fa-caret-left fa-lg"></i>
                         </button>
                     </a>
-                    {%endfor%}
-                    {%set list_ = previousChapter | list%}
-                    {%set resPlus = list_[list_.index(CHAPTER)+ 1]%}
-                    {%set resMinus = list_[list_.index(CHAPTER) - 1]%}
 
-                    {%for key,value in data%}
+                <div class="rounded-3">
+                    <select name="links" onchange="location.href=this.value" class="selectpicker p-1" data-style="btn-dark" data-width="150px">
+
+                        {% for chapter in value.chapter%}
+                            {% if chapter == CHAPTER  %}
+                            <option style="text-align: center"  selected> Chap {{CHAPTER}}</option>
+                            {%endif%}
+                        {%endfor%}
+
+                        {% for chapter in value.chapter%}
+                            <option style="background:gray; color: white; text-align: center;" value="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = chapter) }}"> Chap {{chapter}}</option>
+                        {%endfor%}
                         
-                            
-                        <a href="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = resMinus)  }}">
-
-                            <button type="button" class="btn btn-dark rounded-circle btn-lg" style="margin-right: 10px;">                                
-                                <i class="fa-solid fa-caret-left fa-lg"></i>
-                            </button>
-                        </a>
-
-                    <div class="rounded-3">
-                        <select name="links" onchange="location.href=this.value" class="selectpicker p-1" data-style="btn-dark" data-width="250px">
-
-                            {% for chapter in value.chapter%}
-                                {% if chapter == CHAPTER  %}
-                                <option style="text-align: center"  selected> Chap {{CHAPTER}}</option>
-                                {%endif%}
-                            {%endfor%}
-
-                            {% for chapter in value.chapter%}
-                                <option style="background:gray; color: white; text-align: center;" value="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = chapter) }}"> Chap {{chapter}}</option>
-                            {%endfor%}
-                            
-                        </select>
-                    </div>
-
-                    {%for key,value in data%}
-
-                        <a href="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = resPlus)  }}">
-
-                            <button type="button" class="btn btn-dark rounded-circle btn-lg" style="margin-left: 10px;">
-                                <i class="fa-solid fa-caret-right fa-lg"></i>
-                               
-                            </button>
-                        </a>
-
-                    {%endfor%}
-                    
-                    
+                    </select>
                 </div>
 
+                {%for key,value in data%}
+
+                    <a href="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = resPlus)  }}">
+
+                        <button type="button" class="btn btn-dark rounded-circle btn-lg" style="margin-left: 10px;">
+                            <i class="fa-solid fa-caret-right fa-lg"></i>
+                            
+                        </button>
+                    </a>
+
                 {%endfor%}
+                
+                
             </div>
-        <div class="rounded mx-auto d-block">
+
+            {%endfor%}
+        </div>
+        <div class=" mx-auto d-block">
 
                 {% for key,value in data%}
 
