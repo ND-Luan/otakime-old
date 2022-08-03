@@ -454,7 +454,7 @@ img {
 /* :: Header Area CSS */
 .header-chapter{
   position: sticky;
-  top: 60px;
+  top: 64px;
   left: 0;
   width: 100%;
   height: auto;
