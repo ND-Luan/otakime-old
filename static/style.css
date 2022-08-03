@@ -462,7 +462,7 @@ img {
   transition-duration: 500ms;
   background-color: transparent;
   padding: 15px 30px; 
-  z-index: 2147483647;
+  z-index: 999;
 }
 
 .header-area {
