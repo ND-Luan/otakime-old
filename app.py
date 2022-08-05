@@ -16,7 +16,7 @@ mail_username='mail.otakime@gmail.com'
 mail_password='lpavozmbebtxdhbb'
 
 app.config["SECRET_KEY"] = "POTATO"
-app.permanent_session_lifetime = timedelta(seconds=10)
+app.permanent_session_lifetime = timedelta(seconds=300)
 
 app.config.update(dict(
     DEBUG = True,
@@ -223,6 +223,27 @@ def adminDeleteManga():
     else:
         return render_template('admin/adminPage.html')
 
+
+def adminEmailHire():
+    if "admin" in session:
+        if request.method == "POST":
+            #emailTaker = request.form.get('emailTaker')
+            email = request.form.get('email')
+            subject = request.form.get('subject')
+
+            msg = Message(
+                subject=f'{subject}',
+                sender= mail_username,
+                recipients=[email],
+                html = render_template('admin/page/mailLayout.html')
+                #body= f'Name: {name}\nEmail: {email}\nMessage: {message}' 
+            )
+            mail.send(msg)
+        return render_template('admin/page/mail.html',success = True)
+    else:
+        return render_template('admin/adminPage.html')
+
+    
 def sitemap():
     pass
 
@@ -247,6 +268,8 @@ app.add_url_rule('/admin','logout', logout, methods=['GET','POST'])
 app.add_url_rule('/admin/postmanga','adminPostManga', adminPostManga, methods=['GET','POST'])
 app.add_url_rule('/admin/updatemanga','adminUpdateManga', adminUpdateManga, methods=['GET','POST'])
 app.add_url_rule('/admin/deletemanga','adminDeleteManga', adminDeleteManga, methods=['GET','POST'])
+
+app.add_url_rule('/admin/email','adminEmailHire', adminEmailHire, methods=['GET','POST'])
 
 app.add_url_rule('/dieukhoangsudung','dieukhoangsudung', dieukhoangsudung )
 
