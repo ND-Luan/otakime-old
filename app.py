@@ -3,7 +3,6 @@ from flask_mail import Mail,Message
 
 from datetime import timedelta
 
-import requests
 from getMangaChapter import ChapterMangaPage, getIdChapter, imgChapter
 from getMangaList import authorMangaList, desciptionMangaList, imgBannerMangaList, imgCoverMangaList, imgIndexMangaList, otherName, tagsMangaList, titleMangaList, updateAt
 
@@ -71,8 +70,8 @@ def contact():
             subject=f'Mail from {subject}',
             sender=email,
             recipients=[mail_username],
-            body= f'Name: {name}\nEmail: {email}\nMessage: {message}' 
-
+            html= render_template('manga/mail.html',name=name, email = email,message=message)
+            #body= f'Name: {name}\nEmail: {email}\nMessage: {message}' 
         )
         mail.send(msg)
 
