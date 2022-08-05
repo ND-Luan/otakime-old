@@ -40,7 +40,7 @@
                         <h6 style="color:white;"><b>Ngày cập nhật:</b> {{value.updateAt}}</h6></br>
                         <h6 style="color:white;"><b>Mô tả:</b> {{value.description}}</h6></br>
 
-                        <a href="{{value.urlChapter}}" class="btn sonar-btn white-btn">Đọc ngay</a>
+                        <a href="{{url_for('mangaChapter', urlnameManga = value.nameManga, chapter = '1')}}" class="btn sonar-btn white-btn">Đọc ngay</a>
                     </div>
                 </div>
             </div>
