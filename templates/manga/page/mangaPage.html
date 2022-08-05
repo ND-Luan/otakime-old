@@ -23,7 +23,9 @@
     </div>
     {% include 'manga/navbar/header.html' %}
     <!-- ***** Hero Area Start ***** -->
+
     {% for key,value in data %}
+    {%set index = value.chapter[-1]%}
     <div class="hero-area d-flex align-items-center">
         <!-- Hero Thumbnail -->
         <div class="hero-thumbnail equalize bg-img" style="background-image: url({{value.imgCover}});"></div> 
@@ -40,7 +42,7 @@
                         <h6 style="color:white;"><b>Ngày cập nhật:</b> {{value.updateAt}}</h6></br>
                         <h6 style="color:white;"><b>Mô tả:</b> {{value.description}}</h6></br>
 
-                        <a href="{{url_for('mangaChapter', urlnameManga = value.nameManga, chapter = '1')}}" class="btn sonar-btn white-btn">Đọc ngay</a>
+                        <a href="{{url_for('mangaChapter', urlnameManga = value.nameManga, chapter = index)}}" class="btn sonar-btn white-btn">Đọc ngay</a>
                     </div>
                 </div>
             </div>
