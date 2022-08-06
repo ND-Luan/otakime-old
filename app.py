@@ -228,6 +228,7 @@ def adminEmailHire():
     if "admin" in session:
         if request.method == "POST":
             #emailTaker = request.form.get('emailTaker')
+            name = request.form.get('name')
             email = request.form.get('email')
             subject = request.form.get('subject')
 
@@ -235,11 +236,11 @@ def adminEmailHire():
                 subject=f'{subject}',
                 sender= mail_username,
                 recipients=[email],
-                html = render_template('admin/page/mailLayout.html')
+                html = render_template('admin/page/mailLayout.html', name = name)
                 #body= f'Name: {name}\nEmail: {email}\nMessage: {message}' 
             )
             mail.send(msg)
-        return render_template('admin/page/mail.html',success = True)
+            return render_template('admin/page/mail.html', success = True)
     else:
         return render_template('admin/adminPage.html')
 
