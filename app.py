@@ -241,6 +241,7 @@ def adminEmailHire():
             )
             mail.send(msg)
             return render_template('admin/page/mail.html', success = True)
+        return render_template('admin/page/mail.html')
     else:
         return render_template('admin/adminPage.html')
 
