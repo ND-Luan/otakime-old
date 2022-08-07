@@ -1,5 +1,5 @@
 import shutil
-from flask import Flask, redirect, render_template, request, send_file, session, url_for
+from flask import Flask, redirect, render_template, request, send_file, session, url_for,jsonify,make_response
 from flask_mail import Mail,Message
 
 from datetime import timedelta
@@ -19,7 +19,7 @@ import os
 import json
 app = Flask(__name__)
 
-
+app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
 app.config['IMAGE_UPLOADS'] = 'static/img/imgManga'
 
 mail_username='mail.otakime@gmail.com'
@@ -375,7 +375,14 @@ def adminEmailHire():
     else:
         return render_template('admin/adminPage.html')
 
-    
+
+def adminJsonDB():
+    if "admin" in session:
+        with open("dbManga.json",'r',  encoding="utf8") as f:
+            data = json.load(f,)
+        return make_response(jsonify(data),200)
+    else: 
+        return render_template('admin/adminPage.html')
 def sitemap():
     pass
 
@@ -401,6 +408,7 @@ app.add_url_rule('/admin/postmanga','adminPostManga', adminPostManga, methods=['
 app.add_url_rule('/admin/updatemanga','adminUpdateChapter', adminUpdateChapter, methods=['GET','POST'])
 app.add_url_rule('/admin/deletemanga','adminDeleteManga', adminDeleteManga, methods=['GET','POST'])
 app.add_url_rule('/admin/deletechapter','adminDeleteChapter', adminDeleteChapter, methods=['GET','POST'])
+app.add_url_rule('/admin/api','adminJsonDB', adminJsonDB, methods=['GET','POST'])
 
 app.add_url_rule('/admin/email','adminEmailHire', adminEmailHire, methods=['GET','POST'])
 
