@@ -23,46 +23,18 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h2>Update Manga</h2>
+
+                    <h2>Delete Manga</h2>
                     <div class="container">
-                        <form  action="#" method="POST">
-                            <h3>nameFile</h3>
+                        <form  action="#" method="post" enctype="multipart/form-data">
+                            <h3>nameManga</h3>
                             <div class="form-group">
-                                <input class="form-control form-control-user" name="nameFile">
+                                {{form.nameManga(class="form-control form-control-user")}}
                             </div>
-                            <h3>idManga</h3>
-                            <div class="form-group">
-                                <input class="form-control form-control-user" name="nameMangaKey">
-                            </div>
-                            <div class="form-group">
-                                <h3>cardImgUrlIndex</h3>
-                                <label for="myfile">Select a file:</label>
-                                <input type="file" id="myfile" name="cardImgUrlIndex">
-                            </div>
-                            <div class="form-group">
-                                <h3>cardImgUrlBanner</h3>
-                                <label for="myfile">Select a file:</label>
-                                <input type="file" id="myfile" name="cardImgUrlBanner">
-                            </div>
-                            <div class="form-group">
-                                <h3>cardImgUrlCover</h3>
-                                <label for="myfile">Select a file:</label>
-                                <input type="file" id="myfile" name="cardImgUrlCover">
-                            </div>
-                            <div class="form-group">
-                                <h3>Chapter</h3>
-                                <label for="myfile">Select a file:</label>
-                                <input type="file" id="myfile" name="chapter">
-                            </div>
-                            <div class="form-group">
-                                <h3>imgChapter</h3>
-                                <label for="myfile">Select files:</label>
-                                <input type="file" id="myfile" name="imgChapter" multiple>
-                            </div>
+
                             <button type="submit" class="btn btn-primary btn-user btn-block">Post Manga</button>
                         </form>
                     </div>
-
                 </div>
                 <!-- /.container-fluid -->
 
@@ -98,7 +70,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">x</span>
+                        <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>

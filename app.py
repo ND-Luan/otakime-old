@@ -1,16 +1,26 @@
+import shutil
 from flask import Flask, redirect, render_template, request, send_file, session, url_for
 from flask_mail import Mail,Message
 
 from datetime import timedelta
 
-from getMangaChapter import ChapterMangaPage, getIdChapter, imgChapter
+from getMangaChapter import ChapterMangaPage, imgChapter
 from getMangaList import authorMangaList, desciptionMangaList, imgBannerMangaList, imgCoverMangaList, imgIndexMangaList, otherName, tagsMangaList, titleMangaList, updateAt
 
 from parseJsonMangaPage import idMangaJSON
 
+
+from flask_wtf import FlaskForm
+from flask_wtf.file import FileField
+from wtforms import StringField,IntegerField,MultipleFileField,SelectField
+from wtforms.validators import DataRequired,InputRequired
+
+import os
+import json
 app = Flask(__name__)
 
 
+app.config['IMAGE_UPLOADS'] = 'static/img/imgManga'
 
 mail_username='mail.otakime@gmail.com'
 mail_password='lpavozmbebtxdhbb'
@@ -202,28 +212,148 @@ def logout():
     return render_template('admin/adminLogin.html')
 
 def adminPostManga():
-
+    class ValidateCreateManga(FlaskForm):
+        nameManga = StringField("nameManga", validators=[InputRequired()])
+        idManga = StringField("idManga", validators=[InputRequired()])
+        cardImgUrlIndex = FileField("cardImgUrlIndex",validators=[DataRequired()])
+        cardImgUrlBanner = FileField("cardImgUrlBanner",validators=[DataRequired()])
+        cardImgUrlCover = FileField("cardImgUrlCover",validators=[DataRequired()])
+        chapter = IntegerField("chapter", validators=[InputRequired()])
+        imgChapter = MultipleFileField('imgChapter',validators=[DataRequired()])
     if "admin" in session:
         name = session['admin']
-        return render_template('admin/page/adminPost.html', nameAdmin = name)
+        form = ValidateCreateManga()
+        if request.method == 'POST':
+            nameManga = form.nameManga.data
+            idManga = form.nameManga.data
+            cardImgUrlIndex = form.cardImgUrlIndex.data
+            cardImgUrlBanner = form.cardImgUrlBanner.data
+            cardImgUrlCover = form.cardImgUrlCover.data
+            chapter = form.chapter.data
+            imgChapter = form.imgChapter.data
+
+
+            if os.path.exists(f"{app.config['IMAGE_UPLOADS']}/{nameManga}"):
+                return render_template("post.html", checkFolderExist = True, nameManga= nameManga) #Check thu muc co ton tai ko
+            else:    
+                os.mkdir(f"{app.config['IMAGE_UPLOADS'] }/{nameManga}")
+                os.mkdir(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/chapter")
+                os.mkdir(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo")
+
+                cardImgUrlIndex.save(os.path.join(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo",cardImgUrlIndex.filename))     
+                cardImgUrlBanner.save(os.path.join(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo",cardImgUrlBanner.filename))
+                cardImgUrlCover.save(os.path.join(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo",cardImgUrlCover.filename))           
+
+                os.mkdir(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/chapter/{chapter}")
+
+                for item in imgChapter:
+                    item.save(os.path.join(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/chapter/{chapter}",item.filename))
+
+            with open('dbManga.json','r') as f:
+                data = json.load(f)
+            data.update({
+                nameManga:{
+                    "id" : idManga,
+                    "cardImgUrlIndex":f"img/imgManga/{nameManga}/logo/index/{cardImgUrlIndex.filename}",
+                    "cardImgUrlBanner":f"img/imgManga/{nameManga}/logo/banner/{cardImgUrlBanner.filename}",
+                    "cardImgUrlCover":f"img/imgManga/{nameManga}/logo/cover/{cardImgUrlCover.filename}",
+                    "chapter":{
+                        chapter:[f'img/imgManga/{nameManga}/chapter/{chapter}/{item.filename}' for item in imgChapter]
+                    }
+                }
+            })
+            with open("dbManga.json",'w') as f:
+                    f.write(json.dumps(data, indent=4))
+
+                    
+            return render_template("admin/page/adminPost.html", form = form)
+        return render_template("admin/page/adminPost.html", form = form)
     else:
         return render_template('admin/adminLogin.html')
     
-def adminUpdateManga():
+def adminUpdateChapter():
+    class ValidateUpdateManga(FlaskForm):
+        listFolderImg2= os.listdir(app.config['IMAGE_UPLOADS'])
+        chapter = StringField("chapter", validators=[InputRequired()])
+        imgChapter = MultipleFileField('imgChapter',validators=[DataRequired()])
+        selectedManga = SelectField('selectedManga', choices=listFolderImg2)
     if "admin" in session:
         name = session['admin']
-        return render_template('admin/page/adminUpdate.html', nameAdmin = name)
+        form = ValidateUpdateManga()
+        if request.method == 'POST':
+            selectedManga = form.selectedManga.data
+            chapter = form.chapter.data
+            imgChapter = form.imgChapter.data
+            
+            if ".gitkeep" == selectedManga:
+                return render_template('update.html', success = True,form=form)    
+
+            os.mkdir(f"{app.config['IMAGE_UPLOADS']}/{selectedManga}/chapter/{chapter}")
+            for itemIMG in imgChapter:
+                itemIMG.save(os.path.join(f"{app.config['IMAGE_UPLOADS']}/{selectedManga}/chapter/{chapter}",itemIMG.filename))
+
+            with open('dbManga.json','r') as f:
+                data = json.load(f)
+            data[selectedManga]['chapter'][chapter] = [f'img/imgManga/{selectedManga}/chapter/{chapter}/{itemIMG.filename}' for itemIMG in imgChapter]
+            with open("dbManga.json",'w') as f:
+                f.write(json.dumps(data, indent=4, sort_keys=True))
+            return render_template('admin/page/adminUpdateChapter.html',form=form)
+
+        return render_template('admin/page/adminUpdateChapter.html', form=form)
     else:
         return render_template('admin/adminLogin.html')
 
 def adminDeleteManga():
+    class ValidateDeleteManga(FlaskForm):
+        listFolderImg = os.listdir(app.config['IMAGE_UPLOADS'])
+        nameManga = SelectField("nameManga", choices=listFolderImg)
     if "admin" in session:
         name = session['admin']
-        return render_template('admin/page/adminDelete.html', nameAdmin = name)
+
+        form = ValidateDeleteManga()
+        if request.method == 'POST':
+            nameManga = form.nameManga.data
+
+            with open('dbManga.json','r') as f:
+                data = json.load(f)
+
+            shutil.rmtree(f'static/img/imgManga/{nameManga}')
+
+            del data[nameManga]
+
+            with open("dbManga.json",'w') as f:
+                f.write(json.dumps(data, indent=4))
+            return render_template('admin/page/adminDeleteManga.html',form = form)
+        return render_template('admin/page/adminDeleteManga.html', form = form)
     else:
         return render_template('admin/adminPage.html')
 
+def adminDeleteChapter():
+    class ValidateDeleteChapter(FlaskForm):
+        listFolderImg = os.listdir(app.config['IMAGE_UPLOADS'])
+        selectedManga = SelectField('selectedManga', choices=listFolderImg)
+        chapter = IntegerField("chapter", validators=[InputRequired()])
+    if "admin" in session:
+       
+        form = ValidateDeleteChapter()
+        if request.method == 'POST':
+            selectedManga = form.selectedManga.data
+            chapter = form.chapter.data
 
+            with open('dbManga.json','r') as f:
+                data = json.load(f)
+
+            shutil.rmtree(f'static/img/imgManga/{selectedManga}/chapter/{chapter}')
+
+            del data[selectedManga]['chapter'][chapter]
+
+            with open("dbManga.json",'w') as f:
+                f.write(json.dumps(data, indent=4))
+            return render_template('admin/page/adminDeleteChapter.html',form = form)
+
+        return render_template('admin/page/adminDeleteChapter.html',form = form)
+    else:
+        return render_template('admin/adminPage.html')
 def adminEmailHire():
     if "admin" in session:
         if request.method == "POST":
@@ -268,8 +398,9 @@ app.add_url_rule('/admin','admin', admin, methods=['GET','POST'])
 app.add_url_rule('/admin','logout', logout, methods=['GET','POST'])
 
 app.add_url_rule('/admin/postmanga','adminPostManga', adminPostManga, methods=['GET','POST'])
-app.add_url_rule('/admin/updatemanga','adminUpdateManga', adminUpdateManga, methods=['GET','POST'])
+app.add_url_rule('/admin/updatemanga','adminUpdateChapter', adminUpdateChapter, methods=['GET','POST'])
 app.add_url_rule('/admin/deletemanga','adminDeleteManga', adminDeleteManga, methods=['GET','POST'])
+app.add_url_rule('/admin/deletechapter','adminDeleteChapter', adminDeleteChapter, methods=['GET','POST'])
 
 app.add_url_rule('/admin/email','adminEmailHire', adminEmailHire, methods=['GET','POST'])
 
