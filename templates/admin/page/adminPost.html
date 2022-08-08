@@ -21,18 +21,24 @@
                 {% include 'admin/navbar/header.html' %}
                 <!-- End of Topbar -->
 
+
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
-                    {% if checkFolderExist == True%}
-                    <div class="alert alert-warning" role="alert">
-                        <p>Folder <b>{{nameManga}}</b> này tồn tại rồi! </p>
-                    </div>
-                    {%endif%}
-                    <h2>Post Manga</h2>
-                  <div class="container">
+
+                
                     
-                      
+                   
+                  <div class="container-fluid">
+
+                        
+                    <h2>Post Manga</h2>
                       <div class="container">
+                        <div id="alertPostCompleted" class="alert alert-success d-flex align-items-center " style="width:300px" role="alert">
+                            <p>Bạn đã post truyện thành công</p>
+                            <span style="margin-bottom:15px; margin-left:20px;">
+                                <a href="#" onclick="return theFunction();"><i class="fa-solid fa-xmark fa-lg"></i></a>
+                            </span>
+                            
+                        </div>
                           <form  action="#" method="post" enctype="multipart/form-data">
                             <h3>nameManga</h3>
                             <div class="form-group">

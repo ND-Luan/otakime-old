@@ -225,7 +225,7 @@ def adminPostManga():
         form = ValidateCreateManga()
         if request.method == 'POST':
             nameManga = form.nameManga.data
-            idManga = form.nameManga.data
+            idManga = form.idManga.data
             cardImgUrlIndex = form.cardImgUrlIndex.data
             cardImgUrlBanner = form.cardImgUrlBanner.data
             cardImgUrlCover = form.cardImgUrlCover.data
@@ -239,34 +239,37 @@ def adminPostManga():
                 os.mkdir(f"{app.config['IMAGE_UPLOADS'] }/{nameManga}")
                 os.mkdir(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/chapter")
                 os.mkdir(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo")
+                os.mkdir(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo/index")
+                os.mkdir(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo/banner")
+                os.mkdir(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo/cover")
 
-                cardImgUrlIndex.save(os.path.join(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo",cardImgUrlIndex.filename))     
-                cardImgUrlBanner.save(os.path.join(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo",cardImgUrlBanner.filename))
-                cardImgUrlCover.save(os.path.join(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo",cardImgUrlCover.filename))           
+                cardImgUrlIndex.save(os.path.join(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo/index",cardImgUrlIndex.filename))     
+                cardImgUrlBanner.save(os.path.join(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo/banner",cardImgUrlBanner.filename))
+                cardImgUrlCover.save(os.path.join(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo/cover",cardImgUrlCover.filename))           
 
                 os.mkdir(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/chapter/{chapter}")
 
                 for item in imgChapter:
                     item.save(os.path.join(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/chapter/{chapter}",item.filename))
 
-            with open('dbManga.json','r') as f:
+            with open('dbManga.json','r',encoding="utf8") as f:
                 data = json.load(f)
             data.update({
                 nameManga:{
                     "id" : idManga,
-                    "cardImgUrlIndex":f"img/imgManga/{nameManga}/logo/index/{cardImgUrlIndex.filename}",
-                    "cardImgUrlBanner":f"img/imgManga/{nameManga}/logo/banner/{cardImgUrlBanner.filename}",
-                    "cardImgUrlCover":f"img/imgManga/{nameManga}/logo/cover/{cardImgUrlCover.filename}",
+                    "cardImgUrlIndex":f"static/img/imgManga/{nameManga}/logo/index/{cardImgUrlIndex.filename}",
+                    "cardImgUrlBanner":f"static/img/imgManga/{nameManga}/logo/banner/{cardImgUrlBanner.filename}",
+                    "cardImgUrlCover":f"static/img/imgManga/{nameManga}/logo/cover/{cardImgUrlCover.filename}",
                     "chapter":{
                         chapter:[f'img/imgManga/{nameManga}/chapter/{chapter}/{item.filename}' for item in imgChapter]
                     }
                 }
             })
-            with open("dbManga.json",'w') as f:
+            with open("dbManga.json",'w',encoding="utf8") as f:
                     f.write(json.dumps(data, indent=4))
 
                     
-            return render_template("admin/page/adminPost.html", form = form)
+            return render_template("admin/page/adminPost.html", form = form, success = True)
         return render_template("admin/page/adminPost.html", form = form)
     else:
         return render_template('admin/adminLogin.html')
@@ -292,10 +295,10 @@ def adminUpdateChapter():
             for itemIMG in imgChapter:
                 itemIMG.save(os.path.join(f"{app.config['IMAGE_UPLOADS']}/{selectedManga}/chapter/{chapter}",itemIMG.filename))
 
-            with open('dbManga.json','r') as f:
+            with open('dbManga.json','r',encoding="utf8") as f:
                 data = json.load(f)
             data[selectedManga]['chapter'][chapter] = [f'img/imgManga/{selectedManga}/chapter/{chapter}/{itemIMG.filename}' for itemIMG in imgChapter]
-            with open("dbManga.json",'w') as f:
+            with open("dbManga.json",'w',encoding="utf8") as f:
                 f.write(json.dumps(data, indent=4, sort_keys=True))
             return render_template('admin/page/adminUpdateChapter.html',form=form)
 
@@ -314,14 +317,14 @@ def adminDeleteManga():
         if request.method == 'POST':
             nameManga = form.nameManga.data
 
-            with open('dbManga.json','r') as f:
+            with open('dbManga.json','r',encoding="utf8") as f:
                 data = json.load(f)
 
             shutil.rmtree(f'static/img/imgManga/{nameManga}')
 
             del data[nameManga]
 
-            with open("dbManga.json",'w') as f:
+            with open("dbManga.json",'w',encoding="utf8") as f:
                 f.write(json.dumps(data, indent=4))
             return render_template('admin/page/adminDeleteManga.html',form = form)
         return render_template('admin/page/adminDeleteManga.html', form = form)
@@ -340,14 +343,14 @@ def adminDeleteChapter():
             selectedManga = form.selectedManga.data
             chapter = form.chapter.data
 
-            with open('dbManga.json','r') as f:
+            with open('dbManga.json','r',encoding="utf8") as f:
                 data = json.load(f)
 
             shutil.rmtree(f'static/img/imgManga/{selectedManga}/chapter/{chapter}')
 
-            del data[selectedManga]['chapter'][chapter]
+            del data[selectedManga]['chapter'][f"{chapter}"]
 
-            with open("dbManga.json",'w') as f:
+            with open("dbManga.json",'w',encoding="utf8") as f:
                 f.write(json.dumps(data, indent=4))
             return render_template('admin/page/adminDeleteChapter.html',form = form)
 
