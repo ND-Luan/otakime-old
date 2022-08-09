@@ -415,7 +415,7 @@ app.add_url_rule('/admin/api','adminJsonDB', adminJsonDB, methods=['GET','POST']
 
 app.add_url_rule('/admin/email','adminEmailHire', adminEmailHire, methods=['GET','POST'])
 
-app.add_url_rule('/dieukhoangsudung','dieukhoangsudung', dieukhoangsudung )
+app.add_url_rule('/dieukhoan','dieukhoangsudung', dieukhoangsudung )
 
 @app.errorhandler(404)
 def page_not_found(e):
