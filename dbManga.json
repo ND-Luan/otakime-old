@@ -846,7 +846,6 @@
         "cardImgUrlBanner": "static/img/imgManga/Sonouchi kekkon made ikukedo ima wa mada/logo/banner/sonouchi-banner.jpg",
         "cardImgUrlCover": "static/img/imgManga/Sonouchi kekkon made ikukedo ima wa mada/logo/cover/sonouchi-cover.jpg",
         "cardImgUrlIndex": "",
-        "category": "\u0110\u1eddi th\u01b0\u1eddng, H\u00e0i, L\u00e3ng m\u1ea1n, Seinen",
         "chapter": {
             "1": [
                 "img/imgManga/Sonouchi kekkon made ikukedo ima wa mada/chapter/1/4.jpg",
@@ -909,6 +908,12 @@
                 "img/imgManga/Sonouchi kekkon made ikukedo ima wa mada/chapter/7/2.jpg",
                 "img/imgManga/Sonouchi kekkon made ikukedo ima wa mada/chapter/7/3.jpg",
                 "img/imgManga/Sonouchi kekkon made ikukedo ima wa mada/chapter/7/4.jpg"
+            ],
+            "8":[
+                "img/imgManga/Sonouchi kekkon made ikukedo ima wa mada/chapter/8/1.jpg",
+                "img/imgManga/Sonouchi kekkon made ikukedo ima wa mada/chapter/8/2.jpg",
+                "img/imgManga/Sonouchi kekkon made ikukedo ima wa mada/chapter/8/3.jpg",
+                "img/imgManga/Sonouchi kekkon made ikukedo ima wa mada/chapter/8/4.jpg"
             ]
         },
         "id": "759fa10f-1e45-41d2-be46-7e462b62afd7"
