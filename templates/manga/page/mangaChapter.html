@@ -11,6 +11,7 @@
                 <div class="container-fluid" style="padding-top: 20px;">
                 {% for key,value in data%}
                     {% for chapter in value.chapter%}
+                        {% set chapter = chapter.lower().replace('chap ','')%}
                         {% if chapter == CHAPTER  %}
 
                             <i><h5><span><a href="{{url_for('home')}}" style="color: black;">Trang chủ </a>/</span><a href="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = None) }}" style="color: black;"> {{value.nameManga}} </a> / <span> <a href="{{ url_for('mangaPage', urlnameManga= value.url, chapter = chapter) }}" style="color: black;">{{CHAPTER}} </a></span></h5></i>
