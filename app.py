@@ -1,4 +1,3 @@
-import shutil
 from flask import Flask, redirect, render_template, request, send_file, session, url_for,jsonify,make_response
 from flask_mail import Mail,Message
 
@@ -11,8 +10,7 @@ from flask_wtf.file import FileField
 from wtforms import StringField,IntegerField,MultipleFileField,SelectField
 from wtforms.validators import DataRequired,InputRequired
 
-import os
-import json
+
 app = Flask(__name__)
 
 app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
@@ -291,40 +289,6 @@ def adminPostManga():
             imgChapter = form.imgChapter.data
 
 
-            if os.path.exists(f"{app.config['IMAGE_UPLOADS']}/{nameManga}"):
-                return render_template("post.html", checkFolderExist = True, nameManga= nameManga) #Check thu muc co ton tai ko
-            else:    
-                os.mkdir(f"{app.config['IMAGE_UPLOADS'] }/{nameManga}")
-                os.mkdir(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/chapter")
-                os.mkdir(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo")
-                os.mkdir(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo/index")
-                os.mkdir(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo/banner")
-                os.mkdir(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo/cover")
-
-                cardImgUrlIndex.save(os.path.join(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo/index",cardImgUrlIndex.filename))     
-                cardImgUrlBanner.save(os.path.join(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo/banner",cardImgUrlBanner.filename))
-                cardImgUrlCover.save(os.path.join(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/logo/cover",cardImgUrlCover.filename))           
-
-                os.mkdir(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/chapter/{chapter}")
-
-                for item in imgChapter:
-                    item.save(os.path.join(f"{app.config['IMAGE_UPLOADS']}/{nameManga}/chapter/{chapter}",item.filename))
-
-            with open('dbManga.json','r',encoding="utf8") as f:
-                data = json.load(f)
-            data.update({
-                nameManga:{
-                    "id" : idManga,
-                    "cardImgUrlIndex":f"static/img/imgManga/{nameManga}/logo/index/{cardImgUrlIndex.filename}",
-                    "cardImgUrlBanner":f"static/img/imgManga/{nameManga}/logo/banner/{cardImgUrlBanner.filename}",
-                    "cardImgUrlCover":f"static/img/imgManga/{nameManga}/logo/cover/{cardImgUrlCover.filename}",
-                    "chapter":{
-                        chapter:[f'img/imgManga/{nameManga}/chapter/{chapter}/{item.filename}' for item in imgChapter]
-                    }
-                }
-            })
-            with open("dbManga.json",'w',encoding="utf8") as f:
-                    f.write(json.dumps(data, indent=4))
 
                     
             return render_template("admin/page/adminPost.html", form = form, success = True)
@@ -334,10 +298,10 @@ def adminPostManga():
     
 def adminUpdateChapter():
     class ValidateUpdateManga(FlaskForm):
-        listFolderImg2= os.listdir(app.config['IMAGE_UPLOADS'])
+
         chapter = StringField("chapter", validators=[InputRequired()])
         imgChapter = MultipleFileField('imgChapter',validators=[DataRequired()])
-        selectedManga = SelectField('selectedManga', choices=listFolderImg2)
+        selectedManga = SelectField('selectedManga', choices=[])
     if "admin" in session:
         name = session['admin']
         form = ValidateUpdateManga()
@@ -346,19 +310,7 @@ def adminUpdateChapter():
             chapter = form.chapter.data
             imgChapter = form.imgChapter.data
             
-            if ".gitkeep" == selectedManga:
-                return render_template('update.html', success = True,form=form)    
 
-            os.mkdir(f"{app.config['IMAGE_UPLOADS']}/{selectedManga}/chapter/{chapter}")
-            for itemIMG in imgChapter:
-                itemIMG.save(os.path.join(f"{app.config['IMAGE_UPLOADS']}/{selectedManga}/chapter/{chapter}",itemIMG.filename))
-
-            with open('dbManga.json','r',encoding="utf8") as f:
-                data = json.load(f)
-            data[selectedManga]['chapter'][chapter] = [f'img/imgManga/{selectedManga}/chapter/{chapter}/{itemIMG.filename}' for itemIMG in imgChapter]
-            with open("dbManga.json",'w',encoding="utf8") as f:
-                f.write(json.dumps(data, indent=4, sort_keys=True))
-            return render_template('admin/page/adminUpdateChapter.html',form=form)
 
         return render_template('admin/page/adminUpdateChapter.html', form=form)
     else:
@@ -366,8 +318,7 @@ def adminUpdateChapter():
 
 def adminDeleteManga():
     class ValidateDeleteManga(FlaskForm):
-        listFolderImg = os.listdir(app.config['IMAGE_UPLOADS'])
-        nameManga = SelectField("nameManga", choices=listFolderImg)
+        nameManga = SelectField("nameManga", choices=[])
     if "admin" in session:
         name = session['admin']
 
@@ -375,15 +326,7 @@ def adminDeleteManga():
         if request.method == 'POST':
             nameManga = form.nameManga.data
 
-            with open('dbManga.json','r',encoding="utf8") as f:
-                data = json.load(f)
-
-            shutil.rmtree(f'static/img/imgManga/{nameManga}')
-
-            del data[nameManga]
-
-            with open("dbManga.json",'w',encoding="utf8") as f:
-                f.write(json.dumps(data, indent=4))
+           
             return render_template('admin/page/adminDeleteManga.html',form = form)
         return render_template('admin/page/adminDeleteManga.html', form = form)
     else:
@@ -391,8 +334,8 @@ def adminDeleteManga():
 
 def adminDeleteChapter():
     class ValidateDeleteChapter(FlaskForm):
-        listFolderImg = os.listdir(app.config['IMAGE_UPLOADS'])
-        selectedManga = SelectField('selectedManga', choices=listFolderImg)
+      
+        selectedManga = SelectField('selectedManga', choices=[])
         chapter = IntegerField("chapter", validators=[InputRequired()])
     if "admin" in session:
        
@@ -401,15 +344,9 @@ def adminDeleteChapter():
             selectedManga = form.selectedManga.data
             chapter = form.chapter.data
 
-            with open('dbManga.json','r',encoding="utf8") as f:
-                data = json.load(f)
 
-            shutil.rmtree(f'static/img/imgManga/{selectedManga}/chapter/{chapter}')
 
-            del data[selectedManga]['chapter'][f"{chapter}"]
-
-            with open("dbManga.json",'w',encoding="utf8") as f:
-                f.write(json.dumps(data, indent=4))
+           
             return render_template('admin/page/adminDeleteChapter.html',form = form)
 
         return render_template('admin/page/adminDeleteChapter.html',form = form)
@@ -437,13 +374,7 @@ def adminEmailHire():
         return render_template('admin/adminPage.html')
 
 
-def adminJsonDB():
-    if "admin" in session:
-        with open("dbManga.json",'r',  encoding="utf8") as f:
-            data = json.load(f,)
-        return make_response(jsonify(data),200)
-    else: 
-        return render_template('admin/adminPage.html')
+
 def sitemap():
     pass
 
@@ -469,7 +400,7 @@ app.add_url_rule('/admin/postmanga','adminPostManga', adminPostManga, methods=['
 app.add_url_rule('/admin/updatemanga','adminUpdateChapter', adminUpdateChapter, methods=['GET','POST'])
 app.add_url_rule('/admin/deletemanga','adminDeleteManga', adminDeleteManga, methods=['GET','POST'])
 app.add_url_rule('/admin/deletechapter','adminDeleteChapter', adminDeleteChapter, methods=['GET','POST'])
-app.add_url_rule('/admin/api','adminJsonDB', adminJsonDB, methods=['GET','POST'])
+
 
 app.add_url_rule('/admin/email','adminEmailHire', adminEmailHire, methods=['GET','POST'])
 
