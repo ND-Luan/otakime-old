@@ -25,7 +25,7 @@
     <!-- ***** Hero Area Start ***** -->
 
     {% for key,value in data %}
-    {%set index = value.chapter.lower().replace('chap ','') %}
+    {%set index = value.chapter[0].lower().replace('chap ','') %}
     <div class="hero-area d-flex align-items-center">
         <!-- Hero Thumbnail -->
         <div class="hero-thumbnail equalize bg-img" style="background-image: url('{{value.imgCover}}');"></div> 
