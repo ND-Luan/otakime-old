@@ -3,11 +3,7 @@ from flask import Flask, redirect, render_template, request, send_file, session,
 from flask_mail import Mail,Message
 
 from datetime import timedelta
-
-from getMangaChapter import ChapterMangaPage, imgChapter
-from getMangaList import authorMangaList, desciptionMangaList, imgBannerMangaList, imgCoverMangaList, imgIndexMangaList, otherName, tagsMangaList, titleMangaList, updateAt
-
-from parseJsonMangaPage import idMangaJSON
+from dbFireBase import getManga
 
 
 from flask_wtf import FlaskForm
@@ -43,25 +39,85 @@ mail = Mail(app)
 def home():
     title= 'Otakime - Nha tu ban'
     description = 'Trang web chính thức của nhóm dịch Otakime, Việt hóa những dự án manga nhằm giới thiệu độc giả. Truy cập ngay để đọc những tựa truyện được yêu thích.'
-    dictMangaIndex ={}
-    temp= 0
-    for key,value in idMangaJSON().items():
-        dictMangaIndex.update({
-            key:{
-                "nameManga": key.lower().replace(' ','-'),
-                "title":titleMangaList(value),
-                "description":desciptionMangaList(value),
-                "tags":', '.join(tagsMangaList(value)),
-                "imgIndex":imgIndexMangaList(key),
-                "imgBanner":imgBannerMangaList(key),
-                "imgCover":imgCoverMangaList(key)
-            }
-        })
-        temp = temp +1
-        if temp == 4:
+    dictMangaKawai ={}
+    dictMangaR15  ={}
+    dictMangaToaru ={}
+    dictMangaMizore ={}
+
+    nameMangaKawaii = "Kawaii Kanojo-chan"
+    nameMangaR15 = "R15 Ja Dame Desuka"
+    nameMangaToaru = "Toaru Meoto no Nichijou"
+    nameMangaMizore = "Tokedase Mizore-chan"
+
+    for key,value in getManga().items():
+        if key == nameMangaKawaii:
+            dictMangaKawai.update({
+                key:{
+                    "url" : key.lower().replace(' ','-'),
+                    "nameManga": value['nameManga'],
+                    "description": value['description'],
+                    "tags":', '.join(value['tags']),
+                    "imgIndex":value['imgIndex'],
+                    "imgBanner":value['imgBanner'],
+                    "imgCover":value['imgCover']
+                }
+            })
+
+            break
+    for key,value in getManga().items():
+        if key == nameMangaR15:
+            dictMangaR15.update({
+                key:{
+                    "url" : key.lower().replace(' ','-'),
+                    "nameManga": value['nameManga'],
+                    "description": value['description'],
+                    "tags":', '.join(value['tags']),
+                    "imgIndex":value['imgIndex'],
+                    "imgBanner":value['imgBanner'],
+                    "imgCover":value['imgCover']
+                }
+            })
+
+            break
+    for key,value in getManga().items():
+        if key == nameMangaToaru:
+            dictMangaToaru.update({
+                key:{
+                    "url" : key.lower().replace(' ','-'),
+                    "nameManga": value['nameManga'],
+                    "description": value['description'],
+                    "tags":', '.join(value['tags']),
+                    "imgIndex":value['imgIndex'],
+                    "imgBanner":value['imgBanner'],
+                    "imgCover":value['imgCover']
+                }
+            })
+
+            break
+    for key,value in getManga().items():
+        if key == nameMangaMizore:
+            dictMangaMizore.update({
+                key:{
+                    "url" : key.lower().replace(' ','-'),
+                    "nameManga": value['nameManga'],
+                    "description": value['description'],
+                    "tags":', '.join(value['tags']),
+                    "imgIndex":value['imgIndex'],
+                    "imgBanner":value['imgBanner'],
+                    "imgCover":value['imgCover']
+                }
+            })
+
             break
 
-    return render_template('manga/index.html', data = dictMangaIndex.items(), title= title, description= description) 
+    return render_template(
+        'manga/index.html', 
+        dataKawaii = dictMangaKawai.items(),
+        dataR15 = dictMangaR15.items(),
+        dataToaru = dictMangaToaru.items(),
+        dataMizore = dictMangaMizore.items(),
+        title= title, 
+        description= description) 
 
 def about():
     title = 'Otakime - About'
@@ -95,20 +151,20 @@ def manga():
 
     dictManga={}
 
-    for key,value in idMangaJSON().items():
+    for key,value in getManga().items():
         dictManga.update({
             key:
             {
-                "nameManga": key.lower().replace(' ','-'),
-                "title":titleMangaList(value),
-                "author":authorMangaList(value),
-                "updateAt": updateAt(value),
-                "otherName":otherName(value),
-                "description":desciptionMangaList(value),
-                "tags":', '.join(tagsMangaList(value)),
-                "imgIndex":imgIndexMangaList(key),
-                "imgBanner":imgBannerMangaList(key),
-                "imgCover":imgCoverMangaList(key)
+                "url": key.lower().replace(' ','-'),
+                "nameManga":value['nameManga'],
+                "author":value['author'],
+                "updateAt": value['updateAt'],
+                "otherName":value['otherName'],
+                "description":value['description'],
+                "tags":', '.join(value['tags']),
+                "imgIndex":value['imgIndex'],
+                "imgBanner":value['imgBanner'],
+                "imgCover":value['imgCover']
             }
             })
   
@@ -117,35 +173,36 @@ def manga():
 
 def mangaChapter (urlnameManga,chapter):
     dict_mangaPage ={}
-    for keyID, valueID in idMangaJSON().items():
+    for keyID, valueID in getManga().items():
         if urlnameManga == keyID.lower().replace(' ','-'):
             title = f"Otakime - {keyID}"
             dict_mangaPage.update({
                 keyID: {
-                "nameManga": keyID.lower().replace(' ','-'),
-                "title":titleMangaList(valueID),
-                "author":authorMangaList(valueID),
-                "updateAt": updateAt(valueID),
-                "otherName":otherName(valueID),
-                "description":desciptionMangaList(valueID),
-                "tags":', '.join(tagsMangaList(valueID)),
-                "imgIndex":imgIndexMangaList(keyID),
-                "imgBanner":imgBannerMangaList(keyID),
-                "imgCover":imgCoverMangaList(keyID),
-                "chapter":[item['chapter'] for item in ChapterMangaPage(valueID)]
+                "url": keyID.lower().replace(' ','-'),
+                "nameManga":valueID['nameManga'],
+                "author":valueID['author'],
+                "updateAt": valueID['updateAt'],
+                "otherName":valueID['otherName'],
+                "description":valueID['description'],
+                "tags":', '.join(valueID['tags']),
+                "imgIndex":valueID['imgIndex'],
+                "imgBanner":valueID['imgBanner'],
+                "imgCover": valueID['imgCover'],
+                "chapter":[item for item in valueID['chapter']]
             }
             })
-            idchapter = imgChapter(valueID)
-            for key,value in idchapter.items():
-                if key == chapter:
+            
+            for keychapterDB,vauleIMG in valueID['chapter'].items():
+                
+                if  keychapterDB.lower().replace('chap ','') == chapter:
                 #print(keyID)
-                    return render_template('manga/page/mangaChapter.html', CHAPTER = chapter, previousChapter = idchapter,  dataIMG= value, title = title, description =dict_mangaPage[keyID]['description'],data = dict_mangaPage.items())  
+                    return render_template('manga/page/mangaChapter.html', CHAPTER = chapter, previousChapter = [item.lower().replace('chap ','') for item in dict_mangaPage[keyID]['chapter']],  dataIMG= vauleIMG, title = title, description =dict_mangaPage[keyID]['description'],data = dict_mangaPage.items())  
             else:
                 return render_template("manga/404Chapter.html")
 
 def mangaPage(urlnameManga):
     dict_mangaPage ={}
-    for keyID, valueID in idMangaJSON().items():
+    for keyID, valueID in getManga().items():
         if urlnameManga == keyID.lower().replace(' ','-'):
             title = f"Otakime - {keyID}"
                     
@@ -166,17 +223,18 @@ def mangaPage(urlnameManga):
             """        
             dict_mangaPage.update({
                 keyID: {
-                "nameManga": keyID.lower().replace(' ','-'),
-                "title":titleMangaList(valueID),
-                "author":authorMangaList(valueID),
-                "updateAt": updateAt(valueID),
-                "otherName":otherName(valueID),
-                "description":desciptionMangaList(valueID),
-                "tags":', '.join(tagsMangaList(valueID)),
-                "imgIndex":imgIndexMangaList(keyID),
-                "imgBanner":imgBannerMangaList(keyID),
-                "imgCover":imgCoverMangaList(keyID),
-                "chapter":[item['chapter'] for item in ChapterMangaPage(valueID)]
+                
+                "url" : keyID.lower().replace(' ','-'),
+                "nameManga":valueID['nameManga'],
+                "author":valueID['author'],
+                "updateAt": valueID['updateAt'],
+                "otherName":valueID['otherName'],
+                "description":valueID['description'],
+                "tags":', '.join(valueID['tags']),
+                "imgIndex":valueID['imgIndex'],
+                "imgBanner":valueID['imgBanner'],
+                "imgCover": valueID['imgCover'],
+                "chapter":[item for item in valueID['chapter']]
             }
             })
             

@@ -35,14 +35,14 @@
                 <div class="row h-100 align-items-center justify-content-center">
                     <div class="col-12 col-md-8">
                         <div class="line"></div>
-                        <h2>{{ value.title }}</h2>
+                        <h2>{{ value.nameManga }}</h2>
                         <h6 style="color:white;"><b>Tác giả:</b> {{value.author}}</h6></br>
                         <h6 style="color:white;"><b>Tên khác:</b> {{value.otherName}}</h6></br>
                         <h6 style="color:white;"><b>Thể loại:</b> {{value.tags}}</h6></br>
                         <h6 style="color:white;"><b>Ngày cập nhật:</b> {{value.updateAt}}</h6></br>
                         <h6 style="color:white;"><b>Mô tả:</b> {{value.description}}</h6></br>
 
-                        <a href="{{url_for('mangaChapter', urlnameManga = value.nameManga, chapter = index)}}" class="btn sonar-btn white-btn">Đọc ngay</a>
+                        <a href="{{url_for('mangaChapter', urlnameManga = value.url, chapter = index)}}" class="btn sonar-btn white-btn">Đọc ngay</a>
                     </div>
                 </div>
             </div>
@@ -56,9 +56,9 @@
             {%for item in value.chapter%}
             <div class="col-md-3 d-flex align-items-center justify-content-center">
                 <div class="single-services-area wow fadeInUp btn btn-light " data-wow-delay="300ms" style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
-                    <a href="{{ url_for('mangaChapter', urlnameManga= value.nameManga, chapter = item) }}">
+                    <a href="{{ url_for('mangaChapter', urlnameManga= value.url, chapter = item.lower().replace('chap ','')) }}">
                         
-                        <h6>Chap {{item}}</h6>
+                        <h6>{{item}}</h6>
                         <p><i>Ngày cập nhật: 31/07/2022</i></p>
                     </a>
                 </div>

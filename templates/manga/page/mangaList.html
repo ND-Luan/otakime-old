@@ -33,14 +33,14 @@
     <!-- ****** Gallery Area Start ****** -->
     <section class="sonar-projects-area" id="projects">
         <div class="container-fluid">
-            <div class="row sonar-portfolio">
+            <div class="row">
                 {%for key, value in data %}
                 <!-- Single gallery Item -->
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item landscapes  fashion portraits wow fadeInUpBig" data-wow-delay="200ms">
-                    <a href="{{url_for('mangaPage',urlnameManga = value.nameManga) }}"><img src="{{value.imgBanner}}" alt=""></a>
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item fadeInUpBig" data-wow-delay="200ms">
+                    <a href="{{url_for('mangaPage',urlnameManga = value.url) }}"><img src="{{value.imgBanner}}" alt=""></a>
                     <!-- Gallery Content -->
                     <div class="gallery-content">
-                        <h4>{{value.title}}</h4>
+                        <h4>{{value.nameManga}}</h4>
                         <p>{{value.tags}}</p>
                     </div>
                 </div>

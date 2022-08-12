@@ -71,8 +71,8 @@
         <div class="hero-slides owl-carousel">
             <!-- Single Hero Slide -->
 
-            {% for key, value in data %}  
-            <a href="{{url_for('mangaPage', urlnameManga = value.nameManga)}}">
+            {% for key, value in dataKawaii %}  
+            <a href="{{url_for('mangaPage', urlnameManga = value.url)}}">
                 <div class="single-hero-slide bg-img slide-background-overlay" style="background-image: url('{{value.imgIndex}}');">
                     
                     <div class="container h-100"> 
@@ -83,7 +83,70 @@
                               
                                 <div class="hero-slides-content">
                                     <div class="line"></div>
-                                    <h2> {{ value.title }}</h2>
+                                    <h2> {{ value.nameManga }}</h2>
+                                    <p> {{ value.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+            {% for key, value in dataR15 %}  
+            <a href="{{url_for('mangaPage', urlnameManga = value.url)}}">
+                <div class="single-hero-slide bg-img slide-background-overlay" style="background-image: url('{{value.imgIndex}}');">
+                    
+                    <div class="container h-100"> 
+                        
+                        <div class="row h-100 align-items-end">
+                            
+                            <div class="col-12">
+                              
+                                <div class="hero-slides-content">
+                                    <div class="line"></div>
+                                    <h2> {{ value.nameManga }}</h2>
+                                    <p> {{ value.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+            {% for key, value in dataToaru %}  
+            <a href="{{url_for('mangaPage', urlnameManga = value.url)}}">
+                <div class="single-hero-slide bg-img slide-background-overlay" style="background-image: url('{{value.imgIndex}}');">
+                    
+                    <div class="container h-100"> 
+                        
+                        <div class="row h-100 align-items-end">
+                            
+                            <div class="col-12">
+                              
+                                <div class="hero-slides-content">
+                                    <div class="line"></div>
+                                    <h2> {{ value.nameManga }}</h2>
+                                    <p> {{ value.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+            {% for key, value in dataMizore %}  
+            <a href="{{url_for('mangaPage', urlnameManga = value.url)}}">
+                <div class="single-hero-slide bg-img slide-background-overlay" style="background-image: url('{{value.imgIndex}}');">
+                    
+                    <div class="container h-100"> 
+                        
+                        <div class="row h-100 align-items-end">
+                            
+                            <div class="col-12">
+                              
+                                <div class="hero-slides-content">
+                                    <div class="line"></div>
+                                    <h2> {{ value.nameManga }}</h2>
                                     <p> {{ value.description }}</p>
                                 </div>
                             </div>
