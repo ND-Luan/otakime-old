@@ -42,13 +42,24 @@
  <script src="{{url_for('static',filename='vendor/chart.js/Chart.min.js')}}"></script>
 
  <!-- Page level custom scripts -->
- <script src="{{url_for('static',filename='js/demo/chart-area-demo.js')}}"></script>
- <script src="{{url_for('static',filename='js/demo/chart-pie-demo.js')}}"></script>
  <script src="https://kit.fontawesome.com/7df6c8e591.js" crossorigin="anonymous"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
  <script type="text/javascript">
     function theFunction () {
         $("#alertPostCompleted").attr('style','display: none !important;width:300px');
     }
 </script>
+
+<script type="text/javascript">
+    $(document).ready( function()
+    {
+        $('#tag').change((e)=>{
+            let currentStr= $('#tags').val().trim();
+            $('#tags').val(currentStr + " "+ $(e.target).val())
+        })
+    })
+        
+</script>
+
+
 </html>

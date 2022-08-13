@@ -7,10 +7,11 @@ from dbFireBase import getManga
 
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField
-from wtforms import StringField,IntegerField,MultipleFileField,SelectField
-from wtforms.validators import DataRequired,InputRequired
+from wtforms import StringField,IntegerField,MultipleFileField,SelectField,DateField,SelectField
+from wtforms.validators import DataRequired,InputRequired,Optional
 
-
+from firebase import db,storage,user
+from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
 app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
@@ -20,7 +21,7 @@ mail_username='mail.otakime@gmail.com'
 mail_password='lpavozmbebtxdhbb'
 
 app.config["SECRET_KEY"] = "POTATO"
-app.permanent_session_lifetime = timedelta(seconds=300)
+#app.permanent_session_lifetime = timedelta(seconds=1000)
 
 app.config.update(dict(
     DEBUG = True,
@@ -233,12 +234,14 @@ def mangaPage(urlnameManga):
                 "imgBanner":valueID['imgBanner'],
                 "imgCover": valueID['imgCover'],
                 "chapter":[item for item in valueID['chapter']]
+
             }
             })
+            img = getManga()['Sonouchi kekkon made ikukedo ima wa mada']['imgDonate']
             
             
                           
-            return render_template('manga/page/mangaPage.html', data = dict_mangaPage.items(), title= title, description=dict_mangaPage[keyID]['description']) 
+            return render_template('manga/page/mangaPage.html',url=urlnameManga, img= img ,data = dict_mangaPage.items(), title= title, description=dict_mangaPage[keyID]['description']) 
     else:   
         return render_template("manga/404Page.html")
     
@@ -270,7 +273,12 @@ def logout():
 def adminPostManga():
     class ValidateCreateManga(FlaskForm):
         nameManga = StringField("nameManga", validators=[InputRequired()])
-        idManga = StringField("idManga", validators=[InputRequired()])
+        author = StringField("author", validators=[InputRequired()])
+        otherName = StringField("otherName",validators=[InputRequired()])
+        tags = StringField("tags",validators=[InputRequired()])
+        tag = SelectField("tag",choices=['Romance','DarkHole','Book'])
+        updateAt = DateField("updateAt",validators=[InputRequired()])
+        description = StringField("description", validators=[InputRequired()])
         cardImgUrlIndex = FileField("cardImgUrlIndex",validators=[DataRequired()])
         cardImgUrlBanner = FileField("cardImgUrlBanner",validators=[DataRequired()])
         cardImgUrlCover = FileField("cardImgUrlCover",validators=[DataRequired()])
@@ -280,14 +288,23 @@ def adminPostManga():
         name = session['admin']
         form = ValidateCreateManga()
         if request.method == 'POST':
+
             nameManga = form.nameManga.data
-            idManga = form.idManga.data
+            author = form.author.data
+            otherName = form.otherName.data
+            tags = form.tags.data
+            updateAt = form.updateAt.data
+            description = form.description.data
             cardImgUrlIndex = form.cardImgUrlIndex.data
             cardImgUrlBanner = form.cardImgUrlBanner.data
             cardImgUrlCover = form.cardImgUrlCover.data
             chapter = form.chapter.data
             imgChapter = form.imgChapter.data
 
+            print(cardImgUrlIndex.filename)
+            storage.child("manga").child(nameManga).child("logo").child(cardImgUrlIndex).put(secure_filename(cardImgUrlIndex.filename))
+            storage.child("manga").child(nameManga).child("logo").child(cardImgUrlBanner).put(cardImgUrlBanner)
+            storage.child("manga").child(nameManga).child("logo").child(cardImgUrlCover).put(cardImgUrlCover)
 
 
                     

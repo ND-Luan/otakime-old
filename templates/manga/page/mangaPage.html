@@ -51,6 +51,11 @@
 
 
  <div class="container">
+
+        {% if url == "sonouchi-kekkon-made-ikukedo-ima-wa-mada"%}
+        <img class="mt-3" src="{{img}}"/>
+        {%endif%}
+
         <div class="row " style="padding-top: 70px;">
             
             {%for item in value.chapter%}
