@@ -337,7 +337,7 @@ def adminPostManga():
 
             #add json manga realtime database
             db.child(nameManga).update({
-                
+                "nameManga":nameManga,
                 "author":author,
                 "otherName":otherName,
                 "tags": tags.split(' '),
