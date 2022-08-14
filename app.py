@@ -272,14 +272,15 @@ def logout():
 
 def adminPostManga():
     class ValidateCreateManga(FlaskForm):
+        listChoices = sorted(['Romance','Comedy','Drama','Slice of Life','Romance','Doujinshi','Psychological','Mystery','Web Comic','School Life','4-Koma','Supernatural'])
         nameManga = StringField("nameManga", validators=[InputRequired()])
         author = StringField("author", validators=[InputRequired()])
         otherName = StringField("otherName",validators=[InputRequired()])
         tags = StringField("tags",validators=[InputRequired()])
-        tag = SelectField("tag",choices=['Romance','DarkHole','Book'])
+        tag = SelectField("Chọn thể loại",choices=listChoices)
         updateAt = DateField("updateAt",validators=[InputRequired()])
         description = StringField("description", validators=[InputRequired()])
-        cardImgUrlIndex = FileField("cardImgUrlIndex",validators=[DataRequired()])
+        cardImgUrlIndex = FileField("cardImgUrlIndex")
         cardImgUrlBanner = FileField("cardImgUrlBanner",validators=[DataRequired()])
         cardImgUrlCover = FileField("cardImgUrlCover",validators=[DataRequired()])
         chapter = IntegerField("chapter", validators=[InputRequired()])
@@ -301,12 +302,57 @@ def adminPostManga():
             chapter = form.chapter.data
             imgChapter = form.imgChapter.data
 
-            print(cardImgUrlIndex.filename)
-            storage.child("manga").child(nameManga).child("logo").child(cardImgUrlIndex).put(secure_filename(cardImgUrlIndex.filename))
-            storage.child("manga").child(nameManga).child("logo").child(cardImgUrlBanner).put(cardImgUrlBanner)
-            storage.child("manga").child(nameManga).child("logo").child(cardImgUrlCover).put(cardImgUrlCover)
+
+            chapter = str(chapter)
+            if len(chapter) == 2:
+                pass
+            else:
+                if chapter[0] not in "0":
+                    chapter = "0" + chapter
+
+            #check img index co dc add khong?
+            if cardImgUrlIndex == None:
+                print("img index chua dc them")
+                dbimgIndex= ""
+            else: 
+                pass
+                storage.child("manga").child(nameManga).child("logo").child(cardImgUrlIndex.filename).put(cardImgUrlIndex,user['idToken'])
+                dbimgIndex = storage.child("manga").child(nameManga).child("logo").child(cardImgUrlIndex.filename).get_url(user['idToken'])
+            #add img banner va cover vao trong storage firebase
+            storage.child("manga").child(nameManga).child("logo").child(cardImgUrlBanner.filename).put(cardImgUrlBanner,user['idToken'])
+            storage.child("manga").child(nameManga).child("logo").child(cardImgUrlCover.filename).put(cardImgUrlCover,user['idToken'])
 
 
+            dbimgBanner = storage.child("manga").child(nameManga).child("logo").child(cardImgUrlBanner.filename).get_url(user['idToken'])
+            dbimgCover = storage.child("manga").child(nameManga).child("logo").child(cardImgUrlCover.filename).get_url(user['idToken'])
+
+            #add img chapter vao trong storage firebase
+
+            
+
+
+            for item in imgChapter:
+                print(item)
+                storage.child("manga").child(nameManga).child("chapter").child(f"{chapter}").child(item.filename).put(item, user['idToken'])
+
+            #add json manga realtime database
+            db.child(nameManga).update({
+                
+                "author":author,
+                "otherName":otherName,
+                "tags": tags.split(' '),
+                "updateAt":updateAt.strftime("%d/%m/%Y"),
+                "description":description,
+                "imgIndex":dbimgIndex,
+                "imgBanner":dbimgBanner,
+                "imgCover":dbimgCover,
+                
+            #add json chapter realtime database
+            })
+            db.child(nameManga).child("chapter").update({
+                f"Chap {chapter}":[storage.child("manga").child(nameManga).child("chapter").child(f"{chapter}").child(item.filename).get_url(user['idToken']) for item in imgChapter]
+            })
+           
                     
             return render_template("admin/page/adminPost.html", form = form, success = True)
         return render_template("admin/page/adminPost.html", form = form)
@@ -316,9 +362,16 @@ def adminPostManga():
 def adminUpdateChapter():
     class ValidateUpdateManga(FlaskForm):
 
-        chapter = StringField("chapter", validators=[InputRequired()])
+        DB = db.get().val()
+
+
+        listChoices = []
+        for item in DB.keys():
+            listChoices.append(item)
+
+        chapter = IntegerField("chapter", validators=[InputRequired()])
         imgChapter = MultipleFileField('imgChapter',validators=[DataRequired()])
-        selectedManga = SelectField('selectedManga', choices=[])
+        selectedManga = SelectField('selectedManga', choices= listChoices)
     if "admin" in session:
         name = session['admin']
         form = ValidateUpdateManga()
@@ -327,6 +380,21 @@ def adminUpdateChapter():
             chapter = form.chapter.data
             imgChapter = form.imgChapter.data
             
+            chapter = str(chapter)
+            if len(chapter) == 2:
+                pass
+            else:
+                if chapter[0] not in "0":
+                    chapter = "0" + chapter
+
+            for item in imgChapter:
+                print(item)
+                storage.child("manga").child(selectedManga).child("chapter").child(f"{chapter}").child(item.filename).put(item, user['idToken'])
+            
+
+            db.child(selectedManga).child("chapter").update({
+                f"Chap {chapter}": [storage.child("manga").child(selectedManga).child("chapter").child(f"{chapter}").child(item.filename).get_url(user['idToken']) for item in imgChapter]
+            })
 
 
         return render_template('admin/page/adminUpdateChapter.html', form=form)
@@ -335,7 +403,11 @@ def adminUpdateChapter():
 
 def adminDeleteManga():
     class ValidateDeleteManga(FlaskForm):
-        nameManga = SelectField("nameManga", choices=[])
+        DB = db.get().val()
+        listChoices = []
+        for item in DB.keys():
+            listChoices.append(item)
+        nameManga = SelectField("nameManga", choices=listChoices)
     if "admin" in session:
         name = session['admin']
 
@@ -343,6 +415,18 @@ def adminDeleteManga():
         if request.method == 'POST':
             nameManga = form.nameManga.data
 
+            listStorageLogo = storage.list_files(f"manga/{nameManga}/logo/")
+            for item in listStorageLogo:
+                split = item.name
+                storage.delete(split, user['idToken'])
+
+
+            listStorageChapter = storage.list_files(f"manga/{nameManga}/chapter/")            
+            for item in listStorageChapter:
+                split = item.name
+                storage.delete(split, user['idToken'])
+            
+            db.child(nameManga).remove(user['idToken'])
            
             return render_template('admin/page/adminDeleteManga.html',form = form)
         return render_template('admin/page/adminDeleteManga.html', form = form)
@@ -351,8 +435,11 @@ def adminDeleteManga():
 
 def adminDeleteChapter():
     class ValidateDeleteChapter(FlaskForm):
-      
-        selectedManga = SelectField('selectedManga', choices=[])
+        DB = db.get().val()
+        listChoices = []
+        for item in DB.keys():
+            listChoices.append(item)
+        selectedManga = SelectField('selectedManga', choices=listChoices)
         chapter = IntegerField("chapter", validators=[InputRequired()])
     if "admin" in session:
        
@@ -361,9 +448,21 @@ def adminDeleteChapter():
             selectedManga = form.selectedManga.data
             chapter = form.chapter.data
 
+            chapter = str(chapter)
+            if len(chapter) == 2:
+                pass
+            else:
+                if chapter[0] not in "0":
+                    chapter = "0" + chapter
 
+            listStorageChapter = storage.list_files(f"manga/{selectedManga}/chapter/{chapter}/")            
+            for item in listStorageChapter:
+                split = item.name
+                storage.delete(split, user['idToken'])
 
-           
+            
+            db.child(selectedManga).child("chapter").child(f"Chap {chapter}").remove(user['idToken'])
+
             return render_template('admin/page/adminDeleteChapter.html',form = form)
 
         return render_template('admin/page/adminDeleteChapter.html',form = form)

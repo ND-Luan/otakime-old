@@ -42,69 +42,75 @@
                             </div>
                         {%endif%}
                           <form  action="#" method="post" enctype="multipart/form-data">
-                            <h3>nameManga</h3>
+                            <h3>Manga</h3>
                             <div class="form-group">
-                                {{form.nameManga(class="form-control form-control-user")}}
+                                {{form.nameManga(class="form-control form-control-user", placeholder="Điền tên Manga bạn nhập...")}}
+                            </div>
+                            <br>
+                            <h3>Tác giả</h3>
+                            <div class="form-group">
+                            {{form.author(class="form-control form-control-user", placeholder="Tên tác giả...")}}
                             </div>
 
-                            <h3>author</h3>
+                            <br>
+                            <h3>Tên khác</h3>
                             <div class="form-group">
-                            {{form.author(class="form-control form-control-user")}}
+                                {{form.otherName(class="form-control form-control-user", placeholder="Tên Manga khác...")}}
                             </div>
-
-                            
-                            <h3>otherName</h3>
+                            <br>
+                            <h3>Thể loại</h3>
                             <div class="form-group">
-                                {{form.otherName(class="form-control form-control-user")}}
-                            </div>
-
-                            <h3>tags</h3>
-                            <div class="form-group">
-                                {{form.tags(class="form-control form-control-user")}}
+                                {{form.tags(class="form-control form-control-user", placeholder="Điền thể loại Manga...")}}
                                 <br>
+                                <div class="row">
+                                    {{form.tag.label}}
+                                </div>
                                 <div class="row">
                                     {{form.tag(class="form-control form-control-user")}}
                                 </div>
                                
                             </div>
-
-                            <h3>updateAt</h3>
+                            <br>
+                            <h3>Ngày cập nhật</h3>
                             <div class="form-group">
-                                {{form.updateAt(class="form-control form-control-user")}}
+                                {{form.updateAt(class="form-control form-control-user", placeholder="Ngày cập nhật Manga...")}}
                             </div>
-
-                            <h3>description</h3>
+                            <br>
+                            <h3>Mô tả</h3>
                             <div class="form-group">
-                                {{form.description(class="form-control form-control-user")}}
+                                {{form.description(class="form-control form-control-user", placeholder="Mô tả Manga...")}}
                             </div>
-
-                            <h3>cardImgUrlIndex</h3>
+                            <br>
+                            <h3>Ảnh Index</h3>
                             <div class="form-group">
                                 {{form.cardImgUrlIndex}}
                             </div>
-                           
-                            <h3>cardImgUrlBanner</h3>
+                            <br>
+                            <h3>Ảnh Banner</h3>
                             <div class="form-group">
                                 {{form.cardImgUrlBanner}}
                             </div>
+                            <br>
                         
-                        
-                            <h3>cardImgUrlCover</h3>
+                            <h3>Ảnh Cover</h3>
                             <div class="form-group">
                                 {{form.cardImgUrlCover}}
                             </div>
-                          
+                            <br>
 
                             <h3>Chapter</h3>
                             <div class="form-group">
-                            {{form.chapter(class="form-control form-control-user")}}
+                                
+                            {{form.chapter(class="form-control form-control-user", placeholder="Điền chap cho Manga...")}}
                         
                             </div>
-
+                            <br>
+                            <h3>Ảnh chapter</h3>
                             <div class="form-group">
-                                <h3>imgChapter</h3>
+                                
                                 {{form.imgChapter}}
                             </div>
+                            <br>
                               <button type="submit" class="btn btn-primary btn-user btn-block">Post Manga</button>
                           </form>
                 
