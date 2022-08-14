@@ -274,6 +274,7 @@ def adminPostManga():
     class ValidateCreateManga(FlaskForm):
         listChoices = sorted(['Romance','Comedy','Drama','Slice of Life','Romance','Doujinshi','Psychological','Mystery','Web Comic','School Life','4-Koma','Supernatural'])
         nameManga = StringField("nameManga", validators=[InputRequired()])
+        titleManga = StringField("titleManga", validators=[InputRequired()])
         author = StringField("author", validators=[InputRequired()])
         otherName = StringField("otherName",validators=[InputRequired()])
         tags = StringField("tags",validators=[InputRequired()])
@@ -291,6 +292,7 @@ def adminPostManga():
         if request.method == 'POST':
 
             nameManga = form.nameManga.data
+            titleManga = form.titleManga.data
             author = form.author.data
             otherName = form.otherName.data
             tags = form.tags.data
@@ -337,7 +339,7 @@ def adminPostManga():
 
             #add json manga realtime database
             db.child(nameManga).update({
-                "nameManga":nameManga,
+                "nameManga":titleManga,
                 "author":author,
                 "otherName":otherName,
                 "tags": tags.split(' '),
@@ -397,7 +399,7 @@ def adminUpdateChapter():
             })
 
 
-        return render_template('admin/page/adminUpdateChapter.html', form=form)
+        return render_template('admin/page/adminUpdateChapter.html', form=form ,success = True)
     else:
         return render_template('admin/adminLogin.html')
 
@@ -428,7 +430,7 @@ def adminDeleteManga():
             
             db.child(nameManga).remove(user['idToken'])
            
-            return render_template('admin/page/adminDeleteManga.html',form = form)
+            return render_template('admin/page/adminDeleteManga.html',form = form,success = True)
         return render_template('admin/page/adminDeleteManga.html', form = form)
     else:
         return render_template('admin/adminPage.html')
@@ -463,7 +465,7 @@ def adminDeleteChapter():
             
             db.child(selectedManga).child("chapter").child(f"Chap {chapter}").remove(user['idToken'])
 
-            return render_template('admin/page/adminDeleteChapter.html',form = form)
+            return render_template('admin/page/adminDeleteChapter.html',form = form,success = True)
 
         return render_template('admin/page/adminDeleteChapter.html',form = form)
     else:

@@ -25,11 +25,15 @@
                 <div class="container-fluid">
                     <h2>Update Manga </h2>
                     <div class="container">
-                      {% if success%}
-                      <div >
-                          <p>.gitkeep do'</p>
-                      </div>
-                      {%endif%}
+                        {%if success%}
+                            <div id="alertPostCompleted" class="alert alert-success d-flex align-items-center " style="width:300px" role="alert">
+                                <p>Bạn đã update truyện thành công</p>
+                                <span style="margin-bottom:15px; margin-left:20px;">
+                                    <a href="#" onclick="return theFunction();"><i class="fa-solid fa-xmark fa-lg"></i></a>
+                                </span>
+                                
+                            </div>
+                        {%endif%}
                       <br>
                         <form  action="#" method="post" enctype="multipart/form-data">
                           <h3>Manga</h3>
