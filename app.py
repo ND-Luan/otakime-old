@@ -57,7 +57,7 @@ def home():
                     "description": value['description'],
                     "tags":', '.join(value['tags']),
                     "imgIndex":value['imgIndex'],
-                    "imgBanner":value['imgBanner'],
+                    "imgMain":value['imgMain'],
                     "imgCover":value['imgCover']
                 }
             })
@@ -72,7 +72,7 @@ def home():
                     "description": value['description'],
                     "tags":', '.join(value['tags']),
                     "imgIndex":value['imgIndex'],
-                    "imgBanner":value['imgBanner'],
+                    "imgMain":value['imgMain'],
                     "imgCover":value['imgCover']
                 }
             })
@@ -87,7 +87,7 @@ def home():
                     "description": value['description'],
                     "tags":', '.join(value['tags']),
                     "imgIndex":value['imgIndex'],
-                    "imgBanner":value['imgBanner'],
+                    "imgMain":value['imgMain'],
                     "imgCover":value['imgCover']
                 }
             })
@@ -102,7 +102,7 @@ def home():
                     "description": value['description'],
                     "tags":', '.join(value['tags']),
                     "imgIndex":value['imgIndex'],
-                    "imgBanner":value['imgBanner'],
+                    "imgMain":value['imgMain'],
                     "imgCover":value['imgCover']
                 }
             })
@@ -162,7 +162,7 @@ def manga():
                 "description":value['description'],
                 "tags":', '.join(value['tags']),
                 "imgIndex":value['imgIndex'],
-                "imgBanner":value['imgBanner'],
+                "imgMain":value['imgMain'],
                 "imgCover":value['imgCover']
             }
             })
@@ -185,7 +185,7 @@ def mangaChapter (urlnameManga,chapter):
                 "description":valueID['description'],
                 "tags":', '.join(valueID['tags']),
                 "imgIndex":valueID['imgIndex'],
-                "imgBanner":valueID['imgBanner'],
+                "imgMain":valueID['imgMain'],
                 "imgCover": valueID['imgCover'],
                 "chapter":[item for item in valueID['chapter']]
             }
@@ -231,7 +231,7 @@ def mangaPage(urlnameManga):
                 "description":valueID['description'],
                 "tags":', '.join(valueID['tags']),
                 "imgIndex":valueID['imgIndex'],
-                "imgBanner":valueID['imgBanner'],
+                "imgMain":valueID['imgMain'],
                 "imgCover": valueID['imgCover'],
                 "chapter":[item for item in valueID['chapter']]
 
@@ -282,7 +282,7 @@ def adminPostManga():
         updateAt = DateField("updateAt",validators=[InputRequired()])
         description = StringField("description", validators=[InputRequired()])
         cardImgUrlIndex = FileField("cardImgUrlIndex")
-        cardImgUrlBanner = FileField("cardImgUrlBanner",validators=[DataRequired()])
+        cardImgUrlMain = FileField("cardImgUrlMain",validators=[DataRequired()])
         cardImgUrlCover = FileField("cardImgUrlCover",validators=[DataRequired()])
         chapter = IntegerField("chapter", validators=[InputRequired()])
         imgChapter = MultipleFileField('imgChapter',validators=[DataRequired()])
@@ -299,7 +299,7 @@ def adminPostManga():
             updateAt = form.updateAt.data
             description = form.description.data
             cardImgUrlIndex = form.cardImgUrlIndex.data
-            cardImgUrlBanner = form.cardImgUrlBanner.data
+            cardImgUrlMain = form.cardImgUrlMain.data
             cardImgUrlCover = form.cardImgUrlCover.data
             chapter = form.chapter.data
             imgChapter = form.imgChapter.data
@@ -321,11 +321,11 @@ def adminPostManga():
                 storage.child("manga").child(nameManga).child("logo").child(cardImgUrlIndex.filename).put(cardImgUrlIndex,user['idToken'])
                 dbimgIndex = storage.child("manga").child(nameManga).child("logo").child(cardImgUrlIndex.filename).get_url(user['idToken'])
             #add img banner va cover vao trong storage firebase
-            storage.child("manga").child(nameManga).child("logo").child(cardImgUrlBanner.filename).put(cardImgUrlBanner,user['idToken'])
+            storage.child("manga").child(nameManga).child("logo").child(cardImgUrlMain.filename).put(cardImgUrlMain,user['idToken'])
             storage.child("manga").child(nameManga).child("logo").child(cardImgUrlCover.filename).put(cardImgUrlCover,user['idToken'])
 
 
-            dbimgBanner = storage.child("manga").child(nameManga).child("logo").child(cardImgUrlBanner.filename).get_url(user['idToken'])
+            dbimgMain = storage.child("manga").child(nameManga).child("logo").child(cardImgUrlMain.filename).get_url(user['idToken'])
             dbimgCover = storage.child("manga").child(nameManga).child("logo").child(cardImgUrlCover.filename).get_url(user['idToken'])
 
             #add img chapter vao trong storage firebase
@@ -346,7 +346,7 @@ def adminPostManga():
                 "updateAt":updateAt.strftime("%d/%m/%Y"),
                 "description":description,
                 "imgIndex":dbimgIndex,
-                "imgBanner":dbimgBanner,
+                "imgMain":dbimgMain,
                 "imgCover":dbimgCover,
                 
             #add json chapter realtime database
