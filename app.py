@@ -470,6 +470,7 @@ def adminDeleteChapter():
         return render_template('admin/page/adminDeleteChapter.html',form = form)
     else:
         return render_template('admin/adminPage.html')
+
 def adminEmailHire():
     if "admin" in session:
         if request.method == "POST":
