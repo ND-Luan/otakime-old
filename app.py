@@ -11,7 +11,7 @@ from wtforms import StringField,IntegerField,MultipleFileField,SelectField,DateF
 from wtforms.validators import DataRequired,InputRequired,Optional
 
 from firebase import db,storage,user
-from werkzeug.utils import secure_filename
+
 app = Flask(__name__)
 
 app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
