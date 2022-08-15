@@ -21,7 +21,7 @@ mail_username='mail.otakime@gmail.com'
 mail_password='lpavozmbebtxdhbb'
 
 app.config["SECRET_KEY"] = "POTATO"
-#app.permanent_session_lifetime = timedelta(seconds=1000)
+app.permanent_session_lifetime = timedelta(seconds=1000)
 
 app.config.update(dict(
     DEBUG = True,
@@ -499,6 +499,9 @@ def sitemap():
 
 def dieukhoangsudung():
     return send_file('static/dieukhoangsudung.txt')
+
+
+    
 app.add_url_rule('/','home', home )
 
 app.add_url_rule('/about','about', about )
