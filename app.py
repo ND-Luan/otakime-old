@@ -274,7 +274,7 @@ def adminPostManga():
     class ValidateCreateManga(FlaskForm):
         listChoices = sorted(['Romance','Comedy','Drama','Slice of Life','Romance','Doujinshi','Psychological','Mystery','Web Comic','School Life','4-Koma','Supernatural'])
         nameManga = StringField("nameManga", validators=[InputRequired()])
-        titleManga = StringField("titleManga", validators=[InputRequired()])
+        titleManga = StringField("*Tên Việt của Manga", validators=[InputRequired()])
         author = StringField("author", validators=[InputRequired()])
         otherName = StringField("otherName",validators=[InputRequired()])
         tags = StringField("tags",validators=[InputRequired()])
@@ -357,7 +357,7 @@ def adminPostManga():
            
                     
             return render_template("admin/page/adminPost.html", form = form, success = True)
-        return render_template("admin/page/adminPost.html", form = form)
+        return render_template("admin/page/adminPost.html", form = form,name= name)
     else:
         return render_template('admin/adminLogin.html')
     
@@ -398,8 +398,8 @@ def adminUpdateChapter():
                 f"Chap {chapter}": [storage.child("manga").child(selectedManga).child("chapter").child(f"{chapter}").child(item.filename).get_url(user['idToken']) for item in imgChapter]
             })
 
-
-        return render_template('admin/page/adminUpdateChapter.html', form=form ,success = True)
+            return render_template('admin/page/adminUpdateChapter.html', form=form ,success = True)
+        return render_template('admin/page/adminUpdateChapter.html', form=form,name= name)
     else:
         return render_template('admin/adminLogin.html')
 
@@ -431,7 +431,7 @@ def adminDeleteManga():
             db.child(nameManga).remove(user['idToken'])
            
             return render_template('admin/page/adminDeleteManga.html',form = form,success = True)
-        return render_template('admin/page/adminDeleteManga.html', form = form)
+        return render_template('admin/page/adminDeleteManga.html', form = form,name= name)
     else:
         return render_template('admin/adminPage.html')
 
@@ -444,7 +444,7 @@ def adminDeleteChapter():
         selectedManga = SelectField('selectedManga', choices=listChoices)
         chapter = IntegerField("chapter", validators=[InputRequired()])
     if "admin" in session:
-       
+        name = session['admin']
         form = ValidateDeleteChapter()
         if request.method == 'POST':
             selectedManga = form.selectedManga.data
@@ -467,7 +467,7 @@ def adminDeleteChapter():
 
             return render_template('admin/page/adminDeleteChapter.html',form = form,success = True)
 
-        return render_template('admin/page/adminDeleteChapter.html',form = form)
+        return render_template('admin/page/adminDeleteChapter.html',form = form,name= name)
     else:
         return render_template('admin/adminPage.html')
 
