@@ -1,5 +1,5 @@
 import requests
-from requests import Session
+from pyrebaseLib.requests import Session
 from requests.exceptions import HTTPError
 
 try:
