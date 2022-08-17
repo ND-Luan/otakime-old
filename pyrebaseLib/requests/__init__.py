@@ -50,7 +50,7 @@ except ImportError:
     charset_normalizer_version = None
 
 try:
-    from chardet import __version__ as chardet_version
+    from pyrebaseLib.chardet import __version__ as chardet_version
 except ImportError:
     chardet_version = None
 
