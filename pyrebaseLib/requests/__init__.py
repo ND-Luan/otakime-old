@@ -40,7 +40,7 @@ is at <https://requests.readthedocs.io>.
 
 import warnings
 
-import urllib3
+import pyrebaseLib.urllib3
 
 from .exceptions import RequestsDependencyWarning
 
