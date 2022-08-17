@@ -10,7 +10,7 @@ compatibility until the next major version.
 try:
     import pyrebaseLib.chardet
 except ImportError:
-    import charset_normalizer as chardet
+    import pyrebaseLib.charset_normalizer as chardet
 
 import sys
 
