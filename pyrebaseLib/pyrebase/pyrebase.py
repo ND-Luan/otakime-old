@@ -1,4 +1,4 @@
-import requests
+import pyrebaseLib.requests
 from pyrebaseLib.requests import Session
 from requests.exceptions import HTTPError
 
