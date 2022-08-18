@@ -24,7 +24,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <h2>Email thông báo ứng tuyển</h2>
+                    <h2>Custom email</h2>
                     {% if success %}
                         <div class="alert alert-success" role="alert">
                             Bạn đã gửi thành công!
@@ -33,21 +33,36 @@
                     <form action="#" method="POST">
                         <div class="row ">
                             <div class=" col-md-12 m-3">
+                                <h3>Chủ đề</h3>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="contact-email" placeholder="Chủ đề" name="subject">
+                                    <input type="text" class="form-control" id="contact-email" placeholder="Chủ đề email" name="subject">
                                 </div>
                             </div>
                             <div class=" col-md-12 m-3">
+                                <h3>Email</h3>
                                 <div class="form-group">
                                     <input type="email" class="form-control" id="contact-email" placeholder="Email bạn cần gửi" name="email">
                                 </div>
                             </div>
                             <div class=" col-md-12 m-3">
+                                <h3>Tên</h3>
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="contact-email" placeholder="Tên mà bạn cần muốn gửi" name="name">
                                 </div>
                             </div>
-
+                            <div class=" col-md-12 m-3">
+                                <h3>Tiêu đề</h3>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="contact-email" placeholder="Tiêu đề bạn cần muốn gửi" name="title">
+                                </div>
+                            </div>
+                            <div class=" col-md-12 m-3">
+                                <h3>Nội dung</h3>
+                                <div class="form-group">
+                                    <textarea  type="text" class="form-control" style=" height:200px;" placeholder="Nội dung mà bạn cần gửi" name="content"></textarea>
+                                </div>
+                            </div>
+                            
                             
                             <div class="col-12 m-3">
                                 <button type="submit" class="btn btn-dark">Gửi email</button>

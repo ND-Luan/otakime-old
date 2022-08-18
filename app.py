@@ -473,6 +473,29 @@ def adminDeleteChapter():
 
 def adminEmailHire():
     if "admin" in session:
+        nameSession = session['admin']
+        if request.method == "POST":
+            #emailTaker = request.form.get('emailTaker')
+            name = request.form.get('name')
+            email = request.form.get('email')
+            subject = request.form.get('subject')
+
+            msg = Message(
+                subject=f'{subject}',
+                sender= mail_username,
+                recipients=[email],
+                html = render_template('admin/page/mailLayoutHire.html', name = name)
+                #body= f'Name: {name}\nEmail: {email}\nMessage: {message}' 
+            )
+            mail.send(msg)
+            return render_template('admin/page/mailHire.html', success = True, name=nameSession)
+        return render_template('admin/page/mailHire.html')
+    else:
+        return render_template('admin/adminLogin.html')
+
+def adminEmailCustom():
+    if "admin" in session:
+        nameSession = session['admin']
         if request.method == "POST":
             #emailTaker = request.form.get('emailTaker')
             name = request.form.get('name')
@@ -487,12 +510,10 @@ def adminEmailHire():
                 #body= f'Name: {name}\nEmail: {email}\nMessage: {message}' 
             )
             mail.send(msg)
-            return render_template('admin/page/mail.html', success = True)
-        return render_template('admin/page/mail.html')
+            return render_template('admin/page/mailCustom.html', success = True,name=nameSession)
+        return render_template('admin/page/mailCustom.html')
     else:
-        return render_template('admin/adminPage.html')
-
-
+        return render_template('admin/adminLogin.html')
 
 def sitemap():
     pass
@@ -524,7 +545,8 @@ app.add_url_rule('/admin/deletemanga','adminDeleteManga', adminDeleteManga, meth
 app.add_url_rule('/admin/deletechapter','adminDeleteChapter', adminDeleteChapter, methods=['GET','POST'])
 
 
-app.add_url_rule('/admin/email','adminEmailHire', adminEmailHire, methods=['GET','POST'])
+app.add_url_rule('/admin/emailhire','adminEmailHire', adminEmailHire, methods=['GET','POST'])
+app.add_url_rule('/admin/emailcustom','adminEmailCustom', adminEmailCustom, methods=['GET','POST'])
 
 app.add_url_rule('/dieukhoan','dieukhoangsudung', dieukhoangsudung )
 
