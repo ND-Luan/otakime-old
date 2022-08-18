@@ -174,7 +174,7 @@ def mangaChapter (urlnameManga,chapter):
     dict_mangaPage ={}
     for keyID, valueID in getManga().items():
         if urlnameManga == keyID.lower().replace(' ','-'):
-            title = f"Otakime - {keyID}"
+            title = f"Otakime - {keyID} - Chap {chapter}"
             dict_mangaPage.update({
                 keyID: {
                 "url": keyID.lower().replace(' ','-'),
