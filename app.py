@@ -1,5 +1,4 @@
-from turtle import title
-from flask import Flask, redirect, render_template, request, send_file, session, url_for,jsonify,make_response
+from flask import Flask, redirect, render_template, request, session, url_for
 from flask_mail import Mail,Message
 
 from datetime import timedelta
