@@ -11,9 +11,11 @@ from wtforms.validators import DataRequired,InputRequired,Optional
 
 from firebase import db,storage,user
 import os
+import heroku
 app = Flask(__name__)
+cloud = heroku.from_key('b0ea7a8c-0538-4566-935e-7e36657583de')
+appcloud = cloud.apps['otakime']
 
-app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
 app.config['IMAGE_UPLOADS'] = 'static/img/imgManga'
 
 mail_username='mail.otakime@gmail.com'
