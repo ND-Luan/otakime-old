@@ -36,7 +36,7 @@ app.config.update(dict(
 mail = Mail(app)
 
 def home():
-    title= 'Otakime - Nha tu ban'
+    title= 'Otakime'
     description = 'Trang web chính thức của nhóm dịch Otakime, Việt hóa những dự án manga nhằm giới thiệu độc giả. Truy cập ngay để đọc những tựa truyện được yêu thích.'
     dictMangaKawai ={}
     dictMangaR15  ={}
