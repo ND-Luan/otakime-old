@@ -498,7 +498,7 @@ def sitemap():
     pass
 
 def dieukhoangsudung():
-    return send_file('static/dieukhoangsudung.txt')
+    return render_template('TERMSandCONDITIONS.html')
 
 
     
