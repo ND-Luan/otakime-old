@@ -529,7 +529,6 @@ def dieukhoangsudung():
     return render_template('TERMSandCONDITIONS.html')
 
 
-    
 app.add_url_rule('/','home', home )
 
 app.add_url_rule('/about','about', about )
