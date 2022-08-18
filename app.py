@@ -1,3 +1,4 @@
+from turtle import title
 from flask import Flask, redirect, render_template, request, send_file, session, url_for,jsonify,make_response
 from flask_mail import Mail,Message
 
@@ -501,16 +502,23 @@ def adminEmailCustom():
             name = request.form.get('name')
             email = request.form.get('email')
             subject = request.form.get('subject')
+            title = request.form.get('title')
+            content = request.form.get('content')
 
+
+            content = [ item.rstrip() for item in content.split("\n")]
+
+            
             msg = Message(
                 subject=f'{subject}',
                 sender= mail_username,
                 recipients=[email],
-                html = render_template('admin/page/mailLayout.html', name = name)
+                html = render_template('admin/page/mailLayoutCustom.html', name = name, title=title, content=content)
                 #body= f'Name: {name}\nEmail: {email}\nMessage: {message}' 
             )
             mail.send(msg)
             return render_template('admin/page/mailCustom.html', success = True,name=nameSession)
+        
         return render_template('admin/page/mailCustom.html')
     else:
         return render_template('admin/adminLogin.html')
