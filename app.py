@@ -4,14 +4,13 @@ from flask_mail import Mail,Message
 from datetime import timedelta
 from dbFireBase import getManga
 
-
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField
 from wtforms import StringField,IntegerField,MultipleFileField,SelectField,DateField,SelectField
 from wtforms.validators import DataRequired,InputRequired,Optional
 
 from firebase import db,storage,user
-
+import os
 app = Flask(__name__)
 
 app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True
@@ -169,7 +168,6 @@ def manga():
   
     return render_template('manga/page/mangaList.html', data = dictManga.items(),title= title,description = description)
 
-
 def mangaChapter (urlnameManga,chapter):
     dict_mangaPage ={}
     for keyID, valueID in getManga().items():
@@ -245,7 +243,6 @@ def mangaPage(urlnameManga):
     else:   
         return render_template("manga/404Page.html")
     
-
 def blog():
     title = 'Otakime - Blog'
     return render_template('page/blog.html', title = title)
@@ -355,7 +352,7 @@ def adminPostManga():
                 f"Chap {chapter}":[storage.child("manga").child(nameManga).child("chapter").child(f"{chapter}").child(item.filename).get_url(user['idToken']) for item in imgChapter]
             })
            
-                    
+            os.system('heroku restart')       
             return render_template("admin/page/adminPost.html", form = form, success = True)
         return render_template("admin/page/adminPost.html", form = form,name= name)
     else:
@@ -397,7 +394,7 @@ def adminUpdateChapter():
             db.child(selectedManga).child("chapter").update({
                 f"Chap {chapter}": [storage.child("manga").child(selectedManga).child("chapter").child(f"{chapter}").child(item.filename).get_url(user['idToken']) for item in imgChapter]
             })
-
+            os.system('heroku restart')
             return render_template('admin/page/adminUpdateChapter.html', form=form ,success = True)
         return render_template('admin/page/adminUpdateChapter.html', form=form,name= name)
     else:
@@ -429,7 +426,7 @@ def adminDeleteManga():
                 storage.delete(split, user['idToken'])
             
             db.child(nameManga).remove(user['idToken'])
-           
+            os.system('heroku restart')
             return render_template('admin/page/adminDeleteManga.html',form = form,success = True)
         return render_template('admin/page/adminDeleteManga.html', form = form,name= name)
     else:
@@ -464,7 +461,7 @@ def adminDeleteChapter():
 
             
             db.child(selectedManga).child("chapter").child(f"Chap {chapter}").remove(user['idToken'])
-
+            os.system('heroku restart')
             return render_template('admin/page/adminDeleteChapter.html',form = form,success = True)
 
         return render_template('admin/page/adminDeleteChapter.html',form = form,name= name)
@@ -522,6 +519,9 @@ def adminEmailCustom():
     else:
         return render_template('admin/adminLogin.html')
 
+
+def restartSever():
+    return render_template('')
 def sitemap():
     pass
 
