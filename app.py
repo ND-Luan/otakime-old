@@ -286,9 +286,9 @@ def adminPostManga():
         tag = SelectField("Chọn thể loại",choices=listChoices)
         updateAt = DateField("updateAt",validators=[InputRequired()])
         description = StringField("description", validators=[InputRequired()])
-        cardImgUrlIndex = FileField("cardImgUrlIndex")
-        cardImgUrlMain = FileField("cardImgUrlMain",validators=[DataRequired()])
-        cardImgUrlCover = FileField("cardImgUrlCover",validators=[DataRequired()])
+        cardImgUrlIndex = FileField("*Ảnh Index có kích thước 1000 x 1574")
+        cardImgUrlMain = FileField("*Ảnh Main có kích thước 1471 x 2018",validators=[DataRequired()])
+        cardImgUrlCover = FileField("*Ảnh Cover có kích thước 1920 x 1652",validators=[DataRequired()])
         chapter = IntegerField("chapter", validators=[InputRequired()])
         imgChapter = MultipleFileField('imgChapter',validators=[DataRequired()])
     if "admin" in session:
