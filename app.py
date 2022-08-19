@@ -258,16 +258,18 @@ def admin():
     if request.method == "POST":
         name = request.form.get('name')
         password = request.form.get('password')
-        
-        username= 'potato'
-        password= b'potato'
+        """
+        passwordConvertHash= password.encode('utf-8')
 
-        hashed_password = bcrypt.hashpw(password,bcrypt.gensalt())
-        
-        if bcrypt.checkpw(password, hashed_password):
+        hashed_password = bcrypt.hashpw(passwordConvertHash,bcrypt.gensalt())
+        if bcrypt.checkpw(passwordConvertHash, hashed_password):
+        """
+        if name == 'potato' and password == 'potato':
             session['admin'] = name
             session.permanent = True
             return redirect(url_for('adminPostManga'))
+        else:
+            return render_template('admin/adminLogin.html', title= title)
     else:
         return render_template('admin/adminLogin.html', title= title)
 
