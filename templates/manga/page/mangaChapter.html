@@ -2,8 +2,12 @@
 
 {% block main%}
 
+
 {% include 'manga/navbar/header.html'%}
-<div style="background-color: #232323;">
+{%set list_ = previousChapter%}
+{%set resPlus = list_[list_.index(CHAPTER)+ 1]%}
+{%set resMinus = list_[list_.index(CHAPTER) - 1]%}   
+<div id="arrowPage" style="background-color: #232323;">
     <div class="container" style="padding-top: 100px; "> 
         <div class="d-flex justify-content-center">
             <div class="rounded-3" style="height: 200px; width: 900px; background-color: rgb(220, 217, 217);">
@@ -39,13 +43,10 @@
                         </button>
                     </a>
                     {%endfor%}
-                    {%set list_ = previousChapter%}
 
-                    {%set resPlus = list_[list_.index(CHAPTER)+ 1]%}
-                    {%set resMinus = list_[list_.index(CHAPTER) - 1]%}
 
                     {%for key,value in data%}
-                        
+
                             
                     <a href="{{ url_for('mangaChapter', urlnameManga= value.url, chapter = resMinus)  }}">
 
@@ -110,5 +111,22 @@
     </div>
 </div>
 {% include 'manga/navbar/footer.html'%}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{%for key,value in data%}
+    <script>
+        $(document).keydown(function(e){
+            e = e||window.event
+            if (e.keyCode == '39'){ // +
+                
+                window.location.href = "{{ url_for('mangaChapter', urlnameManga = value.url, chapter = resPlus) }}"
+            }
 
+            
+            else if (e.keyCode=='37'){ // -
+                window.location.href = "{{ url_for('mangaChapter', urlnameManga = value.url, chapter = resMinus) }}"
+            }
+            
+        });
+    </script>
+{%endfor%}
 {% endblock%}
