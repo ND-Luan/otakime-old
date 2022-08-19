@@ -12,6 +12,8 @@ from wtforms.validators import DataRequired,InputRequired,Optional
 from firebase import db,storage,user
 import os
 import heroku3
+import bcrypt
+
 cloud = heroku3.from_key('b0ea7a8c-0538-4566-935e-7e36657583de')
 appHeroku = cloud.apps()['30d444ea-6322-4f6a-b0dc-81e2a0146e08']
 
@@ -23,6 +25,7 @@ mail_username='mail.otakime@gmail.com'
 mail_password='lpavozmbebtxdhbb'
 
 app.config["SECRET_KEY"] = "POTATO"
+
 app.permanent_session_lifetime = timedelta(seconds=1000)
 
 app.config.update(dict(
@@ -257,9 +260,11 @@ def admin():
         password = request.form.get('password')
         
         username= 'potato'
-        password='potato'
+        password= b'potato'
 
-        if name == username and password == password:
+        hashed_password = bcrypt.hashpw(password,bcrypt.gensalt())
+        
+        if bcrypt.checkpw(password, hashed_password):
             session['admin'] = name
             session.permanent = True
             return redirect(url_for('adminPostManga'))
