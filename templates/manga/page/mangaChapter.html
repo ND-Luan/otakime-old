@@ -20,9 +20,9 @@
 
                             <i><h5><span><a href="{{url_for('home')}}" style="color: black;">Trang chủ </a>/</span><a href="{{ url_for('mangaPage', urlnameManga= value.nameManga, chapter = None) }}" style="color: black;"> {{value.nameManga}} </a> / <span> <a href="{{ url_for('mangaPage', urlnameManga= value.url, chapter = chapter) }}" style="color: black;">{{CHAPTER}} </a></span></h5></i>
                             <br>
-                            <h4> {{value.nameManga}} - <span>{{CHAPTER}}</span></h4> 
+                            <h4> {{value.nameManga}} - <span>Chap {{CHAPTER}}</span></h4> 
                             
-
+                            
                         {%endif%}
                     {%endfor%}
                 {%endfor%}
