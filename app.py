@@ -273,11 +273,11 @@ def logout():
 def adminPostManga():
     class ValidateCreateManga(FlaskForm):
         listChoices = sorted(['Romance','Comedy','Drama','Slice of Life','Romance','Doujinshi','Psychological','Mystery','Web Comic','School Life','4-Koma','Supernatural'])
-        nameManga = StringField("nameManga", validators=[InputRequired()])
-        titleManga = StringField("*Tên Việt của Manga", validators=[InputRequired()])
+        nameManga = StringField("*Tên tiếng Nhật bằng chữ Latin như: Ore wo Aishisugiteru Shugoshin wa!, Asmodeus wa Akiramenai,...", validators=[InputRequired()])
+        titleManga = StringField("*Tên tiếng Việt của Manga", validators=[InputRequired()])
         author = StringField("author", validators=[InputRequired()])
         otherName = StringField("otherName",validators=[InputRequired()])
-        tags = StringField("tags",validators=[InputRequired()])
+        tags = StringField("*Ở mỗi thể loại thì phải cách nhau bằng khoảng trắng",validators=[InputRequired()])
         tag = SelectField("Chọn thể loại",choices=listChoices)
         updateAt = DateField("updateAt",validators=[InputRequired()])
         description = StringField("description", validators=[InputRequired()])
