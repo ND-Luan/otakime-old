@@ -11,10 +11,11 @@ from wtforms.validators import DataRequired,InputRequired,Optional
 
 from firebase import db,storage,user
 import os
-import heroku
+import heroku3
+cloud = heroku3.from_key('b0ea7a8c-0538-4566-935e-7e36657583de')
+appHeroku = cloud.apps()['30d444ea-6322-4f6a-b0dc-81e2a0146e08']
+
 app = Flask(__name__)
-cloud = heroku.from_key('b0ea7a8c-0538-4566-935e-7e36657583de')
-appcloud = cloud.apps['otakime']
 
 app.config['IMAGE_UPLOADS'] = 'static/img/imgManga'
 
@@ -354,7 +355,7 @@ def adminPostManga():
                 f"Chap {chapter}":[storage.child("manga").child(nameManga).child("chapter").child(f"{chapter}").child(item.filename).get_url(user['idToken']) for item in imgChapter]
             })
            
-            os.system('heroku restart')       
+            appHeroku.restart()      
             return render_template("admin/page/adminPost.html", form = form, success = True)
         return render_template("admin/page/adminPost.html", form = form,name= name)
     else:
@@ -396,7 +397,7 @@ def adminUpdateChapter():
             db.child(selectedManga).child("chapter").update({
                 f"Chap {chapter}": [storage.child("manga").child(selectedManga).child("chapter").child(f"{chapter}").child(item.filename).get_url(user['idToken']) for item in imgChapter]
             })
-            os.system('heroku restart')
+            appHeroku.restart()
             return render_template('admin/page/adminUpdateChapter.html', form=form ,success = True)
         return render_template('admin/page/adminUpdateChapter.html', form=form,name= name)
     else:
@@ -428,7 +429,7 @@ def adminDeleteManga():
                 storage.delete(split, user['idToken'])
             
             db.child(nameManga).remove(user['idToken'])
-            os.system('heroku restart')
+            appHeroku.restart()
             return render_template('admin/page/adminDeleteManga.html',form = form,success = True)
         return render_template('admin/page/adminDeleteManga.html', form = form,name= name)
     else:
@@ -463,7 +464,7 @@ def adminDeleteChapter():
 
             
             db.child(selectedManga).child("chapter").child(f"Chap {chapter}").remove(user['idToken'])
-            os.system('heroku restart')
+            appHeroku.restart()
             return render_template('admin/page/adminDeleteChapter.html',form = form,success = True)
 
         return render_template('admin/page/adminDeleteChapter.html',form = form,name= name)
