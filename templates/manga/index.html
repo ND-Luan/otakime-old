@@ -22,47 +22,69 @@
         <div class="grid9"></div>
     </div>
 
-        <!-- ***** Main Menu Area Start ***** -->
-        <div class="mainMenu d-flex align-items-center justify-content-between">
-            <!-- Close Icon -->
-            <div class="closeIcon">
-                <i class="ti-close" aria-hidden="true"></i>
+            <div id="goods" class=" mfp-wrap mfp-close-btn-in mfp-auto-cursor mfp-ready d-flex justify-content-center align-items-center " tabindex="-1" 
+                style="overflow: hidden auto; background-color: black; background: rgba(0,0,0,0.5);
+                backdrop-filter: blur(10px);" >
+                <div class="  mfp-s-ready mfp-image-holder">
+                    <div class="mfp-content">
+                        <div class="container">
+                            <button title="Close" type="button" class="mfp-close" id="closeGoods" style="margin-right: 27px;">×</button>
+
+                            <div class="d-flex justify-content-center align-items-center ">
+                                <img id="imgGoods"  alt="" src="https://firebasestorage.googleapis.com/v0/b/otakime-dc208.appspot.com/o/logo%2Fotakime_goods.jpg?alt=media&token=e2782dec-0928-4379-aa89-5ef84c891615" style="max-height: 500px;  background-color:black;
+                                    box-shadow: 0px 0px 15px rgba(255,0,0);">
+                                    <div style="position: fixed; margin-top: 26.8em;">
+                                        <button class="btn btn-danger"  onclick="javascript:window.open('https://form.jotform.com/222369065457058', '_blank');"> <p style="margin-bottom:1mm; color:white; ">Nhấn vào đây để mua </p><button>
+                                    </div>
+                                </img>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- Logo Area -->
-            <div class="logo-area">
-                <a href="{{url_for('home')}}"> <img class="dots" src="https://firebasestorage.googleapis.com/v0/b/otakime-dc208.appspot.com/o/logo%2Fotakime-logo-web.png?alt=media&token=31e53428-1df1-49c7-b733-10b18c067745" alt="otakime-logo-menu"></a>
-            </div>
-            <!-- Nav -->
-            <div class="sonarNav wow fadeInUp" data-wow-delay="1s">
-                <nav>
-                    <ul>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{ url_for('home') }}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('about') }}">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('manga') }}">Manga</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('blog') }}">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <!-- Copwrite Text -->
-            <div class="copywrite-text">
-                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    </p>
-            </div>
+
+    <!-- ***** Main Menu Area Start ***** -->
+    <div class="mainMenu d-flex align-items-center justify-content-between">
+        <!-- Close Icon -->
+        <div class="closeIcon">
+            <i class="ti-close" aria-hidden="true"></i>
         </div>
-        <!-- ***** Main Menu Area End ***** -->
+        <!-- Logo Area -->
+        <div class="logo-area">
+            <a href="{{url_for('home')}}"> <img class="dots" src="https://firebasestorage.googleapis.com/v0/b/otakime-dc208.appspot.com/o/logo%2Fotakime-logo-web.png?alt=media&token=31e53428-1df1-49c7-b733-10b18c067745" alt="otakime-logo-menu"></a>
+        </div>
+        <!-- Nav -->
+        <div class="sonarNav wow fadeInUp" data-wow-delay="1s">
+            <nav>
+                <ul>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('about') }}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('manga') }}">Manga</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('blog') }}">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Copwrite Text -->
+        <div class="copywrite-text">
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</p>
+        </div>
+    </div>
+    <!-- ***** Main Menu Area End ***** -->
     
     {% include 'manga/navbar/header.html'%}
 
@@ -180,5 +202,7 @@
     </div>
 
     <!-- ***** Call to Action Area End ***** -->
+
+    
     {% include 'manga/navbar/footer.html'%}
     {% endblock%}
