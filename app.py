@@ -7,7 +7,7 @@ from dbFireBase import getManga
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField
 from wtforms import StringField,IntegerField,MultipleFileField,SelectField,DateField,SelectField
-from wtforms.validators import DataRequired,InputRequired,Optional
+from wtforms.validators import DataRequired,InputRequired
 
 from firebase import db,storage,user
 import os
