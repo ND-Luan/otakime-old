@@ -18,7 +18,6 @@ appHeroku = cloud.apps()['30d444ea-6322-4f6a-b0dc-81e2a0146e08']
 
 app = Flask(__name__)
 
-app.config['IMAGE_UPLOADS'] = 'static/img/imgManga'
 
 mail_username='mail.otakime@gmail.com'
 mail_password='lpavozmbebtxdhbb'
