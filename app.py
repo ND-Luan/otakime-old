@@ -12,7 +12,6 @@ from wtforms.validators import DataRequired,InputRequired,Optional
 from firebase import db,storage,user
 import os
 import heroku3
-import bcrypt
 
 cloud = heroku3.from_key('b0ea7a8c-0538-4566-935e-7e36657583de')
 appHeroku = cloud.apps()['30d444ea-6322-4f6a-b0dc-81e2a0146e08']
