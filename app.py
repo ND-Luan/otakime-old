@@ -377,7 +377,7 @@ def adminUpdateChapter():
         for item in DB.keys():
             listChoices.append(item)
 
-        chapter = IntegerField("chapter", validators=[InputRequired()])
+        chapter = StringField("chapter", validators=[InputRequired()])
         imgChapter = MultipleFileField('imgChapter',validators=[DataRequired()])
         selectedManga = SelectField('selectedManga', choices= listChoices)
     if "admin" in session:
