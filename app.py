@@ -448,7 +448,7 @@ def adminDeleteChapter():
         for item in DB.keys():
             listChoices.append(item)
         selectedManga = SelectField('selectedManga', choices=listChoices)
-        chapter = IntegerField("chapter", validators=[InputRequired()])
+        chapter = StringField("chapter", validators=[InputRequired()])
     if "admin" in session:
         name = session['admin']
         form = ValidateDeleteChapter()
