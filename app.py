@@ -241,7 +241,7 @@ def mangaPage(urlnameManga):
             }
             })
             imgSonouchi = getManga()['Sonouchi kekkon made ikukedo ima wa mada']['imgDonate']
-            imgOre = getManga()['Sonouchi kekkon made ikukedo ima wa mada']['imgDonate']
+            imgOre = getManga()['Ore no Kokan wa Bishoujo Datta no ka']['imgDonate']
             
                           
             return render_template('manga/page/mangaPage.html',url=urlnameManga, 
