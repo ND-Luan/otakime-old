@@ -240,11 +240,14 @@ def mangaPage(urlnameManga):
 
             }
             })
-            img = getManga()['Sonouchi kekkon made ikukedo ima wa mada']['imgDonate']
-            
+            imgSonouchi = getManga()['Sonouchi kekkon made ikukedo ima wa mada']['imgDonate']
+            imgOre = getManga()['Sonouchi kekkon made ikukedo ima wa mada']['imgDonate']
             
                           
-            return render_template('manga/page/mangaPage.html',url=urlnameManga, img= img ,data = dict_mangaPage.items(), title= title, description=dict_mangaPage[keyID]['description']) 
+            return render_template('manga/page/mangaPage.html',url=urlnameManga, 
+            imgSonouchi= imgSonouchi,
+            imgOre = imgOre,
+            data = dict_mangaPage.items(), title= title, description=dict_mangaPage[keyID]['description']) 
     else:   
         return render_template("manga/404Page.html")
     
